@@ -1,0 +1,2837 @@
+Last login: Sun Sep  6 12:44:53 on console
+DylanLenz:~ dylan_lenz$ ssh root@104.131.84.118
+ssh: connect to host 104.131.84.118 port 22: Operation timed out
+DylanLenz:~ dylan_lenz$ ssh root@104.131.84.118
+The authenticity of host '104.131.84.118 (104.131.84.118)' can't be established.
+RSA key fingerprint is 5b:76:fa:57:cb:24:ec:24:2a:0e:8e:c1:51:32:99:e1.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '104.131.84.118' (RSA) to the list of known hosts.
+root@104.131.84.118's password:
+Permission denied, please try again.
+root@104.131.84.118's password:
+You are required to change your password immediately (root enforced)
+Last failed login: Mon Sep  7 16:52:11 EDT 2015 from 69.158.155.225 on ssh:notty
+There was 1 failed login attempt since the last successful login.
+Changing password for root.
+(current) UNIX password:
+New password:
+Retype new password:
+[root@server1 ~]# sudo yum install httpd
+Loaded plugins: fastestmirror
+base                                                     | 3.6 kB     00:00
+extras                                                   | 3.4 kB     00:00
+updates                                                  | 3.4 kB     00:00
+(1/4): base/7/x86_64/group_gz                              | 154 kB   00:00
+(2/4): extras/7/x86_64/primary_db                          |  74 kB   00:00
+(3/4): base/7/x86_64/primary_db                            | 5.1 MB   00:00
+(4/4): updates/7/x86_64/primary_db                         | 3.3 MB   00:01
+Determining fastest mirrors
+ * base: mirror.metrocast.net
+ * extras: centos.mirror.constant.com
+ * updates: mirrors.lga7.us.voxel.net
+Resolving Dependencies
+--> Running transaction check
+---> Package httpd.x86_64 0:2.4.6-31.el7.centos.1 will be installed
+--> Processing Dependency: httpd-tools = 2.4.6-31.el7.centos.1 for package: httpd-2.4.6-31.el7.centos.1.x86_64
+--> Processing Dependency: /etc/mime.types for package: httpd-2.4.6-31.el7.centos.1.x86_64
+--> Processing Dependency: libaprutil-1.so.0()(64bit) for package: httpd-2.4.6-31.el7.centos.1.x86_64
+--> Processing Dependency: libapr-1.so.0()(64bit) for package: httpd-2.4.6-31.el7.centos.1.x86_64
+--> Running transaction check
+---> Package apr.x86_64 0:1.4.8-3.el7 will be installed
+---> Package apr-util.x86_64 0:1.5.2-6.el7 will be installed
+---> Package httpd-tools.x86_64 0:2.4.6-31.el7.centos.1 will be installed
+---> Package mailcap.noarch 0:2.1.41-2.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package           Arch         Version                     Repository     Size
+================================================================================
+Installing:
+ httpd             x86_64       2.4.6-31.el7.centos.1       updates       2.7 M
+Installing for dependencies:
+ apr               x86_64       1.4.8-3.el7                 base          103 k
+ apr-util          x86_64       1.5.2-6.el7                 base           92 k
+ httpd-tools       x86_64       2.4.6-31.el7.centos.1       updates        79 k
+ mailcap           noarch       2.1.41-2.el7                base           31 k
+
+Transaction Summary
+================================================================================
+Install  1 Package (+4 Dependent packages)
+
+Total download size: 3.0 M
+Installed size: 10 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/5): apr-1.4.8-3.el7.x86_64.rpm                          | 103 kB   00:00
+(2/5): httpd-tools-2.4.6-31.el7.centos.1.x86_64.rpm        |  79 kB   00:00
+(3/5): mailcap-2.1.41-2.el7.noarch.rpm                     |  31 kB   00:00
+(4/5): apr-util-1.5.2-6.el7.x86_64.rpm                     |  92 kB   00:00
+(5/5): httpd-2.4.6-31.el7.centos.1.x86_64.rpm              | 2.7 MB   00:00
+--------------------------------------------------------------------------------
+Total                                              5.0 MB/s | 3.0 MB  00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : apr-1.4.8-3.el7.x86_64                                       1/5
+  Installing : apr-util-1.5.2-6.el7.x86_64                                  2/5
+  Installing : httpd-tools-2.4.6-31.el7.centos.1.x86_64                     3/5
+  Installing : mailcap-2.1.41-2.el7.noarch                                  4/5
+  Installing : httpd-2.4.6-31.el7.centos.1.x86_64                           5/5
+  Verifying  : mailcap-2.1.41-2.el7.noarch                                  1/5
+  Verifying  : httpd-tools-2.4.6-31.el7.centos.1.x86_64                     2/5
+  Verifying  : apr-util-1.5.2-6.el7.x86_64                                  3/5
+  Verifying  : apr-1.4.8-3.el7.x86_64                                       4/5
+  Verifying  : httpd-2.4.6-31.el7.centos.1.x86_64                           5/5
+
+Installed:
+  httpd.x86_64 0:2.4.6-31.el7.centos.1
+
+Dependency Installed:
+  apr.x86_64 0:1.4.8-3.el7                      apr-util.x86_64 0:1.5.2-6.el7
+  httpd-tools.x86_64 0:2.4.6-31.el7.centos.1    mailcap.noarch 0:2.1.41-2.el7
+
+Complete!
+[root@server1 ~]# sudo service httpd start
+Redirecting to /bin/systemctl start  httpd.service
+[root@server1 ~]# sudo yum install mysql-server
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.metrocast.net
+ * extras: centos.mirror.constant.com
+ * updates: mirrors.lga7.us.voxel.net
+No package mysql-server available.
+Error: Nothing to do
+[root@server1 ~]# sudo yum update
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.metrocast.net
+ * extras: centos.mirror.constant.com
+ * updates: mirrors.lga7.us.voxel.net
+Resolving Dependencies
+--> Running transaction check
+---> Package NetworkManager.x86_64 1:0.9.9.1-29.git20140326.4dba720.el7_0 will be obsoleted
+---> Package NetworkManager.x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1 will be obsoleting
+--> Processing Dependency: NetworkManager-libnm(x86-64) = 1:1.0.0-16.git20150121.b4ea599c.el7_1 for package: 1:NetworkManager-1.0.0-16.git20150121.b4ea599c.el7_1.x86_64
+--> Processing Dependency: libnm.so.0(libnm_1_0_0)(64bit) for package: 1:NetworkManager-1.0.0-16.git20150121.b4ea599c.el7_1.x86_64
+--> Processing Dependency: libnm.so.0()(64bit) for package: 1:NetworkManager-1.0.0-16.git20150121.b4ea599c.el7_1.x86_64
+---> Package NetworkManager-adsl.x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1 will be obsoleting
+---> Package NetworkManager-bluetooth.x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1 will be obsoleting
+---> Package NetworkManager-glib.x86_64 1:0.9.9.1-29.git20140326.4dba720.el7_0 will be updated
+---> Package NetworkManager-glib.x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1 will be an update
+---> Package NetworkManager-team.x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1 will be obsoleting
+---> Package NetworkManager-tui.x86_64 1:0.9.9.1-29.git20140326.4dba720.el7_0 will be updated
+---> Package NetworkManager-tui.x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1 will be an update
+---> Package NetworkManager-wifi.x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1 will be obsoleting
+---> Package NetworkManager-wwan.x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1 will be obsoleting
+---> Package alsa-firmware.noarch 0:1.0.27-2.el7 will be updated
+---> Package alsa-firmware.noarch 0:1.0.28-2.el7 will be an update
+---> Package alsa-lib.x86_64 0:1.0.27.2-3.el7 will be updated
+---> Package alsa-lib.x86_64 0:1.0.28-2.el7 will be an update
+---> Package audit.x86_64 0:2.3.3-4.el7 will be updated
+---> Package audit.x86_64 0:2.4.1-5.el7 will be an update
+---> Package audit-libs.x86_64 0:2.3.3-4.el7 will be updated
+---> Package audit-libs.x86_64 0:2.4.1-5.el7 will be an update
+---> Package audit-libs-python.x86_64 0:2.3.3-4.el7 will be updated
+---> Package audit-libs-python.x86_64 0:2.4.1-5.el7 will be an update
+---> Package authconfig.x86_64 0:6.2.8-8.el7 will be updated
+---> Package authconfig.x86_64 0:6.2.8-9.el7 will be an update
+---> Package avahi.x86_64 0:0.6.31-13.el7 will be updated
+---> Package avahi.x86_64 0:0.6.31-14.el7 will be an update
+---> Package avahi-autoipd.x86_64 0:0.6.31-13.el7 will be updated
+---> Package avahi-autoipd.x86_64 0:0.6.31-14.el7 will be an update
+---> Package avahi-libs.x86_64 0:0.6.31-13.el7 will be updated
+---> Package avahi-libs.x86_64 0:0.6.31-14.el7 will be an update
+---> Package bash.x86_64 0:4.2.45-5.el7_0.4 will be updated
+---> Package bash.x86_64 0:4.2.46-12.el7 will be an update
+---> Package bind-libs-lite.x86_64 32:9.9.4-14.el7_0.1 will be updated
+---> Package bind-libs-lite.x86_64 32:9.9.4-18.el7_1.5 will be an update
+---> Package bind-license.noarch 32:9.9.4-14.el7_0.1 will be updated
+---> Package bind-license.noarch 32:9.9.4-18.el7_1.5 will be an update
+---> Package binutils.x86_64 0:2.23.52.0.1-16.el7 will be updated
+---> Package binutils.x86_64 0:2.23.52.0.1-30.el7_1.2 will be an update
+---> Package biosdevname.x86_64 0:0.5.0-10.el7 will be updated
+---> Package biosdevname.x86_64 0:0.6.1-2.el7 will be an update
+---> Package btrfs-progs.x86_64 0:3.12-4.el7 will be updated
+---> Package btrfs-progs.x86_64 0:3.16.2-1.el7 will be an update
+---> Package ca-certificates.noarch 0:2014.1.98-70.0.el7_0 will be updated
+---> Package ca-certificates.noarch 0:2015.2.4-70.0.el7_1 will be an update
+---> Package centos-logos.noarch 0:70.0.6-1.el7.centos will be updated
+---> Package centos-logos.noarch 0:70.0.6-2.el7.centos will be an update
+---> Package centos-release.x86_64 0:7-0.1406.el7.centos.2.5 will be updated
+---> Package centos-release.x86_64 0:7-1.1503.el7.centos.2.8 will be an update
+---> Package cronie.x86_64 0:1.4.11-11.el7 will be updated
+---> Package cronie.x86_64 0:1.4.11-13.el7 will be an update
+---> Package cronie-anacron.x86_64 0:1.4.11-11.el7 will be updated
+---> Package cronie-anacron.x86_64 0:1.4.11-13.el7 will be an update
+---> Package cryptsetup-libs.x86_64 0:1.6.3-2.el7 will be updated
+---> Package cryptsetup-libs.x86_64 0:1.6.6-3.el7 will be an update
+---> Package dbus.x86_64 1:1.6.12-8.el7 will be updated
+---> Package dbus.x86_64 1:1.6.12-11.el7 will be an update
+---> Package dbus-libs.x86_64 1:1.6.12-8.el7 will be updated
+---> Package dbus-libs.x86_64 1:1.6.12-11.el7 will be an update
+---> Package device-mapper.x86_64 7:1.02.84-14.el7 will be updated
+---> Package device-mapper.x86_64 7:1.02.93-3.el7_1.1 will be an update
+---> Package device-mapper-libs.x86_64 7:1.02.84-14.el7 will be updated
+---> Package device-mapper-libs.x86_64 7:1.02.93-3.el7_1.1 will be an update
+---> Package dhclient.x86_64 12:4.2.5-27.el7.centos.2 will be updated
+---> Package dhclient.x86_64 12:4.2.5-36.el7.centos will be an update
+---> Package dhcp-common.x86_64 12:4.2.5-27.el7.centos.2 will be updated
+---> Package dhcp-common.x86_64 12:4.2.5-36.el7.centos will be an update
+---> Package dhcp-libs.x86_64 12:4.2.5-27.el7.centos.2 will be updated
+---> Package dhcp-libs.x86_64 12:4.2.5-36.el7.centos will be an update
+---> Package dnsmasq.x86_64 0:2.66-12.el7 will be updated
+---> Package dnsmasq.x86_64 0:2.66-14.el7_1 will be an update
+---> Package dracut.x86_64 0:033-161.el7_0.173 will be updated
+---> Package dracut.x86_64 0:033-241.el7_1.5 will be an update
+---> Package dracut-config-rescue.x86_64 0:033-161.el7_0.173 will be updated
+---> Package dracut-config-rescue.x86_64 0:033-241.el7_1.5 will be an update
+---> Package dracut-network.x86_64 0:033-161.el7_0.173 will be updated
+---> Package dracut-network.x86_64 0:033-241.el7_1.5 will be an update
+---> Package e2fsprogs.x86_64 0:1.42.9-4.el7 will be updated
+---> Package e2fsprogs.x86_64 0:1.42.9-7.el7 will be an update
+---> Package e2fsprogs-libs.x86_64 0:1.42.9-4.el7 will be updated
+---> Package e2fsprogs-libs.x86_64 0:1.42.9-7.el7 will be an update
+---> Package elfutils-libelf.x86_64 0:0.158-3.el7 will be updated
+---> Package elfutils-libelf.x86_64 0:0.160-1.el7 will be an update
+---> Package elfutils-libs.x86_64 0:0.158-3.el7 will be updated
+---> Package elfutils-libs.x86_64 0:0.160-1.el7 will be an update
+---> Package ethtool.x86_64 2:3.8-4.el7_0 will be updated
+---> Package ethtool.x86_64 2:3.15-2.el7 will be an update
+---> Package firewalld.noarch 0:0.3.9-7.el7 will be updated
+---> Package firewalld.noarch 0:0.3.9-11.el7 will be an update
+---> Package freetype.x86_64 0:2.4.11-9.el7 will be updated
+---> Package freetype.x86_64 0:2.4.11-10.el7_1.1 will be an update
+---> Package glib-networking.x86_64 0:2.36.2-3.el7 will be updated
+---> Package glib-networking.x86_64 0:2.40.0-1.el7 will be an update
+---> Package glib2.x86_64 0:2.36.3-5.el7 will be updated
+---> Package glib2.x86_64 0:2.40.0-4.el7 will be an update
+---> Package glibc.x86_64 0:2.17-55.el7_0.5 will be updated
+---> Package glibc.x86_64 0:2.17-78.el7 will be an update
+---> Package glibc-common.x86_64 0:2.17-55.el7_0.5 will be updated
+---> Package glibc-common.x86_64 0:2.17-78.el7 will be an update
+---> Package gmp.x86_64 1:5.1.1-5.el7 will be updated
+---> Package gmp.x86_64 1:6.0.0-11.el7 will be an update
+---> Package gnutls.x86_64 0:3.1.18-10.el7_0 will be updated
+---> Package gnutls.x86_64 0:3.3.8-12.el7_1.1 will be an update
+--> Processing Dependency: libtspi.so.1()(64bit) for package: gnutls-3.3.8-12.el7_1.1.x86_64
+---> Package grep.x86_64 0:2.16-1.el7 will be updated
+---> Package grep.x86_64 0:2.20-1.el7 will be an update
+---> Package grub2.x86_64 1:2.02-0.2.10.el7.centos.1 will be updated
+---> Package grub2.x86_64 1:2.02-0.16.el7.centos will be an update
+---> Package grub2-tools.x86_64 1:2.02-0.2.10.el7.centos.1 will be updated
+---> Package grub2-tools.x86_64 1:2.02-0.16.el7.centos will be an update
+---> Package grubby.x86_64 0:8.28-8.el7 will be updated
+---> Package grubby.x86_64 0:8.28-11.el7 will be an update
+---> Package hwdata.noarch 0:0.252-7.3.el7 will be updated
+---> Package hwdata.x86_64 0:0.252-7.8.el7_1 will be an update
+---> Package initscripts.x86_64 0:9.49.17-1.el7_0.1 will be updated
+---> Package initscripts.x86_64 0:9.49.24-1.el7 will be an update
+---> Package iproute.x86_64 0:3.10.0-13.el7 will be updated
+---> Package iproute.x86_64 0:3.10.0-21.el7 will be an update
+---> Package iprutils.x86_64 0:2.3.16-4.el7 will be updated
+---> Package iprutils.x86_64 0:2.4.3-3.el7 will be an update
+---> Package iputils.x86_64 0:20121221-6.el7 will be updated
+---> Package iputils.x86_64 0:20121221-6.el7_1.1 will be an update
+---> Package irqbalance.x86_64 2:1.0.6-5.el7 will be updated
+---> Package irqbalance.x86_64 2:1.0.7-2.el7_1 will be an update
+---> Package iwl100-firmware.noarch 0:39.31.5.1-35.el7_0 will be updated
+---> Package iwl100-firmware.noarch 0:39.31.5.1-36.el7 will be an update
+---> Package iwl1000-firmware.noarch 1:39.31.5.1-35.el7_0 will be updated
+---> Package iwl1000-firmware.noarch 1:39.31.5.1-36.el7 will be an update
+---> Package iwl105-firmware.noarch 0:18.168.6.1-35.el7_0 will be updated
+---> Package iwl105-firmware.noarch 0:18.168.6.1-36.el7 will be an update
+---> Package iwl135-firmware.noarch 0:18.168.6.1-35.el7_0 will be updated
+---> Package iwl135-firmware.noarch 0:18.168.6.1-36.el7 will be an update
+---> Package iwl2000-firmware.noarch 0:18.168.6.1-35.el7_0 will be updated
+---> Package iwl2000-firmware.noarch 0:18.168.6.1-36.el7 will be an update
+---> Package iwl2030-firmware.noarch 0:18.168.6.1-35.el7_0 will be updated
+---> Package iwl2030-firmware.noarch 0:18.168.6.1-36.el7 will be an update
+---> Package iwl3160-firmware.noarch 0:22.0.7.0-35.el7_0 will be updated
+---> Package iwl3160-firmware.noarch 0:22.0.7.0-36.el7 will be an update
+---> Package iwl3945-firmware.noarch 0:15.32.2.9-35.el7_0 will be updated
+---> Package iwl3945-firmware.noarch 0:15.32.2.9-36.el7 will be an update
+---> Package iwl4965-firmware.noarch 0:228.61.2.24-35.el7_0 will be updated
+---> Package iwl4965-firmware.noarch 0:228.61.2.24-36.el7 will be an update
+---> Package iwl5000-firmware.noarch 0:8.83.5.1_1-35.el7_0 will be updated
+---> Package iwl5000-firmware.noarch 0:8.83.5.1_1-36.el7 will be an update
+---> Package iwl5150-firmware.noarch 0:8.24.2.2-35.el7_0 will be updated
+---> Package iwl5150-firmware.noarch 0:8.24.2.2-36.el7 will be an update
+---> Package iwl6000-firmware.noarch 0:9.221.4.1-35.el7_0 will be updated
+---> Package iwl6000-firmware.noarch 0:9.221.4.1-36.el7 will be an update
+---> Package iwl6000g2a-firmware.noarch 0:17.168.5.3-35.el7_0 will be updated
+---> Package iwl6000g2a-firmware.noarch 0:17.168.5.3-36.el7 will be an update
+---> Package iwl6000g2b-firmware.noarch 0:17.168.5.2-35.el7_0 will be updated
+---> Package iwl6000g2b-firmware.noarch 0:17.168.5.2-36.el7 will be an update
+---> Package iwl6050-firmware.noarch 0:41.28.5.1-35.el7_0 will be updated
+---> Package iwl6050-firmware.noarch 0:41.28.5.1-36.el7 will be an update
+---> Package iwl7260-firmware.noarch 0:22.0.7.0-35.el7_0 will be updated
+---> Package iwl7260-firmware.noarch 0:22.0.7.0-36.el7 will be an update
+---> Package kbd.x86_64 0:1.15.5-10.el7 will be updated
+---> Package kbd.x86_64 0:1.15.5-11.el7 will be an update
+--> Processing Dependency: kbd-legacy = 1.15.5-11.el7 for package: kbd-1.15.5-11.el7.x86_64
+---> Package kbd-misc.noarch 0:1.15.5-10.el7 will be updated
+---> Package kbd-misc.noarch 0:1.15.5-11.el7 will be an update
+---> Package kernel.x86_64 0:3.10.0-229.11.1.el7 will be installed
+---> Package kernel-tools.x86_64 0:3.10.0-123.13.2.el7 will be updated
+---> Package kernel-tools.x86_64 0:3.10.0-229.11.1.el7 will be an update
+---> Package kernel-tools-libs.x86_64 0:3.10.0-123.13.2.el7 will be updated
+---> Package kernel-tools-libs.x86_64 0:3.10.0-229.11.1.el7 will be an update
+---> Package kexec-tools.x86_64 0:2.0.4-32.el7.centos.5 will be updated
+---> Package kexec-tools.x86_64 0:2.0.7-19.el7_1.2 will be an update
+---> Package kmod.x86_64 0:14-9.el7 will be updated
+---> Package kmod.x86_64 0:14-10.el7 will be an update
+---> Package kmod-libs.x86_64 0:14-9.el7 will be updated
+---> Package kmod-libs.x86_64 0:14-10.el7 will be an update
+---> Package kpartx.x86_64 0:0.4.9-66.el7 will be updated
+---> Package kpartx.x86_64 0:0.4.9-77.el7 will be an update
+---> Package krb5-libs.x86_64 0:1.11.3-49.el7 will be updated
+---> Package krb5-libs.x86_64 0:1.12.2-14.el7 will be an update
+---> Package libblkid.x86_64 0:2.23.2-16.el7 will be updated
+---> Package libblkid.x86_64 0:2.23.2-22.el7_1.1 will be an update
+---> Package libcgroup.x86_64 0:0.41-6.el7 will be updated
+---> Package libcgroup.x86_64 0:0.41-8.el7 will be an update
+---> Package libcom_err.x86_64 0:1.42.9-4.el7 will be updated
+---> Package libcom_err.x86_64 0:1.42.9-7.el7 will be an update
+---> Package libdrm.x86_64 0:2.4.50-1.1.el7 will be updated
+---> Package libdrm.x86_64 0:2.4.56-2.el7 will be an update
+---> Package libgcc.x86_64 0:4.8.2-16.2.el7_0 will be updated
+---> Package libgcc.x86_64 0:4.8.3-9.el7 will be an update
+---> Package libgcrypt.x86_64 0:1.5.3-4.el7 will be updated
+---> Package libgcrypt.x86_64 0:1.5.3-12.el7_1.1 will be an update
+---> Package libgomp.x86_64 0:4.8.2-16.2.el7_0 will be updated
+---> Package libgomp.x86_64 0:4.8.3-9.el7 will be an update
+---> Package libgudev1.x86_64 0:208-11.el7_0.6 will be updated
+---> Package libgudev1.x86_64 0:208-20.el7_1.5 will be an update
+---> Package libmount.x86_64 0:2.23.2-16.el7 will be updated
+---> Package libmount.x86_64 0:2.23.2-22.el7_1.1 will be an update
+---> Package libnl3.x86_64 0:3.2.21-6.el7 will be updated
+---> Package libnl3.x86_64 0:3.2.21-8.el7 will be an update
+---> Package libnl3-cli.x86_64 0:3.2.21-6.el7 will be updated
+---> Package libnl3-cli.x86_64 0:3.2.21-8.el7 will be an update
+---> Package libpcap.x86_64 14:1.5.3-3.el7_0.1 will be updated
+---> Package libpcap.x86_64 14:1.5.3-4.el7_1.2 will be an update
+---> Package libsoup.x86_64 0:2.42.2-3.el7 will be updated
+---> Package libsoup.x86_64 0:2.46.0-3.el7 will be an update
+---> Package libss.x86_64 0:1.42.9-4.el7 will be updated
+---> Package libss.x86_64 0:1.42.9-7.el7 will be an update
+---> Package libstdc++.x86_64 0:4.8.2-16.2.el7_0 will be updated
+---> Package libstdc++.x86_64 0:4.8.3-9.el7 will be an update
+---> Package libtasn1.x86_64 0:3.3-5.el7_0 will be updated
+---> Package libtasn1.x86_64 0:3.8-2.el7 will be an update
+---> Package libteam.x86_64 0:1.9-15.el7 will be updated
+---> Package libteam.x86_64 0:1.15-1.el7 will be an update
+---> Package libuser.x86_64 0:0.60-5.el7 will be updated
+---> Package libuser.x86_64 0:0.60-7.el7_1 will be an update
+---> Package libuuid.x86_64 0:2.23.2-16.el7 will be updated
+---> Package libuuid.x86_64 0:2.23.2-22.el7_1.1 will be an update
+---> Package libxml2.x86_64 0:2.9.1-5.el7_0.1 will be updated
+---> Package libxml2.x86_64 0:2.9.1-5.el7_1.2 will be an update
+---> Package libyaml.x86_64 0:0.1.4-10.el7 will be updated
+---> Package libyaml.x86_64 0:0.1.4-11.el7_0 will be an update
+---> Package linux-firmware.noarch 0:20140804-0.1.git6bce2b0.el7_0 will be updated
+---> Package linux-firmware.noarch 0:20140911-0.1.git365e80c.el7 will be an update
+---> Package mariadb-libs.x86_64 1:5.5.40-2.el7_0 will be updated
+---> Package mariadb-libs.x86_64 1:5.5.44-1.el7_1 will be an update
+---> Package microcode_ctl.x86_64 2:2.1-7.1.el7_0.2 will be updated
+---> Package microcode_ctl.x86_64 2:2.1-10.el7 will be an update
+---> Package nettle.x86_64 0:2.7.1-2.el7 will be updated
+---> Package nettle.x86_64 0:2.7.1-4.el7 will be an update
+---> Package nspr.x86_64 0:4.10.6-1.el7_0 will be updated
+---> Package nspr.x86_64 0:4.10.8-1.el7_1 will be an update
+---> Package nss.x86_64 0:3.16.2.3-2.el7_0 will be updated
+---> Package nss.x86_64 0:3.19.1-5.el7_1 will be an update
+---> Package nss-softokn.x86_64 0:3.16.2.3-1.el7_0 will be updated
+---> Package nss-softokn.x86_64 0:3.16.2.3-13.el7_1 will be an update
+---> Package nss-softokn-freebl.x86_64 0:3.16.2.3-1.el7_0 will be updated
+---> Package nss-softokn-freebl.x86_64 0:3.16.2.3-13.el7_1 will be an update
+---> Package nss-sysinit.x86_64 0:3.16.2.3-2.el7_0 will be updated
+---> Package nss-sysinit.x86_64 0:3.19.1-5.el7_1 will be an update
+---> Package nss-tools.x86_64 0:3.16.2.3-2.el7_0 will be updated
+---> Package nss-tools.x86_64 0:3.19.1-5.el7_1 will be an update
+---> Package nss-util.x86_64 0:3.16.2.3-1.el7_0 will be updated
+---> Package nss-util.x86_64 0:3.19.1-3.el7_1 will be an update
+---> Package numactl-libs.x86_64 0:2.0.9-2.el7 will be updated
+---> Package numactl-libs.x86_64 0:2.0.9-5.el7_1 will be an update
+---> Package openldap.x86_64 0:2.4.39-3.el7 will be updated
+---> Package openldap.x86_64 0:2.4.39-6.el7 will be an update
+---> Package openssh.x86_64 0:6.4p1-8.el7 will be updated
+---> Package openssh.x86_64 0:6.6.1p1-12.el7_1 will be an update
+---> Package openssh-clients.x86_64 0:6.4p1-8.el7 will be updated
+---> Package openssh-clients.x86_64 0:6.6.1p1-12.el7_1 will be an update
+---> Package openssh-server.x86_64 0:6.4p1-8.el7 will be updated
+---> Package openssh-server.x86_64 0:6.6.1p1-12.el7_1 will be an update
+---> Package openssl.x86_64 1:1.0.1e-34.el7_0.7 will be updated
+---> Package openssl.x86_64 1:1.0.1e-42.el7.9 will be an update
+---> Package openssl-libs.x86_64 1:1.0.1e-34.el7_0.7 will be updated
+---> Package openssl-libs.x86_64 1:1.0.1e-42.el7.9 will be an update
+---> Package p11-kit.x86_64 0:0.18.7-4.el7 will be updated
+---> Package p11-kit.x86_64 0:0.20.7-3.el7 will be an update
+---> Package p11-kit-trust.x86_64 0:0.18.7-4.el7 will be updated
+---> Package p11-kit-trust.x86_64 0:0.20.7-3.el7 will be an update
+---> Package pam.x86_64 0:1.1.8-9.el7 will be updated
+---> Package pam.x86_64 0:1.1.8-12.el7_1.1 will be an update
+---> Package parted.x86_64 0:3.1-17.el7 will be updated
+---> Package parted.x86_64 0:3.1-20.el7 will be an update
+---> Package pcre.x86_64 0:8.32-12.el7 will be updated
+---> Package pcre.x86_64 0:8.32-14.el7 will be an update
+---> Package plymouth.x86_64 0:0.8.9-0.10.20140113.el7.centos will be updated
+---> Package plymouth.x86_64 0:0.8.9-0.13.20140113.el7.centos will be an update
+---> Package plymouth-core-libs.x86_64 0:0.8.9-0.10.20140113.el7.centos will be updated
+---> Package plymouth-core-libs.x86_64 0:0.8.9-0.13.20140113.el7.centos will be an update
+---> Package plymouth-scripts.x86_64 0:0.8.9-0.10.20140113.el7.centos will be updated
+---> Package plymouth-scripts.x86_64 0:0.8.9-0.13.20140113.el7.centos will be an update
+---> Package policycoreutils.x86_64 0:2.2.5-11.el7_0.1 will be updated
+---> Package policycoreutils.x86_64 0:2.2.5-15.el7 will be an update
+---> Package policycoreutils-python.x86_64 0:2.2.5-11.el7_0.1 will be updated
+---> Package policycoreutils-python.x86_64 0:2.2.5-15.el7 will be an update
+---> Package procps-ng.x86_64 0:3.3.9-6.el7 will be updated
+---> Package procps-ng.x86_64 0:3.3.10-3.el7 will be an update
+---> Package pygobject3-base.x86_64 0:3.8.2-4.el7 will be updated
+---> Package pygobject3-base.x86_64 0:3.8.2-6.el7 will be an update
+---> Package python.x86_64 0:2.7.5-16.el7 will be updated
+---> Package python.x86_64 0:2.7.5-18.el7_1.1 will be an update
+---> Package python-backports.noarch 0:1.0-6.el7 will be updated
+---> Package python-backports.x86_64 0:1.0-8.el7 will be an update
+---> Package python-chardet.noarch 0:2.0.1-7.el7 will be updated
+---> Package python-chardet.noarch 0:2.2.1-1.el7_1 will be an update
+---> Package python-libs.x86_64 0:2.7.5-16.el7 will be updated
+---> Package python-libs.x86_64 0:2.7.5-18.el7_1.1 will be an update
+---> Package python-requests.noarch 0:1.1.0-8.el7 will be updated
+---> Package python-requests.noarch 0:2.6.0-1.el7_1 will be an update
+---> Package python-urlgrabber.noarch 0:3.10-4.el7 will be updated
+---> Package python-urlgrabber.noarch 0:3.10-6.el7 will be an update
+---> Package python-urllib3.noarch 0:1.5-8.el7 will be updated
+---> Package python-urllib3.noarch 0:1.10.2-2.el7_1 will be an update
+---> Package rpm.x86_64 0:4.11.1-18.el7_0 will be updated
+---> Package rpm.x86_64 0:4.11.1-25.el7 will be an update
+---> Package rpm-build-libs.x86_64 0:4.11.1-18.el7_0 will be updated
+---> Package rpm-build-libs.x86_64 0:4.11.1-25.el7 will be an update
+---> Package rpm-libs.x86_64 0:4.11.1-18.el7_0 will be updated
+---> Package rpm-libs.x86_64 0:4.11.1-25.el7 will be an update
+---> Package rpm-python.x86_64 0:4.11.1-18.el7_0 will be updated
+---> Package rpm-python.x86_64 0:4.11.1-25.el7 will be an update
+---> Package selinux-policy.noarch 0:3.12.1-153.el7_0.13 will be updated
+---> Package selinux-policy.noarch 0:3.13.1-23.el7_1.17 will be an update
+---> Package selinux-policy-targeted.noarch 0:3.12.1-153.el7_0.13 will be updated
+---> Package selinux-policy-targeted.noarch 0:3.13.1-23.el7_1.17 will be an update
+---> Package setup.noarch 0:2.8.71-4.el7 will be updated
+---> Package setup.noarch 0:2.8.71-5.el7 will be an update
+---> Package shadow-utils.x86_64 2:4.1.5.1-13.el7 will be updated
+---> Package shadow-utils.x86_64 2:4.1.5.1-18.el7 will be an update
+---> Package sqlite.x86_64 0:3.7.17-4.el7 will be updated
+---> Package sqlite.x86_64 0:3.7.17-6.el7_1.1 will be an update
+---> Package sudo.x86_64 0:1.8.6p7-11.el7 will be updated
+---> Package sudo.x86_64 0:1.8.6p7-13.el7 will be an update
+---> Package systemd.x86_64 0:208-11.el7_0.6 will be updated
+---> Package systemd.x86_64 0:208-20.el7_1.5 will be an update
+---> Package systemd-libs.x86_64 0:208-11.el7_0.6 will be updated
+---> Package systemd-libs.x86_64 0:208-20.el7_1.5 will be an update
+---> Package systemd-sysv.x86_64 0:208-11.el7_0.6 will be updated
+---> Package systemd-sysv.x86_64 0:208-20.el7_1.5 will be an update
+---> Package teamd.x86_64 0:1.9-15.el7 will be updated
+---> Package teamd.x86_64 0:1.15-1.el7 will be an update
+---> Package tuned.noarch 0:2.3.0-11.el7_0.3 will be updated
+---> Package tuned.noarch 0:2.4.1-1.el7 will be an update
+---> Package tzdata.noarch 0:2014j-1.el7_0 will be updated
+---> Package tzdata.noarch 0:2015f-1.el7 will be an update
+---> Package util-linux.x86_64 0:2.23.2-16.el7 will be updated
+---> Package util-linux.x86_64 0:2.23.2-22.el7_1.1 will be an update
+---> Package wpa_supplicant.x86_64 1:2.0-13.el7_0 will be updated
+---> Package wpa_supplicant.x86_64 1:2.0-17.el7_1 will be an update
+---> Package xfsprogs.x86_64 0:3.2.0-0.10.alpha2.el7 will be updated
+---> Package xfsprogs.x86_64 0:3.2.1-6.el7 will be an update
+---> Package xz.x86_64 0:5.1.2-8alpha.el7 will be updated
+---> Package xz.x86_64 0:5.1.2-9alpha.el7 will be an update
+---> Package xz-libs.x86_64 0:5.1.2-8alpha.el7 will be updated
+---> Package xz-libs.x86_64 0:5.1.2-9alpha.el7 will be an update
+---> Package yum.noarch 0:3.4.3-118.el7.centos will be updated
+---> Package yum.noarch 0:3.4.3-125.el7.centos will be an update
+---> Package yum-plugin-fastestmirror.noarch 0:1.1.31-25.el7_0 will be updated
+---> Package yum-plugin-fastestmirror.noarch 0:1.1.31-29.el7 will be an update
+--> Running transaction check
+---> Package NetworkManager-libnm.x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1 will be installed
+---> Package kbd-legacy.noarch 0:1.15.5-11.el7 will be installed
+---> Package trousers.x86_64 0:0.3.11.2-4.el7_1 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package             Arch   Version                               Repository
+                                                                           Size
+================================================================================
+Installing:
+ NetworkManager      x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1 updates 1.9 M
+     replacing  NetworkManager.x86_64 1:0.9.9.1-29.git20140326.4dba720.el7_0
+ NetworkManager-adsl x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1 updates 122 k
+     replacing  NetworkManager.x86_64 1:0.9.9.1-29.git20140326.4dba720.el7_0
+ NetworkManager-bluetooth
+                     x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1 updates 141 k
+     replacing  NetworkManager.x86_64 1:0.9.9.1-29.git20140326.4dba720.el7_0
+ NetworkManager-team x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1 updates 122 k
+     replacing  NetworkManager.x86_64 1:0.9.9.1-29.git20140326.4dba720.el7_0
+ NetworkManager-wifi x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1 updates 151 k
+     replacing  NetworkManager.x86_64 1:0.9.9.1-29.git20140326.4dba720.el7_0
+ NetworkManager-wwan x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1 updates 142 k
+     replacing  NetworkManager.x86_64 1:0.9.9.1-29.git20140326.4dba720.el7_0
+ kernel              x86_64 3.10.0-229.11.1.el7                   updates  31 M
+Updating:
+ NetworkManager-glib x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1 updates 376 k
+ NetworkManager-tui  x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1 updates 203 k
+ alsa-firmware       noarch 1.0.28-2.el7                          base    2.3 M
+ alsa-lib            x86_64 1.0.28-2.el7                          base    391 k
+ audit               x86_64 2.4.1-5.el7                           base    234 k
+ audit-libs          x86_64 2.4.1-5.el7                           base     80 k
+ audit-libs-python   x86_64 2.4.1-5.el7                           base     69 k
+ authconfig          x86_64 6.2.8-9.el7                           base    400 k
+ avahi               x86_64 0.6.31-14.el7                         base    261 k
+ avahi-autoipd       x86_64 0.6.31-14.el7                         base     38 k
+ avahi-libs          x86_64 0.6.31-14.el7                         base     60 k
+ bash                x86_64 4.2.46-12.el7                         base    1.0 M
+ bind-libs-lite      x86_64 32:9.9.4-18.el7_1.5                   updates 713 k
+ bind-license        noarch 32:9.9.4-18.el7_1.5                   updates  80 k
+ binutils            x86_64 2.23.52.0.1-30.el7_1.2                updates 5.0 M
+ biosdevname         x86_64 0.6.1-2.el7                           base     38 k
+ btrfs-progs         x86_64 3.16.2-1.el7                          base    484 k
+ ca-certificates     noarch 2015.2.4-70.0.el7_1                   updates 441 k
+ centos-logos        noarch 70.0.6-2.el7.centos                   updates  21 M
+ centos-release      x86_64 7-1.1503.el7.centos.2.8               base     22 k
+ cronie              x86_64 1.4.11-13.el7                         base     89 k
+ cronie-anacron      x86_64 1.4.11-13.el7                         base     34 k
+ cryptsetup-libs     x86_64 1.6.6-3.el7                           base    179 k
+ dbus                x86_64 1:1.6.12-11.el7                       base    306 k
+ dbus-libs           x86_64 1:1.6.12-11.el7                       base    150 k
+ device-mapper       x86_64 7:1.02.93-3.el7_1.1                   updates 209 k
+ device-mapper-libs  x86_64 7:1.02.93-3.el7_1.1                   updates 259 k
+ dhclient            x86_64 12:4.2.5-36.el7.centos                base    278 k
+ dhcp-common         x86_64 12:4.2.5-36.el7.centos                base    171 k
+ dhcp-libs           x86_64 12:4.2.5-36.el7.centos                base    127 k
+ dnsmasq             x86_64 2.66-14.el7_1                         updates 229 k
+ dracut              x86_64 033-241.el7_1.5                       updates 301 k
+ dracut-config-rescue
+                     x86_64 033-241.el7_1.5                       updates  45 k
+ dracut-network      x86_64 033-241.el7_1.5                       updates  82 k
+ e2fsprogs           x86_64 1.42.9-7.el7                          base    697 k
+ e2fsprogs-libs      x86_64 1.42.9-7.el7                          base    165 k
+ elfutils-libelf     x86_64 0.160-1.el7                           base    198 k
+ elfutils-libs       x86_64 0.160-1.el7                           base    249 k
+ ethtool             x86_64 2:3.15-2.el7                          base    113 k
+ firewalld           noarch 0.3.9-11.el7                          base    465 k
+ freetype            x86_64 2.4.11-10.el7_1.1                     updates 391 k
+ glib-networking     x86_64 2.40.0-1.el7                          base    122 k
+ glib2               x86_64 2.40.0-4.el7                          base    2.2 M
+ glibc               x86_64 2.17-78.el7                           base    3.6 M
+ glibc-common        x86_64 2.17-78.el7                           base     11 M
+ gmp                 x86_64 1:6.0.0-11.el7                        base    280 k
+ gnutls              x86_64 3.3.8-12.el7_1.1                      updates 662 k
+ grep                x86_64 2.20-1.el7                            base    343 k
+ grub2               x86_64 1:2.02-0.16.el7.centos                base    1.5 M
+ grub2-tools         x86_64 1:2.02-0.16.el7.centos                base    3.2 M
+ grubby              x86_64 8.28-11.el7                           base     62 k
+ hwdata              x86_64 0.252-7.8.el7_1                       updates 2.0 M
+ initscripts         x86_64 9.49.24-1.el7                         base    427 k
+ iproute             x86_64 3.10.0-21.el7                         base    503 k
+ iprutils            x86_64 2.4.3-3.el7                           base    221 k
+ iputils             x86_64 20121221-6.el7_1.1                    updates 152 k
+ irqbalance          x86_64 2:1.0.7-2.el7_1                       updates  43 k
+ iwl100-firmware     noarch 39.31.5.1-36.el7                      base    144 k
+ iwl1000-firmware    noarch 1:39.31.5.1-36.el7                    base    208 k
+ iwl105-firmware     noarch 18.168.6.1-36.el7                     base    229 k
+ iwl135-firmware     noarch 18.168.6.1-36.el7                     base    238 k
+ iwl2000-firmware    noarch 18.168.6.1-36.el7                     base    231 k
+ iwl2030-firmware    noarch 18.168.6.1-36.el7                     base    240 k
+ iwl3160-firmware    noarch 22.0.7.0-36.el7                       base    508 k
+ iwl3945-firmware    noarch 15.32.2.9-36.el7                      base     83 k
+ iwl4965-firmware    noarch 228.61.2.24-36.el7                    base     96 k
+ iwl5000-firmware    noarch 8.83.5.1_1-36.el7                     base    289 k
+ iwl5150-firmware    noarch 8.24.2.2-36.el7                       base    141 k
+ iwl6000-firmware    noarch 9.221.4.1-36.el7                      base    161 k
+ iwl6000g2a-firmware noarch 17.168.5.3-36.el7                     base    304 k
+ iwl6000g2b-firmware noarch 17.168.5.2-36.el7                     base    305 k
+ iwl6050-firmware    noarch 41.28.5.1-36.el7                      base    237 k
+ iwl7260-firmware    noarch 22.0.7.0-36.el7                       base    533 k
+ kbd                 x86_64 1.15.5-11.el7                         base    345 k
+ kbd-misc            noarch 1.15.5-11.el7                         base    1.3 M
+ kernel-tools        x86_64 3.10.0-229.11.1.el7                   updates 1.5 M
+ kernel-tools-libs   x86_64 3.10.0-229.11.1.el7                   updates 1.4 M
+ kexec-tools         x86_64 2.0.7-19.el7_1.2                      updates 297 k
+ kmod                x86_64 14-10.el7                             base     78 k
+ kmod-libs           x86_64 14-10.el7                             base     46 k
+ kpartx              x86_64 0.4.9-77.el7                          base     55 k
+ krb5-libs           x86_64 1.12.2-14.el7                         base    826 k
+ libblkid            x86_64 2.23.2-22.el7_1.1                     updates 165 k
+ libcgroup           x86_64 0.41-8.el7                            base     64 k
+ libcom_err          x86_64 1.42.9-7.el7                          base     40 k
+ libdrm              x86_64 2.4.56-2.el7                          base    122 k
+ libgcc              x86_64 4.8.3-9.el7                           base     92 k
+ libgcrypt           x86_64 1.5.3-12.el7_1.1                      updates 263 k
+ libgomp             x86_64 4.8.3-9.el7                           base    127 k
+ libgudev1           x86_64 208-20.el7_1.5                        updates  56 k
+ libmount            x86_64 2.23.2-22.el7_1.1                     updates 167 k
+ libnl3              x86_64 3.2.21-8.el7                          base    196 k
+ libnl3-cli          x86_64 3.2.21-8.el7                          base     78 k
+ libpcap             x86_64 14:1.5.3-4.el7_1.2                    updates 137 k
+ libsoup             x86_64 2.46.0-3.el7                          base    339 k
+ libss               x86_64 1.42.9-7.el7                          base     45 k
+ libstdc++           x86_64 4.8.3-9.el7                           base    294 k
+ libtasn1            x86_64 3.8-2.el7                             base    319 k
+ libteam             x86_64 1.15-1.el7                            base     45 k
+ libuser             x86_64 0.60-7.el7_1                          updates 398 k
+ libuuid             x86_64 2.23.2-22.el7_1.1                     updates  73 k
+ libxml2             x86_64 2.9.1-5.el7_1.2                       updates 664 k
+ libyaml             x86_64 0.1.4-11.el7_0                        base     55 k
+ linux-firmware      noarch 20140911-0.1.git365e80c.el7           base     17 M
+ mariadb-libs        x86_64 1:5.5.44-1.el7_1                      updates 754 k
+ microcode_ctl       x86_64 2:2.1-10.el7                          base    520 k
+ nettle              x86_64 2.7.1-4.el7                           base    327 k
+ nspr                x86_64 4.10.8-1.el7_1                        updates 126 k
+ nss                 x86_64 3.19.1-5.el7_1                        updates 850 k
+ nss-softokn         x86_64 3.16.2.3-13.el7_1                     updates 305 k
+ nss-softokn-freebl  x86_64 3.16.2.3-13.el7_1                     updates 204 k
+ nss-sysinit         x86_64 3.19.1-5.el7_1                        updates  52 k
+ nss-tools           x86_64 3.19.1-5.el7_1                        updates 480 k
+ nss-util            x86_64 3.19.1-3.el7_1                        updates  70 k
+ numactl-libs        x86_64 2.0.9-5.el7_1                         updates  29 k
+ openldap            x86_64 2.4.39-6.el7                          base    344 k
+ openssh             x86_64 6.6.1p1-12.el7_1                      updates 431 k
+ openssh-clients     x86_64 6.6.1p1-12.el7_1                      updates 634 k
+ openssh-server      x86_64 6.6.1p1-12.el7_1                      updates 432 k
+ openssl             x86_64 1:1.0.1e-42.el7.9                     updates 711 k
+ openssl-libs        x86_64 1:1.0.1e-42.el7.9                     updates 949 k
+ p11-kit             x86_64 0.20.7-3.el7                          base    107 k
+ p11-kit-trust       x86_64 0.20.7-3.el7                          base    126 k
+ pam                 x86_64 1.1.8-12.el7_1.1                      updates 714 k
+ parted              x86_64 3.1-20.el7                            base    605 k
+ pcre                x86_64 8.32-14.el7                           base    418 k
+ plymouth            x86_64 0.8.9-0.13.20140113.el7.centos        base    112 k
+ plymouth-core-libs  x86_64 0.8.9-0.13.20140113.el7.centos        base    106 k
+ plymouth-scripts    x86_64 0.8.9-0.13.20140113.el7.centos        base     36 k
+ policycoreutils     x86_64 2.2.5-15.el7                          base    802 k
+ policycoreutils-python
+                     x86_64 2.2.5-15.el7                          base    434 k
+ procps-ng           x86_64 3.3.10-3.el7                          base    286 k
+ pygobject3-base     x86_64 3.8.2-6.el7                           base    295 k
+ python              x86_64 2.7.5-18.el7_1.1                      updates  86 k
+ python-backports    x86_64 1.0-8.el7                             base    5.8 k
+ python-chardet      noarch 2.2.1-1.el7_1                         updates 227 k
+ python-libs         x86_64 2.7.5-18.el7_1.1                      updates 5.6 M
+ python-requests     noarch 2.6.0-1.el7_1                         updates  94 k
+ python-urlgrabber   noarch 3.10-6.el7                            base    107 k
+ python-urllib3      noarch 1.10.2-2.el7_1                        updates 100 k
+ rpm                 x86_64 4.11.1-25.el7                         base    1.1 M
+ rpm-build-libs      x86_64 4.11.1-25.el7                         base    101 k
+ rpm-libs            x86_64 4.11.1-25.el7                         base    269 k
+ rpm-python          x86_64 4.11.1-25.el7                         base     76 k
+ selinux-policy      noarch 3.13.1-23.el7_1.17                    updates 359 k
+ selinux-policy-targeted
+                     noarch 3.13.1-23.el7_1.17                    updates 3.9 M
+ setup               noarch 2.8.71-5.el7                          base    164 k
+ shadow-utils        x86_64 2:4.1.5.1-18.el7                      base    1.1 M
+ sqlite              x86_64 3.7.17-6.el7_1.1                      updates 394 k
+ sudo                x86_64 1.8.6p7-13.el7                        base    718 k
+ systemd             x86_64 208-20.el7_1.5                        updates 2.6 M
+ systemd-libs        x86_64 208-20.el7_1.5                        updates 161 k
+ systemd-sysv        x86_64 208-20.el7_1.5                        updates  44 k
+ teamd               x86_64 1.15-1.el7                            base    108 k
+ tuned               noarch 2.4.1-1.el7                           base    159 k
+ tzdata              noarch 2015f-1.el7                           updates 432 k
+ util-linux          x86_64 2.23.2-22.el7_1.1                     updates 1.9 M
+ wpa_supplicant      x86_64 1:2.0-17.el7_1                        updates 803 k
+ xfsprogs            x86_64 3.2.1-6.el7                           base    858 k
+ xz                  x86_64 5.1.2-9alpha.el7                      base    200 k
+ xz-libs             x86_64 5.1.2-9alpha.el7                      base    102 k
+ yum                 noarch 3.4.3-125.el7.centos                  base    1.2 M
+ yum-plugin-fastestmirror
+                     noarch 1.1.31-29.el7                         base     29 k
+Installing for dependencies:
+ NetworkManager-libnm
+                     x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1 updates 468 k
+ kbd-legacy          noarch 1.15.5-11.el7                         base    465 k
+ trousers            x86_64 0.3.11.2-4.el7_1                      updates 286 k
+
+Transaction Summary
+================================================================================
+Install    7 Packages (+3 Dependent packages)
+Upgrade  163 Packages
+
+Total download size: 164 M
+Is this ok [y/d/N]: y
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+(1/173): NetworkManager-adsl-1.0.0-16.git20150121.b4ea599c | 122 kB   00:00
+(2/173): NetworkManager-bluetooth-1.0.0-16.git20150121.b4e | 141 kB   00:00
+(3/173): NetworkManager-glib-1.0.0-16.git20150121.b4ea599c | 376 kB   00:00
+(4/173): NetworkManager-libnm-1.0.0-16.git20150121.b4ea599 | 468 kB   00:00
+(5/173): NetworkManager-1.0.0-16.git20150121.b4ea599c.el7_ | 1.9 MB   00:00
+(6/173): NetworkManager-team-1.0.0-16.git20150121.b4ea599c | 122 kB   00:00
+(7/173): NetworkManager-tui-1.0.0-16.git20150121.b4ea599c. | 203 kB   00:00
+(8/173): NetworkManager-wifi-1.0.0-16.git20150121.b4ea599c | 151 kB   00:00
+(9/173): NetworkManager-wwan-1.0.0-16.git20150121.b4ea599c | 142 kB   00:00
+(10/173): alsa-firmware-1.0.28-2.el7.noarch.rpm            | 2.3 MB   00:00
+(11/173): alsa-lib-1.0.28-2.el7.x86_64.rpm                 | 391 kB   00:00
+(12/173): audit-2.4.1-5.el7.x86_64.rpm                     | 234 kB   00:00
+(13/173): audit-libs-2.4.1-5.el7.x86_64.rpm                |  80 kB   00:00
+(14/173): audit-libs-python-2.4.1-5.el7.x86_64.rpm         |  69 kB   00:00
+(15/173): avahi-0.6.31-14.el7.x86_64.rpm                   | 261 kB   00:00
+(16/173): avahi-autoipd-0.6.31-14.el7.x86_64.rpm           |  38 kB   00:00
+(17/173): authconfig-6.2.8-9.el7.x86_64.rpm                | 400 kB   00:00
+(18/173): avahi-libs-0.6.31-14.el7.x86_64.rpm              |  60 kB   00:00
+(19/173): bind-libs-lite-9.9.4-18.el7_1.5.x86_64.rpm       | 713 kB   00:00
+(20/173): bash-4.2.46-12.el7.x86_64.rpm                    | 1.0 MB   00:00
+(21/173): biosdevname-0.6.1-2.el7.x86_64.rpm               |  38 kB   00:00
+(22/173): btrfs-progs-3.16.2-1.el7.x86_64.rpm              | 484 kB   00:00
+(23/173): binutils-2.23.52.0.1-30.el7_1.2.x86_64.rpm       | 5.0 MB   00:00
+(24/173): bind-license-9.9.4-18.el7_1.5.noarch.rpm         |  80 kB   00:00
+(25/173): ca-certificates-2015.2.4-70.0.el7_1.noarch.rpm   | 441 kB   00:00
+(26/173): centos-release-7-1.1503.el7.centos.2.8.x86_64.rp |  22 kB   00:00
+(27/173): cronie-anacron-1.4.11-13.el7.x86_64.rpm          |  34 kB   00:00
+(28/173): cryptsetup-libs-1.6.6-3.el7.x86_64.rpm           | 179 kB   00:00
+(29/173): dbus-1.6.12-11.el7.x86_64.rpm                    | 306 kB   00:00
+(30/173): device-mapper-1.02.93-3.el7_1.1.x86_64.rpm       | 209 kB   00:00
+(31/173): dbus-libs-1.6.12-11.el7.x86_64.rpm               | 150 kB   00:00
+(32/173): device-mapper-libs-1.02.93-3.el7_1.1.x86_64.rpm  | 259 kB   00:00
+(33/173): dhclient-4.2.5-36.el7.centos.x86_64.rpm          | 278 kB   00:00
+(34/173): dhcp-common-4.2.5-36.el7.centos.x86_64.rpm       | 171 kB   00:00
+(35/173): dnsmasq-2.66-14.el7_1.x86_64.rpm                 | 229 kB   00:00
+(36/173): dhcp-libs-4.2.5-36.el7.centos.x86_64.rpm         | 127 kB   00:00
+(37/173): dracut-033-241.el7_1.5.x86_64.rpm                | 301 kB   00:00
+(38/173): dracut-config-rescue-033-241.el7_1.5.x86_64.rpm  |  45 kB   00:00
+(39/173): dracut-network-033-241.el7_1.5.x86_64.rpm        |  82 kB   00:00
+(40/173): cronie-1.4.11-13.el7.x86_64.rpm                  |  89 kB   00:00
+(41/173): e2fsprogs-1.42.9-7.el7.x86_64.rpm                | 697 kB   00:00
+(42/173): elfutils-libelf-0.160-1.el7.x86_64.rpm           | 198 kB   00:00
+(43/173): e2fsprogs-libs-1.42.9-7.el7.x86_64.rpm           | 165 kB   00:00
+(44/173): elfutils-libs-0.160-1.el7.x86_64.rpm             | 249 kB   00:00
+(45/173): firewalld-0.3.9-11.el7.noarch.rpm                | 465 kB   00:00
+(46/173): ethtool-3.15-2.el7.x86_64.rpm                    | 113 kB   00:00
+(47/173): glib-networking-2.40.0-1.el7.x86_64.rpm          | 122 kB   00:00
+(48/173): freetype-2.4.11-10.el7_1.1.x86_64.rpm            | 391 kB   00:00
+(49/173): centos-logos-70.0.6-2.el7.centos.noarch.rpm      |  21 MB   00:00
+(50/173): glibc-2.17-78.el7.x86_64.rpm                     | 3.6 MB   00:00
+(51/173): glib2-2.40.0-4.el7.x86_64.rpm                    | 2.2 MB   00:00
+(52/173): gnutls-3.3.8-12.el7_1.1.x86_64.rpm               | 662 kB   00:00
+(53/173): glibc-common-2.17-78.el7.x86_64.rpm              |  11 MB   00:00
+(54/173): gmp-6.0.0-11.el7.x86_64.rpm                      | 280 kB   00:00
+(55/173): grep-2.20-1.el7.x86_64.rpm                       | 343 kB   00:00
+(56/173): grub2-tools-2.02-0.16.el7.centos.x86_64.rpm      | 3.2 MB   00:00
+(57/173): grubby-8.28-11.el7.x86_64.rpm                    |  62 kB   00:00
+(58/173): initscripts-9.49.24-1.el7.x86_64.rpm             | 427 kB   00:00
+(59/173): grub2-2.02-0.16.el7.centos.x86_64.rpm            | 1.5 MB   00:00
+(60/173): hwdata-0.252-7.8.el7_1.x86_64.rpm                | 2.0 MB   00:00
+(61/173): iproute-3.10.0-21.el7.x86_64.rpm                 | 503 kB   00:00
+(62/173): iprutils-2.4.3-3.el7.x86_64.rpm                  | 221 kB   00:00
+(63/173): irqbalance-1.0.7-2.el7_1.x86_64.rpm              |  43 kB   00:00
+(64/173): iwl100-firmware-39.31.5.1-36.el7.noarch.rpm      | 144 kB   00:00
+(65/173): iwl1000-firmware-39.31.5.1-36.el7.noarch.rpm     | 208 kB   00:00
+(66/173): iwl105-firmware-18.168.6.1-36.el7.noarch.rpm     | 229 kB   00:00
+(67/173): iwl2000-firmware-18.168.6.1-36.el7.noarch.rpm    | 231 kB   00:00
+(68/173): iwl135-firmware-18.168.6.1-36.el7.noarch.rpm     | 238 kB   00:00
+(69/173): iwl2030-firmware-18.168.6.1-36.el7.noarch.rpm    | 240 kB   00:00
+(70/173): iwl3945-firmware-15.32.2.9-36.el7.noarch.rpm     |  83 kB   00:00
+(71/173): iwl4965-firmware-228.61.2.24-36.el7.noarch.rpm   |  96 kB   00:00
+(72/173): iwl5000-firmware-8.83.5.1_1-36.el7.noarch.rpm    | 289 kB   00:00
+(73/173): iwl5150-firmware-8.24.2.2-36.el7.noarch.rpm      | 141 kB   00:00
+(74/173): iwl6000-firmware-9.221.4.1-36.el7.noarch.rpm     | 161 kB   00:00
+(75/173): iwl6000g2a-firmware-17.168.5.3-36.el7.noarch.rpm | 304 kB   00:00
+(76/173): iwl6000g2b-firmware-17.168.5.2-36.el7.noarch.rpm | 305 kB   00:00
+(77/173): iputils-20121221-6.el7_1.1.x86_64.rpm            | 152 kB   00:00
+(78/173): iwl6050-firmware-41.28.5.1-36.el7.noarch.rpm     | 237 kB   00:00
+(79/173): iwl7260-firmware-22.0.7.0-36.el7.noarch.rpm      | 533 kB   00:00
+(80/173): kbd-1.15.5-11.el7.x86_64.rpm                     | 345 kB   00:00
+(81/173): kbd-legacy-1.15.5-11.el7.noarch.rpm              | 465 kB   00:00
+(82/173): iwl3160-firmware-22.0.7.0-36.el7.noarch.rpm      | 508 kB   00:00
+(83/173): kbd-misc-1.15.5-11.el7.noarch.rpm                | 1.3 MB   00:00
+(84/173): kernel-3.10.0-229.11.1.el7.x86_64.rpm            |  31 MB   00:00
+(85/173): kernel-tools-3.10.0-229.11.1.el7.x86_64.rpm      | 1.5 MB   00:00
+(86/173): kernel-tools-libs-3.10.0-229.11.1.el7.x86_64.rpm | 1.4 MB   00:00
+(87/173): kexec-tools-2.0.7-19.el7_1.2.x86_64.rpm          | 297 kB   00:00
+(88/173): kmod-14-10.el7.x86_64.rpm                        |  78 kB   00:00
+(89/173): kpartx-0.4.9-77.el7.x86_64.rpm                   |  55 kB   00:00
+(90/173): libblkid-2.23.2-22.el7_1.1.x86_64.rpm            | 165 kB   00:00
+(91/173): krb5-libs-1.12.2-14.el7.x86_64.rpm               | 826 kB   00:00
+(92/173): libcgroup-0.41-8.el7.x86_64.rpm                  |  64 kB   00:00
+(93/173): libcom_err-1.42.9-7.el7.x86_64.rpm               |  40 kB   00:00
+(94/173): libdrm-2.4.56-2.el7.x86_64.rpm                   | 122 kB   00:00
+(95/173): libgcc-4.8.3-9.el7.x86_64.rpm                    |  92 kB   00:00
+(96/173): libgcrypt-1.5.3-12.el7_1.1.x86_64.rpm            | 263 kB   00:00
+(97/173): libgomp-4.8.3-9.el7.x86_64.rpm                   | 127 kB   00:00
+(98/173): kmod-libs-14-10.el7.x86_64.rpm                   |  46 kB   00:00
+(99/173): libmount-2.23.2-22.el7_1.1.x86_64.rpm            | 167 kB   00:00
+(100/173): libnl3-3.2.21-8.el7.x86_64.rpm                  | 196 kB   00:00
+(101/173): libpcap-1.5.3-4.el7_1.2.x86_64.rpm              | 137 kB   00:00
+(102/173): libnl3-cli-3.2.21-8.el7.x86_64.rpm              |  78 kB   00:00
+(103/173): libsoup-2.46.0-3.el7.x86_64.rpm                 | 339 kB   00:00
+(104/173): libss-1.42.9-7.el7.x86_64.rpm                   |  45 kB   00:00
+(105/173): libstdc++-4.8.3-9.el7.x86_64.rpm                | 294 kB   00:00
+(106/173): libteam-1.15-1.el7.x86_64.rpm                   |  45 kB   00:00
+(107/173): libuser-0.60-7.el7_1.x86_64.rpm                 | 398 kB   00:00
+(108/173): libuuid-2.23.2-22.el7_1.1.x86_64.rpm            |  73 kB   00:00
+(109/173): libtasn1-3.8-2.el7.x86_64.rpm                   | 319 kB   00:00
+(110/173): libyaml-0.1.4-11.el7_0.x86_64.rpm               |  55 kB   00:00
+(111/173): libxml2-2.9.1-5.el7_1.2.x86_64.rpm              | 664 kB   00:00
+(112/173): mariadb-libs-5.5.44-1.el7_1.x86_64.rpm          | 754 kB   00:00
+(113/173): microcode_ctl-2.1-10.el7.x86_64.rpm             | 520 kB   00:00
+(114/173): nspr-4.10.8-1.el7_1.x86_64.rpm                  | 126 kB   00:00
+(115/173): nettle-2.7.1-4.el7.x86_64.rpm                   | 327 kB   00:00
+(116/173): libgudev1-208-20.el7_1.5.x86_64.rpm             |  56 kB   00:00
+(117/173): nss-3.19.1-5.el7_1.x86_64.rpm                   | 850 kB   00:00
+(118/173): nss-softokn-freebl-3.16.2.3-13.el7_1.x86_64.rpm | 204 kB   00:00
+(119/173): nss-softokn-3.16.2.3-13.el7_1.x86_64.rpm        | 305 kB   00:00
+(120/173): nss-sysinit-3.19.1-5.el7_1.x86_64.rpm           |  52 kB   00:00
+(121/173): nss-util-3.19.1-3.el7_1.x86_64.rpm              |  70 kB   00:00
+(122/173): nss-tools-3.19.1-5.el7_1.x86_64.rpm             | 480 kB   00:00
+(123/173): numactl-libs-2.0.9-5.el7_1.x86_64.rpm           |  29 kB   00:00
+(124/173): openldap-2.4.39-6.el7.x86_64.rpm                | 344 kB   00:00
+(125/173): openssh-clients-6.6.1p1-12.el7_1.x86_64.rpm     | 634 kB   00:00
+(126/173): openssh-6.6.1p1-12.el7_1.x86_64.rpm             | 431 kB   00:00
+(127/173): openssh-server-6.6.1p1-12.el7_1.x86_64.rpm      | 432 kB   00:00
+(128/173): p11-kit-0.20.7-3.el7.x86_64.rpm                 | 107 kB   00:00
+(129/173): openssl-1.0.1e-42.el7.9.x86_64.rpm              | 711 kB   00:00
+(130/173): p11-kit-trust-0.20.7-3.el7.x86_64.rpm           | 126 kB   00:00
+(131/173): openssl-libs-1.0.1e-42.el7.9.x86_64.rpm         | 949 kB   00:00
+(132/173): pam-1.1.8-12.el7_1.1.x86_64.rpm                 | 714 kB   00:00
+(133/173): parted-3.1-20.el7.x86_64.rpm                    | 605 kB   00:00
+(134/173): pcre-8.32-14.el7.x86_64.rpm                     | 418 kB   00:00
+(135/173): linux-firmware-20140911-0.1.git365e80c.el7.noar |  17 MB   00:00
+(136/173): plymouth-0.8.9-0.13.20140113.el7.centos.x86_64. | 112 kB   00:00
+(137/173): plymouth-core-libs-0.8.9-0.13.20140113.el7.cent | 106 kB   00:00
+(138/173): plymouth-scripts-0.8.9-0.13.20140113.el7.centos |  36 kB   00:00
+(139/173): policycoreutils-2.2.5-15.el7.x86_64.rpm         | 802 kB   00:00
+(140/173): policycoreutils-python-2.2.5-15.el7.x86_64.rpm  | 434 kB   00:00
+(141/173): procps-ng-3.3.10-3.el7.x86_64.rpm               | 286 kB   00:00
+(142/173): python-2.7.5-18.el7_1.1.x86_64.rpm              |  86 kB   00:00
+(143/173): pygobject3-base-3.8.2-6.el7.x86_64.rpm          | 295 kB   00:00
+(144/173): python-backports-1.0-8.el7.x86_64.rpm           | 5.8 kB   00:00
+(145/173): python-libs-2.7.5-18.el7_1.1.x86_64.rpm         | 5.6 MB   00:00
+(146/173): python-requests-2.6.0-1.el7_1.noarch.rpm        |  94 kB   00:00
+(147/173): python-urlgrabber-3.10-6.el7.noarch.rpm         | 107 kB   00:00
+(148/173): python-urllib3-1.10.2-2.el7_1.noarch.rpm        | 100 kB   00:00
+(149/173): rpm-build-libs-4.11.1-25.el7.x86_64.rpm         | 101 kB   00:00
+(150/173): rpm-libs-4.11.1-25.el7.x86_64.rpm               | 269 kB   00:00
+(151/173): selinux-policy-3.13.1-23.el7_1.17.noarch.rpm    | 359 kB   00:00
+(152/173): rpm-python-4.11.1-25.el7.x86_64.rpm             |  76 kB   00:00
+(153/173): setup-2.8.71-5.el7.noarch.rpm                   | 164 kB   00:00
+(154/173): selinux-policy-targeted-3.13.1-23.el7_1.17.noar | 3.9 MB   00:00
+(155/173): shadow-utils-4.1.5.1-18.el7.x86_64.rpm          | 1.1 MB   00:00
+(156/173): python-chardet-2.2.1-1.el7_1.noarch.rpm         | 227 kB   00:00
+(157/173): sqlite-3.7.17-6.el7_1.1.x86_64.rpm              | 394 kB   00:00
+(158/173): systemd-libs-208-20.el7_1.5.x86_64.rpm          | 161 kB   00:00
+(159/173): systemd-sysv-208-20.el7_1.5.x86_64.rpm          |  44 kB   00:00
+(160/173): sudo-1.8.6p7-13.el7.x86_64.rpm                  | 718 kB   00:00
+(161/173): trousers-0.3.11.2-4.el7_1.x86_64.rpm            | 286 kB   00:00
+(162/173): teamd-1.15-1.el7.x86_64.rpm                     | 108 kB   00:00
+(163/173): tzdata-2015f-1.el7.noarch.rpm                   | 432 kB   00:00
+(164/173): tuned-2.4.1-1.el7.noarch.rpm                    | 159 kB   00:00
+(165/173): util-linux-2.23.2-22.el7_1.1.x86_64.rpm         | 1.9 MB   00:00
+(166/173): wpa_supplicant-2.0-17.el7_1.x86_64.rpm          | 803 kB   00:00
+(167/173): xfsprogs-3.2.1-6.el7.x86_64.rpm                 | 858 kB   00:00
+(168/173): systemd-208-20.el7_1.5.x86_64.rpm               | 2.6 MB   00:00
+(169/173): xz-5.1.2-9alpha.el7.x86_64.rpm                  | 200 kB   00:00
+(170/173): rpm-4.11.1-25.el7.x86_64.rpm                    | 1.1 MB   00:00
+(171/173): xz-libs-5.1.2-9alpha.el7.x86_64.rpm             | 102 kB   00:00
+(172/173): yum-plugin-fastestmirror-1.1.31-29.el7.noarch.r |  29 kB   00:00
+(173/173): yum-3.4.3-125.el7.centos.noarch.rpm             | 1.2 MB   00:00
+--------------------------------------------------------------------------------
+Total                                               25 MB/s | 164 MB  00:06
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Updating   : libgcc-4.8.3-9.el7.x86_64                                  1/337
+  Updating   : centos-release-7-1.1503.el7.centos.2.8.x86_64              2/337
+  Updating   : setup-2.8.71-5.el7.noarch                                  3/337
+warning: /etc/shadow created as /etc/shadow.rpmnew
+  Updating   : 32:bind-license-9.9.4-18.el7_1.5.noarch                    4/337
+  Updating   : kbd-misc-1.15.5-11.el7.noarch                              5/337
+  Updating   : linux-firmware-20140911-0.1.git365e80c.el7.noarch          6/337
+  Updating   : tzdata-2015f-1.el7.noarch                                  7/337
+  Updating   : bash-4.2.46-12.el7.x86_64                                  8/337
+  Updating   : glibc-common-2.17-78.el7.x86_64                            9/337
+  Updating   : glibc-2.17-78.el7.x86_64                                  10/337
+  Updating   : nss-softokn-freebl-3.16.2.3-13.el7_1.x86_64               11/337
+  Updating   : glib2-2.40.0-4.el7.x86_64                                 12/337
+  Updating   : 1:dbus-libs-1.6.12-11.el7.x86_64                          13/337
+  Updating   : audit-libs-2.4.1-5.el7.x86_64                             14/337
+  Updating   : libuuid-2.23.2-22.el7_1.1.x86_64                          15/337
+  Updating   : xz-libs-5.1.2-9alpha.el7.x86_64                           16/337
+  Updating   : pam-1.1.8-12.el7_1.1.x86_64                               17/337
+  Updating   : libcom_err-1.42.9-7.el7.x86_64                            18/337
+  Updating   : nspr-4.10.8-1.el7_1.x86_64                                19/337
+  Updating   : nss-util-3.19.1-3.el7_1.x86_64                            20/337
+  Updating   : libblkid-2.23.2-22.el7_1.1.x86_64                         21/337
+  Updating   : 2:shadow-utils-4.1.5.1-18.el7.x86_64                      22/337
+  Updating   : elfutils-libelf-0.160-1.el7.x86_64                        23/337
+  Updating   : libnl3-3.2.21-8.el7.x86_64                                24/337
+  Updating   : p11-kit-0.20.7-3.el7.x86_64                               25/337
+  Updating   : iproute-3.10.0-21.el7.x86_64                              26/337
+  Updating   : libstdc++-4.8.3-9.el7.x86_64                              27/337
+  Updating   : libgcrypt-1.5.3-12.el7_1.1.x86_64                         28/337
+  Updating   : systemd-libs-208-20.el7_1.5.x86_64                        29/337
+  Updating   : sqlite-3.7.17-6.el7_1.1.x86_64                            30/337
+  Updating   : nss-softokn-3.16.2.3-13.el7_1.x86_64                      31/337
+  Updating   : nss-sysinit-3.19.1-5.el7_1.x86_64                         32/337
+  Updating   : nss-3.19.1-5.el7_1.x86_64                                 33/337
+  Updating   : rpm-4.11.1-25.el7.x86_64                                  34/337
+  Updating   : rpm-libs-4.11.1-25.el7.x86_64                             35/337
+  Updating   : procps-ng-3.3.10-3.el7.x86_64                             36/337
+  Updating   : 1:gmp-6.0.0-11.el7.x86_64                                 37/337
+  Updating   : libnl3-cli-3.2.21-8.el7.x86_64                            38/337
+  Updating   : libmount-2.23.2-22.el7_1.1.x86_64                         39/337
+  Updating   : e2fsprogs-libs-1.42.9-7.el7.x86_64                        40/337
+  Updating   : kmod-libs-14-10.el7.x86_64                                41/337
+  Updating   : libxml2-2.9.1-5.el7_1.2.x86_64                            42/337
+  Updating   : xz-5.1.2-9alpha.el7.x86_64                                43/337
+  Updating   : avahi-libs-0.6.31-14.el7.x86_64                           44/337
+  Updating   : 2:ethtool-3.15-2.el7.x86_64                               45/337
+  Updating   : libtasn1-3.8-2.el7.x86_64                                 46/337
+  Updating   : p11-kit-trust-0.20.7-3.el7.x86_64                         47/337
+  Updating   : ca-certificates-2015.2.4-70.0.el7_1.noarch                48/337
+  Updating   : centos-logos-70.0.6-2.el7.centos.noarch                   49/337
+  Updating   : avahi-autoipd-0.6.31-14.el7.x86_64                        50/337
+  Updating   : libteam-1.15-1.el7.x86_64                                 51/337
+  Updating   : teamd-1.15-1.el7.x86_64                                   52/337
+  Updating   : nettle-2.7.1-4.el7.x86_64                                 53/337
+  Updating   : rpm-build-libs-4.11.1-25.el7.x86_64                       54/337
+  Updating   : nss-tools-3.19.1-5.el7_1.x86_64                           55/337
+  Updating   : openldap-2.4.39-6.el7.x86_64                              56/337
+  Updating   : 12:dhcp-libs-4.2.5-36.el7.centos.x86_64                   57/337
+  Updating   : 12:dhcp-common-4.2.5-36.el7.centos.x86_64                 58/337
+  Updating   : libuser-0.60-7.el7_1.x86_64                               59/337
+  Updating   : util-linux-2.23.2-22.el7_1.1.x86_64                       60/337
+  Updating   : plymouth-core-libs-0.8.9-0.13.20140113.el7.centos.x86_    61/337
+  Updating   : pcre-8.32-14.el7.x86_64                                   62/337
+  Updating   : grep-2.20-1.el7.x86_64                                    63/337
+  Updating   : krb5-libs-1.12.2-14.el7.x86_64                            64/337
+  Updating   : 1:openssl-libs-1.0.1e-42.el7.9.x86_64                     65/337
+  Updating   : policycoreutils-2.2.5-15.el7.x86_64                       66/337
+  Updating   : python-libs-2.7.5-18.el7_1.1.x86_64                       67/337
+  Updating   : python-2.7.5-18.el7_1.1.x86_64                            68/337
+  Updating   : pygobject3-base-3.8.2-6.el7.x86_64                        69/337
+  Updating   : openssh-6.6.1p1-12.el7_1.x86_64                           70/337
+  Updating   : audit-libs-python-2.4.1-5.el7.x86_64                      71/337
+  Updating   : rpm-python-4.11.1-25.el7.x86_64                           72/337
+  Updating   : python-urlgrabber-3.10-6.el7.noarch                       73/337
+  Updating   : yum-plugin-fastestmirror-1.1.31-29.el7.noarch             74/337
+  Updating   : yum-3.4.3-125.el7.centos.noarch                           75/337
+  Updating   : python-chardet-2.2.1-1.el7_1.noarch                       76/337
+  Updating   : python-urllib3-1.10.2-2.el7_1.noarch                      77/337
+  Updating   : selinux-policy-3.13.1-23.el7_1.17.noarch                  78/337
+  Updating   : 32:bind-libs-lite-9.9.4-18.el7_1.5.x86_64                 79/337
+  Updating   : 1:openssl-1.0.1e-42.el7.9.x86_64                          80/337
+  Updating   : elfutils-libs-0.160-1.el7.x86_64                          81/337
+  Updating   : grubby-8.28-11.el7.x86_64                                 82/337
+  Updating   : libss-1.42.9-7.el7.x86_64                                 83/337
+  Updating   : freetype-2.4.11-10.el7_1.1.x86_64                         84/337
+  Updating   : kernel-tools-libs-3.10.0-229.11.1.el7.x86_64              85/337
+  Updating   : binutils-2.23.52.0.1-30.el7_1.2.x86_64                    86/337
+  Updating   : kmod-14-10.el7.x86_64                                     87/337
+  Updating   : 7:device-mapper-1.02.93-3.el7_1.1.x86_64                  88/337
+  Updating   : 7:device-mapper-libs-1.02.93-3.el7_1.1.x86_64             89/337
+  Updating   : cryptsetup-libs-1.6.6-3.el7.x86_64                        90/337
+  Updating   : systemd-208-20.el7_1.5.x86_64                             91/337
+  Updating   : 1:dbus-1.6.12-11.el7.x86_64                               92/337
+  Updating   : libgudev1-208-20.el7_1.5.x86_64                           93/337
+  Updating   : systemd-sysv-208-20.el7_1.5.x86_64                        94/337
+  Updating   : iputils-20121221-6.el7_1.1.x86_64                         95/337
+  Updating   : initscripts-9.49.24-1.el7.x86_64                          96/337
+  Updating   : 12:dhclient-4.2.5-36.el7.centos.x86_64                    97/337
+  Updating   : 1:wpa_supplicant-2.0-17.el7_1.x86_64                      98/337
+  Installing : 1:NetworkManager-libnm-1.0.0-16.git20150121.b4ea599c.e    99/337
+  Updating   : dnsmasq-2.66-14.el7_1.x86_64                             100/337
+  Updating   : libcgroup-0.41-8.el7.x86_64                              101/337
+  Installing : trousers-0.3.11.2-4.el7_1.x86_64                         102/337
+  Updating   : gnutls-3.3.8-12.el7_1.1.x86_64                           103/337
+  Updating   : glib-networking-2.40.0-1.el7.x86_64                      104/337
+  Updating   : libsoup-2.46.0-3.el7.x86_64                              105/337
+  Installing : 1:NetworkManager-1.0.0-16.git20150121.b4ea599c.el7_1.x   106/337
+  Installing : 1:NetworkManager-wwan-1.0.0-16.git20150121.b4ea599c.el   107/337
+  Updating   : cronie-1.4.11-13.el7.x86_64                              108/337
+  Updating   : cronie-anacron-1.4.11-13.el7.x86_64                      109/337
+  Updating   : libdrm-2.4.56-2.el7.x86_64                               110/337
+  Updating   : 1:grub2-tools-2.02-0.16.el7.centos.x86_64                111/337
+  Updating   : kpartx-0.4.9-77.el7.x86_64                               112/337
+  Updating   : dracut-033-241.el7_1.5.x86_64                            113/337
+  Updating   : plymouth-scripts-0.8.9-0.13.20140113.el7.centos.x86_64   114/337
+  Updating   : plymouth-0.8.9-0.13.20140113.el7.centos.x86_64           115/337
+  Updating   : dracut-network-033-241.el7_1.5.x86_64                    116/337
+  Updating   : numactl-libs-2.0.9-5.el7_1.x86_64                        117/337
+  Installing : kbd-legacy-1.15.5-11.el7.noarch                          118/337
+  Updating   : kbd-1.15.5-11.el7.x86_64                                 119/337
+  Updating   : 2:irqbalance-1.0.7-2.el7_1.x86_64                        120/337
+  Updating   : kexec-tools-2.0.7-19.el7_1.2.x86_64                      121/337
+  Updating   : dracut-config-rescue-033-241.el7_1.5.x86_64              122/337
+  Installing : kernel-3.10.0-229.11.1.el7.x86_64                        123/337
+  Updating   : 1:grub2-2.02-0.16.el7.centos.x86_64                      124/337
+  Installing : 1:NetworkManager-bluetooth-1.0.0-16.git20150121.b4ea59   125/337
+  Installing : 1:NetworkManager-wifi-1.0.0-16.git20150121.b4ea599c.el   126/337
+  Updating   : 1:NetworkManager-tui-1.0.0-16.git20150121.b4ea599c.el7   127/337
+  Installing : 1:NetworkManager-adsl-1.0.0-16.git20150121.b4ea599c.el   128/337
+  Installing : 1:NetworkManager-team-1.0.0-16.git20150121.b4ea599c.el   129/337
+  Updating   : policycoreutils-python-2.2.5-15.el7.x86_64               130/337
+  Updating   : avahi-0.6.31-14.el7.x86_64                               131/337
+  Updating   : audit-2.4.1-5.el7.x86_64                                 132/337
+  Updating   : 1:NetworkManager-glib-1.0.0-16.git20150121.b4ea599c.el   133/337
+  Updating   : openssh-server-6.6.1p1-12.el7_1.x86_64                   134/337
+  Updating   : tuned-2.4.1-1.el7.noarch                                 135/337
+  Updating   : biosdevname-0.6.1-2.el7.x86_64                           136/337
+  Updating   : hwdata-0.252-7.8.el7_1.x86_64                            137/337
+  Updating   : alsa-firmware-1.0.28-2.el7.noarch                        138/337
+  Updating   : firewalld-0.3.9-11.el7.noarch                            139/337
+  Updating   : 2:microcode_ctl-2.1-10.el7.x86_64                        140/337
+  Updating   : parted-3.1-20.el7.x86_64                                 141/337
+  Updating   : kernel-tools-3.10.0-229.11.1.el7.x86_64                  142/337
+  Updating   : e2fsprogs-1.42.9-7.el7.x86_64                            143/337
+  Updating   : authconfig-6.2.8-9.el7.x86_64                            144/337
+  Updating   : selinux-policy-targeted-3.13.1-23.el7_1.17.noarch        145/337
+  Updating   : python-requests-2.6.0-1.el7_1.noarch                     146/337
+  Updating   : openssh-clients-6.6.1p1-12.el7_1.x86_64                  147/337
+  Updating   : python-backports-1.0-8.el7.x86_64                        148/337
+  Updating   : 1:mariadb-libs-5.5.44-1.el7_1.x86_64                     149/337
+  Updating   : sudo-1.8.6p7-13.el7.x86_64                               150/337
+  Updating   : btrfs-progs-3.16.2-1.el7.x86_64                          151/337
+  Updating   : xfsprogs-3.2.1-6.el7.x86_64                              152/337
+  Updating   : alsa-lib-1.0.28-2.el7.x86_64                             153/337
+  Updating   : 14:libpcap-1.5.3-4.el7_1.2.x86_64                        154/337
+  Updating   : iprutils-2.4.3-3.el7.x86_64                              155/337
+  Updating   : libyaml-0.1.4-11.el7_0.x86_64                            156/337
+  Updating   : libgomp-4.8.3-9.el7.x86_64                               157/337
+  Updating   : 1:iwl1000-firmware-39.31.5.1-36.el7.noarch               158/337
+  Updating   : iwl135-firmware-18.168.6.1-36.el7.noarch                 159/337
+  Updating   : iwl6000-firmware-9.221.4.1-36.el7.noarch                 160/337
+  Updating   : iwl6000g2a-firmware-17.168.5.3-36.el7.noarch             161/337
+  Updating   : iwl6050-firmware-41.28.5.1-36.el7.noarch                 162/337
+  Updating   : iwl7260-firmware-22.0.7.0-36.el7.noarch                  163/337
+  Updating   : iwl2030-firmware-18.168.6.1-36.el7.noarch                164/337
+  Updating   : iwl6000g2b-firmware-17.168.5.2-36.el7.noarch             165/337
+  Updating   : iwl3945-firmware-15.32.2.9-36.el7.noarch                 166/337
+  Updating   : iwl5000-firmware-8.83.5.1_1-36.el7.noarch                167/337
+  Updating   : iwl105-firmware-18.168.6.1-36.el7.noarch                 168/337
+  Updating   : iwl4965-firmware-228.61.2.24-36.el7.noarch               169/337
+  Updating   : iwl2000-firmware-18.168.6.1-36.el7.noarch                170/337
+  Updating   : iwl100-firmware-39.31.5.1-36.el7.noarch                  171/337
+  Updating   : iwl5150-firmware-8.24.2.2-36.el7.noarch                  172/337
+  Updating   : iwl3160-firmware-22.0.7.0-36.el7.noarch                  173/337
+  Cleanup    : openssh-server-6.4p1-8.el7.x86_64                        174/337
+  Cleanup    : 1:NetworkManager-tui-0.9.9.1-29.git20140326.4dba720.el   175/337
+  Cleanup    : 1:NetworkManager-0.9.9.1-29.git20140326.4dba720.el7_0.   176/337
+  Cleanup    : 1:NetworkManager-glib-0.9.9.1-29.git20140326.4dba720.e   177/337
+  Cleanup    : openssh-clients-6.4p1-8.el7.x86_64                       178/337
+  Cleanup    : 1:wpa_supplicant-2.0-13.el7_0.x86_64                     179/337
+  Cleanup    : kexec-tools-2.0.4-32.el7.centos.5.x86_64                 180/337
+  Cleanup    : policycoreutils-python-2.2.5-11.el7_0.1.x86_64           181/337
+  Cleanup    : openssh-6.4p1-8.el7.x86_64                               182/337
+  Cleanup    : teamd-1.9-15.el7.x86_64                                  183/337
+  Cleanup    : btrfs-progs-3.12-4.el7.x86_64                            184/337
+  Cleanup    : e2fsprogs-1.42.9-4.el7.x86_64                            185/337
+  Cleanup    : parted-3.1-17.el7.x86_64                                 186/337
+  Cleanup    : yum-plugin-fastestmirror-1.1.31-25.el7_0.noarch          187/337
+  Cleanup    : yum-3.4.3-118.el7.centos.noarch                          188/337
+  Cleanup    : tuned-2.3.0-11.el7_0.3.noarch                            189/337
+  Cleanup    : rpm-python-4.11.1-18.el7_0.x86_64                        190/337
+  Cleanup    : rpm-build-libs-4.11.1-18.el7_0.x86_64                    191/337
+  Cleanup    : elfutils-libs-0.158-3.el7.x86_64                         192/337
+  Cleanup    : libsoup-2.42.2-3.el7.x86_64                              193/337
+  Cleanup    : glib-networking-2.36.2-3.el7.x86_64                      194/337
+  Cleanup    : gnutls-3.1.18-10.el7_0.x86_64                            195/337
+  Cleanup    : cronie-anacron-1.4.11-11.el7.x86_64                      196/337
+  Cleanup    : cronie-1.4.11-11.el7.x86_64                              197/337
+  Cleanup    : 2:irqbalance-1.0.6-5.el7.x86_64                          198/337
+  Cleanup    : authconfig-6.2.8-8.el7.x86_64                            199/337
+  Cleanup    : 1:openssl-1.0.1e-34.el7_0.7.x86_64                       200/337
+  Cleanup    : sudo-1.8.6p7-11.el7.x86_64                               201/337
+  Cleanup    : audit-2.3.3-4.el7.x86_64                                 202/337
+  Cleanup    : libgudev1-208-11.el7_0.6.x86_64                          203/337
+  Cleanup    : dnsmasq-2.66-12.el7.x86_64                               204/337
+  Cleanup    : kbd-1.15.5-10.el7.x86_64                                 205/337
+  Cleanup    : 1:mariadb-libs-5.5.40-2.el7_0.x86_64                     206/337
+  Cleanup    : xfsprogs-3.2.0-0.10.alpha2.el7.x86_64                    207/337
+  Cleanup    : dracut-network-033-161.el7_0.173.x86_64                  208/337
+  Cleanup    : 12:dhclient-4.2.5-27.el7.centos.2.x86_64                 209/337
+  Cleanup    : firewalld-0.3.9-7.el7.noarch                             210/337
+  Cleanup    : python-requests-1.1.0-8.el7.noarch                       211/337
+  Cleanup    : plymouth-0.8.9-0.10.20140113.el7.centos.x86_64           212/337
+  Cleanup    : plymouth-scripts-0.8.9-0.10.20140113.el7.centos.x86_64   213/337
+  Cleanup    : selinux-policy-targeted-3.12.1-153.el7_0.13.noarch       214/337
+warning: file /etc/selinux/targeted/modules/active/modules/vbetool.pp: remove failed: No such file or directory
+warning: file /etc/selinux/targeted/modules/active/modules/pkcsslotd.pp: remove failed: No such file or directory
+  Cleanup    : 1:grub2-2.02-0.2.10.el7.centos.1.x86_64                  215/337
+  Cleanup    : selinux-policy-3.12.1-153.el7_0.13.noarch                216/337
+  Cleanup    : python-urllib3-1.5-8.el7.noarch                          217/337
+  Cleanup    : hwdata-0.252-7.3.el7.noarch                              218/337
+  Cleanup    : dracut-config-rescue-033-161.el7_0.173.x86_64            219/337
+  Cleanup    : python-chardet-2.0.1-7.el7.noarch                        220/337
+  Cleanup    : 12:dhcp-common-4.2.5-27.el7.centos.2.x86_64              221/337
+  Cleanup    : 12:dhcp-libs-4.2.5-27.el7.centos.2.x86_64                222/337
+  Cleanup    : python-urlgrabber-3.10-4.el7.noarch                      223/337
+  Cleanup    : python-backports-1.0-6.el7.noarch                        224/337
+  Cleanup    : alsa-firmware-1.0.27-2.el7.noarch                        225/337
+  Cleanup    : kbd-misc-1.15.5-10.el7.noarch                            226/337
+  Cleanup    : 1:iwl1000-firmware-39.31.5.1-35.el7_0.noarch             227/337
+  Cleanup    : iwl135-firmware-18.168.6.1-35.el7_0.noarch               228/337
+  Cleanup    : iwl6000-firmware-9.221.4.1-35.el7_0.noarch               229/337
+  Cleanup    : iwl6000g2a-firmware-17.168.5.3-35.el7_0.noarch           230/337
+  Cleanup    : iwl6050-firmware-41.28.5.1-35.el7_0.noarch               231/337
+  Cleanup    : iwl7260-firmware-22.0.7.0-35.el7_0.noarch                232/337
+  Cleanup    : linux-firmware-20140804-0.1.git6bce2b0.el7_0.noarch      233/337
+  Cleanup    : iwl2030-firmware-18.168.6.1-35.el7_0.noarch              234/337
+  Cleanup    : iwl6000g2b-firmware-17.168.5.2-35.el7_0.noarch           235/337
+  Cleanup    : iwl3945-firmware-15.32.2.9-35.el7_0.noarch               236/337
+  Cleanup    : iwl5000-firmware-8.83.5.1_1-35.el7_0.noarch              237/337
+  Cleanup    : iwl105-firmware-18.168.6.1-35.el7_0.noarch               238/337
+  Cleanup    : iwl4965-firmware-228.61.2.24-35.el7_0.noarch             239/337
+  Cleanup    : iwl2000-firmware-18.168.6.1-35.el7_0.noarch              240/337
+  Cleanup    : iwl100-firmware-39.31.5.1-35.el7_0.noarch                241/337
+  Cleanup    : iwl5150-firmware-8.24.2.2-35.el7_0.noarch                242/337
+  Cleanup    : iwl3160-firmware-22.0.7.0-35.el7_0.noarch                243/337
+  Cleanup    : dracut-033-161.el7_0.173.x86_64                          244/337
+  Cleanup    : 32:bind-libs-lite-9.9.4-14.el7_0.1.x86_64                245/337
+  Cleanup    : policycoreutils-2.2.5-11.el7_0.1.x86_64                  246/337
+  Cleanup    : rpm-libs-4.11.1-18.el7_0.x86_64                          247/337
+  Cleanup    : rpm-4.11.1-18.el7_0.x86_64                               248/337
+  Cleanup    : 1:grub2-tools-2.02-0.2.10.el7.centos.1.x86_64            249/337
+  Cleanup    : pygobject3-base-3.8.2-4.el7.x86_64                       250/337
+  Cleanup    : libteam-1.9-15.el7.x86_64                                251/337
+  Cleanup    : kernel-tools-3.10.0-123.13.2.el7.x86_64                  252/337
+  Cleanup    : nettle-2.7.1-2.el7.x86_64                                253/337
+  Cleanup    : 1:gmp-5.1.1-5.el7.x86_64                                 254/337
+  Cleanup    : audit-libs-python-2.3.3-4.el7.x86_64                     255/337
+  Cleanup    : libcgroup-0.41-6.el7.x86_64                              256/337
+  Cleanup    : avahi-autoipd-0.6.31-13.el7.x86_64                       257/337
+  Cleanup    : avahi-libs-0.6.31-13.el7.x86_64                          258/337
+  Cleanup    : avahi-0.6.31-13.el7.x86_64                               259/337
+  Cleanup    : initscripts-9.49.17-1.el7_0.1.x86_64                     260/337
+  Cleanup    : iputils-20121221-6.el7.x86_64                            261/337
+  Cleanup    : procps-ng-3.3.9-6.el7.x86_64                             262/337
+  Cleanup    : libnl3-cli-3.2.21-6.el7.x86_64                           263/337
+  Cleanup    : libxml2-2.9.1-5.el7_0.1.x86_64                           264/337
+  Cleanup    : kpartx-0.4.9-66.el7.x86_64                               265/337
+  Cleanup    : plymouth-core-libs-0.8.9-0.10.20140113.el7.centos.x86_   266/337
+  Cleanup    : numactl-libs-2.0.9-2.el7.x86_64                          267/337
+  Cleanup    : e2fsprogs-libs-1.42.9-4.el7.x86_64                       268/337
+  Cleanup    : libss-1.42.9-4.el7.x86_64                                269/337
+  Cleanup    : 2:microcode_ctl-2.1-7.1.el7_0.2.x86_64                   270/337
+  Cleanup    : grubby-8.28-8.el7.x86_64                                 271/337
+  Cleanup    : systemd-sysv-208-11.el7_0.6.x86_64                       272/337
+  Cleanup    : python-2.7.5-16.el7.x86_64                               273/337
+  Cleanup    : python-libs-2.7.5-16.el7.x86_64                          274/337
+  Cleanup    : 1:openssl-libs-1.0.1e-34.el7_0.7.x86_64                  275/337
+  Cleanup    : krb5-libs-1.11.3-49.el7.x86_64                           276/337
+  Cleanup    : ca-certificates-2014.1.98-70.0.el7_0.noarch              277/337
+  Cleanup    : p11-kit-trust-0.18.7-4.el7.x86_64                        278/337
+  Cleanup    : p11-kit-0.18.7-4.el7.x86_64                              279/337
+  Cleanup    : grep-2.16-1.el7.x86_64                                   280/337
+  Cleanup    : pcre-8.32-12.el7.x86_64                                  281/337
+  Cleanup    : libstdc++-4.8.2-16.2.el7_0.x86_64                        282/337
+  Cleanup    : iproute-3.10.0-13.el7.x86_64                             283/337
+  Cleanup    : freetype-2.4.11-9.el7.x86_64                             284/337
+  Cleanup    : libdrm-2.4.50-1.1.el7.x86_64                             285/337
+  Cleanup    : libgomp-4.8.2-16.2.el7_0.x86_64                          286/337
+  Cleanup    : iprutils-2.3.16-4.el7.x86_64                             287/337
+  Cleanup    : biosdevname-0.5.0-10.el7.x86_64                          288/337
+  Cleanup    : centos-logos-70.0.6-1.el7.centos.noarch                  289/337
+  Cleanup    : cryptsetup-libs-1.6.3-2.el7.x86_64                       290/337
+  Cleanup    : 7:device-mapper-libs-1.02.84-14.el7.x86_64               291/337
+  Cleanup    : 7:device-mapper-1.02.84-14.el7.x86_64                    292/337
+  Cleanup    : 1:dbus-1.6.12-8.el7.x86_64                               293/337
+  Cleanup    : systemd-208-11.el7_0.6.x86_64                            294/337
+  Cleanup    : util-linux-2.23.2-16.el7.x86_64                          295/337
+  Cleanup    : systemd-libs-208-11.el7_0.6.x86_64                       296/337
+  Cleanup    : kmod-14-9.el7.x86_64                                     297/337
+  Cleanup    : xz-5.1.2-8alpha.el7.x86_64                               298/337
+  Cleanup    : libmount-2.23.2-16.el7.x86_64                            299/337
+  Cleanup    : libuser-0.60-5.el7.x86_64                                300/337
+  Cleanup    : openldap-2.4.39-3.el7.x86_64                             301/337
+  Cleanup    : nss-tools-3.16.2.3-2.el7_0.x86_64                        302/337
+  Cleanup    : nss-sysinit-3.16.2.3-2.el7_0.x86_64                      303/337
+  Cleanup    : nss-3.16.2.3-2.el7_0.x86_64                              304/337
+  Cleanup    : nss-softokn-3.16.2.3-1.el7_0.x86_64                      305/337
+  Cleanup    : pam-1.1.8-9.el7.x86_64                                   306/337
+  Cleanup    : nss-util-3.16.2.3-1.el7_0.x86_64                         307/337
+  Cleanup    : libblkid-2.23.2-16.el7.x86_64                            308/337
+  Cleanup    : kmod-libs-14-9.el7.x86_64                                309/337
+  Cleanup    : 2:shadow-utils-4.1.5.1-13.el7.x86_64                     310/337
+  Cleanup    : glib2-2.36.3-5.el7.x86_64                                311/337
+  Cleanup    : binutils-2.23.52.0.1-16.el7.x86_64                       312/337
+  Cleanup    : setup-2.8.71-4.el7.noarch                                313/337
+  Cleanup    : audit-libs-2.3.3-4.el7.x86_64                            314/337
+  Cleanup    : xz-libs-5.1.2-8alpha.el7.x86_64                          315/337
+  Cleanup    : libuuid-2.23.2-16.el7.x86_64                             316/337
+  Cleanup    : nspr-4.10.6-1.el7_0.x86_64                               317/337
+  Cleanup    : sqlite-3.7.17-4.el7.x86_64                               318/337
+  Cleanup    : 1:dbus-libs-1.6.12-8.el7.x86_64                          319/337
+  Cleanup    : libgcrypt-1.5.3-4.el7.x86_64                             320/337
+  Cleanup    : libtasn1-3.3-5.el7_0.x86_64                              321/337
+  Cleanup    : libcom_err-1.42.9-4.el7.x86_64                           322/337
+  Cleanup    : libnl3-3.2.21-6.el7.x86_64                               323/337
+  Cleanup    : kernel-tools-libs-3.10.0-123.13.2.el7.x86_64             324/337
+  Cleanup    : elfutils-libelf-0.158-3.el7.x86_64                       325/337
+  Cleanup    : 2:ethtool-3.8-4.el7_0.x86_64                             326/337
+  Cleanup    : libyaml-0.1.4-10.el7.x86_64                              327/337
+  Cleanup    : 14:libpcap-1.5.3-3.el7_0.1.x86_64                        328/337
+  Cleanup    : alsa-lib-1.0.27.2-3.el7.x86_64                           329/337
+  Cleanup    : centos-release-7-0.1406.el7.centos.2.5.x86_64            330/337
+  Cleanup    : 32:bind-license-9.9.4-14.el7_0.1.noarch                  331/337
+  Cleanup    : bash-4.2.45-5.el7_0.4.x86_64                             332/337
+  Cleanup    : glibc-common-2.17-55.el7_0.5.x86_64                      333/337
+  Cleanup    : nss-softokn-freebl-3.16.2.3-1.el7_0.x86_64               334/337
+  Cleanup    : glibc-2.17-55.el7_0.5.x86_64                             335/337
+  Cleanup    : tzdata-2014j-1.el7_0.noarch                              336/337
+  Cleanup    : libgcc-4.8.2-16.2.el7_0.x86_64                           337/337
+2735 blocks
+  Verifying  : xfsprogs-3.2.1-6.el7.x86_64                                1/337
+  Verifying  : libcgroup-0.41-8.el7.x86_64                                2/337
+  Verifying  : iwl3160-firmware-22.0.7.0-36.el7.noarch                    3/337
+  Verifying  : avahi-0.6.31-14.el7.x86_64                                 4/337
+  Verifying  : elfutils-libs-0.160-1.el7.x86_64                           5/337
+  Verifying  : libgudev1-208-20.el7_1.5.x86_64                            6/337
+  Verifying  : libteam-1.15-1.el7.x86_64                                  7/337
+  Verifying  : libsoup-2.46.0-3.el7.x86_64                                8/337
+  Verifying  : pam-1.1.8-12.el7_1.1.x86_64                                9/337
+  Verifying  : 32:bind-libs-lite-9.9.4-18.el7_1.5.x86_64                 10/337
+  Verifying  : iwl5150-firmware-8.24.2.2-36.el7.noarch                   11/337
+  Verifying  : dracut-config-rescue-033-241.el7_1.5.x86_64               12/337
+  Verifying  : kmod-libs-14-10.el7.x86_64                                13/337
+  Verifying  : nss-softokn-freebl-3.16.2.3-13.el7_1.x86_64               14/337
+  Verifying  : nss-3.19.1-5.el7_1.x86_64                                 15/337
+  Verifying  : trousers-0.3.11.2-4.el7_1.x86_64                          16/337
+  Verifying  : parted-3.1-20.el7.x86_64                                  17/337
+  Verifying  : libnl3-3.2.21-8.el7.x86_64                                18/337
+  Verifying  : 1:NetworkManager-bluetooth-1.0.0-16.git20150121.b4ea59    19/337
+  Verifying  : systemd-208-20.el7_1.5.x86_64                             20/337
+  Verifying  : openssh-server-6.6.1p1-12.el7_1.x86_64                    21/337
+  Verifying  : grubby-8.28-11.el7.x86_64                                 22/337
+  Verifying  : freetype-2.4.11-10.el7_1.1.x86_64                         23/337
+  Verifying  : python-2.7.5-18.el7_1.1.x86_64                            24/337
+  Verifying  : policycoreutils-python-2.2.5-15.el7.x86_64                25/337
+  Verifying  : 1:NetworkManager-glib-1.0.0-16.git20150121.b4ea599c.el    26/337
+  Verifying  : alsa-lib-1.0.28-2.el7.x86_64                              27/337
+  Verifying  : iwl100-firmware-39.31.5.1-36.el7.noarch                   28/337
+  Verifying  : tuned-2.4.1-1.el7.noarch                                  29/337
+  Verifying  : avahi-libs-0.6.31-14.el7.x86_64                           30/337
+  Verifying  : pcre-8.32-14.el7.x86_64                                   31/337
+  Verifying  : biosdevname-0.6.1-2.el7.x86_64                            32/337
+  Verifying  : 2:shadow-utils-4.1.5.1-18.el7.x86_64                      33/337
+  Verifying  : 1:NetworkManager-wifi-1.0.0-16.git20150121.b4ea599c.el    34/337
+  Verifying  : kernel-tools-libs-3.10.0-229.11.1.el7.x86_64              35/337
+  Verifying  : libuser-0.60-7.el7_1.x86_64                               36/337
+  Verifying  : iwl2000-firmware-18.168.6.1-36.el7.noarch                 37/337
+  Verifying  : python-libs-2.7.5-18.el7_1.1.x86_64                       38/337
+  Verifying  : libss-1.42.9-7.el7.x86_64                                 39/337
+  Verifying  : hwdata-0.252-7.8.el7_1.x86_64                             40/337
+  Verifying  : kbd-legacy-1.15.5-11.el7.noarch                           41/337
+  Verifying  : iwl4965-firmware-228.61.2.24-36.el7.noarch                42/337
+  Verifying  : libstdc++-4.8.3-9.el7.x86_64                              43/337
+  Verifying  : alsa-firmware-1.0.28-2.el7.noarch                         44/337
+  Verifying  : yum-3.4.3-125.el7.centos.noarch                           45/337
+  Verifying  : centos-logos-70.0.6-2.el7.centos.noarch                   46/337
+  Verifying  : tzdata-2015f-1.el7.noarch                                 47/337
+  Verifying  : kernel-3.10.0-229.11.1.el7.x86_64                         48/337
+  Verifying  : firewalld-0.3.9-11.el7.noarch                             49/337
+  Verifying  : 1:grub2-tools-2.02-0.16.el7.centos.x86_64                 50/337
+  Verifying  : 1:mariadb-libs-5.5.44-1.el7_1.x86_64                      51/337
+  Verifying  : 1:dbus-1.6.12-11.el7.x86_64                               52/337
+  Verifying  : 14:libpcap-1.5.3-4.el7_1.2.x86_64                         53/337
+  Verifying  : audit-2.4.1-5.el7.x86_64                                  54/337
+  Verifying  : 1:NetworkManager-wwan-1.0.0-16.git20150121.b4ea599c.el    55/337
+  Verifying  : selinux-policy-3.13.1-23.el7_1.17.noarch                  56/337
+  Verifying  : gnutls-3.3.8-12.el7_1.1.x86_64                            57/337
+  Verifying  : iprutils-2.4.3-3.el7.x86_64                               58/337
+  Verifying  : openssh-clients-6.6.1p1-12.el7_1.x86_64                   59/337
+  Verifying  : glib2-2.40.0-4.el7.x86_64                                 60/337
+  Verifying  : 1:gmp-6.0.0-11.el7.x86_64                                 61/337
+  Verifying  : 2:microcode_ctl-2.1-10.el7.x86_64                         62/337
+  Verifying  : initscripts-9.49.24-1.el7.x86_64                          63/337
+  Verifying  : nss-tools-3.19.1-5.el7_1.x86_64                           64/337
+  Verifying  : libcom_err-1.42.9-7.el7.x86_64                            65/337
+  Verifying  : libxml2-2.9.1-5.el7_1.2.x86_64                            66/337
+  Verifying  : audit-libs-python-2.4.1-5.el7.x86_64                      67/337
+  Verifying  : 1:grub2-2.02-0.16.el7.centos.x86_64                       68/337
+  Verifying  : krb5-libs-1.12.2-14.el7.x86_64                            69/337
+  Verifying  : libnl3-cli-3.2.21-8.el7.x86_64                            70/337
+  Verifying  : 1:NetworkManager-libnm-1.0.0-16.git20150121.b4ea599c.e    71/337
+  Verifying  : libyaml-0.1.4-11.el7_0.x86_64                             72/337
+  Verifying  : 1:dbus-libs-1.6.12-11.el7.x86_64                          73/337
+  Verifying  : iwl105-firmware-18.168.6.1-36.el7.noarch                  74/337
+  Verifying  : dnsmasq-2.66-14.el7_1.x86_64                              75/337
+  Verifying  : 1:openssl-1.0.1e-42.el7.9.x86_64                          76/337
+  Verifying  : iwl5000-firmware-8.83.5.1_1-36.el7.noarch                 77/337
+  Verifying  : pygobject3-base-3.8.2-6.el7.x86_64                        78/337
+  Verifying  : iwl3945-firmware-15.32.2.9-36.el7.noarch                  79/337
+  Verifying  : sudo-1.8.6p7-13.el7.x86_64                                80/337
+  Verifying  : plymouth-scripts-0.8.9-0.13.20140113.el7.centos.x86_64    81/337
+  Verifying  : setup-2.8.71-5.el7.noarch                                 82/337
+  Verifying  : libgomp-4.8.3-9.el7.x86_64                                83/337
+  Verifying  : xz-5.1.2-9alpha.el7.x86_64                                84/337
+  Verifying  : glib-networking-2.40.0-1.el7.x86_64                       85/337
+  Verifying  : 1:NetworkManager-tui-1.0.0-16.git20150121.b4ea599c.el7    86/337
+  Verifying  : elfutils-libelf-0.160-1.el7.x86_64                        87/337
+  Verifying  : 7:device-mapper-1.02.93-3.el7_1.1.x86_64                  88/337
+  Verifying  : ca-certificates-2015.2.4-70.0.el7_1.noarch                89/337
+  Verifying  : dracut-033-241.el7_1.5.x86_64                             90/337
+  Verifying  : systemd-libs-208-20.el7_1.5.x86_64                        91/337
+  Verifying  : authconfig-6.2.8-9.el7.x86_64                             92/337
+  Verifying  : policycoreutils-2.2.5-15.el7.x86_64                       93/337
+  Verifying  : 12:dhcp-common-4.2.5-36.el7.centos.x86_64                 94/337
+  Verifying  : iwl6000g2b-firmware-17.168.5.2-36.el7.noarch              95/337
+  Verifying  : p11-kit-trust-0.20.7-3.el7.x86_64                         96/337
+  Verifying  : iwl2030-firmware-18.168.6.1-36.el7.noarch                 97/337
+  Verifying  : libmount-2.23.2-22.el7_1.1.x86_64                         98/337
+  Verifying  : 12:dhcp-libs-4.2.5-36.el7.centos.x86_64                   99/337
+  Verifying  : p11-kit-0.20.7-3.el7.x86_64                              100/337
+  Verifying  : 1:wpa_supplicant-2.0-17.el7_1.x86_64                     101/337
+  Verifying  : linux-firmware-20140911-0.1.git365e80c.el7.noarch        102/337
+  Verifying  : avahi-autoipd-0.6.31-14.el7.x86_64                       103/337
+  Verifying  : util-linux-2.23.2-22.el7_1.1.x86_64                      104/337
+  Verifying  : iproute-3.10.0-21.el7.x86_64                             105/337
+  Verifying  : iwl7260-firmware-22.0.7.0-36.el7.noarch                  106/337
+  Verifying  : bash-4.2.46-12.el7.x86_64                                107/337
+  Verifying  : rpm-python-4.11.1-25.el7.x86_64                          108/337
+  Verifying  : kbd-1.15.5-11.el7.x86_64                                 109/337
+  Verifying  : iwl6050-firmware-41.28.5.1-36.el7.noarch                 110/337
+  Verifying  : binutils-2.23.52.0.1-30.el7_1.2.x86_64                   111/337
+  Verifying  : 1:NetworkManager-adsl-1.0.0-16.git20150121.b4ea599c.el   112/337
+  Verifying  : numactl-libs-2.0.9-5.el7_1.x86_64                        113/337
+  Verifying  : 1:openssl-libs-1.0.1e-42.el7.9.x86_64                    114/337
+  Verifying  : systemd-sysv-208-20.el7_1.5.x86_64                       115/337
+  Verifying  : e2fsprogs-1.42.9-7.el7.x86_64                            116/337
+  Verifying  : audit-libs-2.4.1-5.el7.x86_64                            117/337
+  Verifying  : iwl6000g2a-firmware-17.168.5.3-36.el7.noarch             118/337
+  Verifying  : glibc-common-2.17-78.el7.x86_64                          119/337
+  Verifying  : kexec-tools-2.0.7-19.el7_1.2.x86_64                      120/337
+  Verifying  : procps-ng-3.3.10-3.el7.x86_64                            121/337
+  Verifying  : rpm-build-libs-4.11.1-25.el7.x86_64                      122/337
+  Verifying  : yum-plugin-fastestmirror-1.1.31-29.el7.noarch            123/337
+  Verifying  : cronie-1.4.11-13.el7.x86_64                              124/337
+  Verifying  : iwl6000-firmware-9.221.4.1-36.el7.noarch                 125/337
+  Verifying  : rpm-4.11.1-25.el7.x86_64                                 126/337
+  Verifying  : libdrm-2.4.56-2.el7.x86_64                               127/337
+  Verifying  : teamd-1.15-1.el7.x86_64                                  128/337
+  Verifying  : xz-libs-5.1.2-9alpha.el7.x86_64                          129/337
+  Verifying  : glibc-2.17-78.el7.x86_64                                 130/337
+  Verifying  : nss-softokn-3.16.2.3-13.el7_1.x86_64                     131/337
+  Verifying  : 2:ethtool-3.15-2.el7.x86_64                              132/337
+  Verifying  : btrfs-progs-3.16.2-1.el7.x86_64                          133/337
+  Verifying  : libgcrypt-1.5.3-12.el7_1.1.x86_64                        134/337
+  Verifying  : plymouth-core-libs-0.8.9-0.13.20140113.el7.centos.x86_   135/337
+  Verifying  : 7:device-mapper-libs-1.02.93-3.el7_1.1.x86_64            136/337
+  Verifying  : kernel-tools-3.10.0-229.11.1.el7.x86_64                  137/337
+  Verifying  : plymouth-0.8.9-0.13.20140113.el7.centos.x86_64           138/337
+  Verifying  : 12:dhclient-4.2.5-36.el7.centos.x86_64                   139/337
+  Verifying  : iwl135-firmware-18.168.6.1-36.el7.noarch                 140/337
+  Verifying  : libuuid-2.23.2-22.el7_1.1.x86_64                         141/337
+  Verifying  : nss-util-3.19.1-3.el7_1.x86_64                           142/337
+  Verifying  : kmod-14-10.el7.x86_64                                    143/337
+  Verifying  : kbd-misc-1.15.5-11.el7.noarch                            144/337
+  Verifying  : cryptsetup-libs-1.6.6-3.el7.x86_64                       145/337
+  Verifying  : cronie-anacron-1.4.11-13.el7.x86_64                      146/337
+  Verifying  : nspr-4.10.8-1.el7_1.x86_64                               147/337
+  Verifying  : centos-release-7-1.1503.el7.centos.2.8.x86_64            148/337
+  Verifying  : sqlite-3.7.17-6.el7_1.1.x86_64                           149/337
+  Verifying  : e2fsprogs-libs-1.42.9-7.el7.x86_64                       150/337
+  Verifying  : grep-2.20-1.el7.x86_64                                   151/337
+  Verifying  : 1:NetworkManager-1.0.0-16.git20150121.b4ea599c.el7_1.x   152/337
+  Verifying  : python-backports-1.0-8.el7.x86_64                        153/337
+  Verifying  : libgcc-4.8.3-9.el7.x86_64                                154/337
+  Verifying  : selinux-policy-targeted-3.13.1-23.el7_1.17.noarch        155/337
+  Verifying  : dracut-network-033-241.el7_1.5.x86_64                    156/337
+  Verifying  : openldap-2.4.39-6.el7.x86_64                             157/337
+  Verifying  : libtasn1-3.8-2.el7.x86_64                                158/337
+  Verifying  : 32:bind-license-9.9.4-18.el7_1.5.noarch                  159/337
+  Verifying  : 1:iwl1000-firmware-39.31.5.1-36.el7.noarch               160/337
+  Verifying  : openssh-6.6.1p1-12.el7_1.x86_64                          161/337
+  Verifying  : rpm-libs-4.11.1-25.el7.x86_64                            162/337
+  Verifying  : 2:irqbalance-1.0.7-2.el7_1.x86_64                        163/337
+  Verifying  : python-requests-2.6.0-1.el7_1.noarch                     164/337
+  Verifying  : kpartx-0.4.9-77.el7.x86_64                               165/337
+  Verifying  : python-urlgrabber-3.10-6.el7.noarch                      166/337
+  Verifying  : iputils-20121221-6.el7_1.1.x86_64                        167/337
+  Verifying  : 1:NetworkManager-team-1.0.0-16.git20150121.b4ea599c.el   168/337
+  Verifying  : python-chardet-2.2.1-1.el7_1.noarch                      169/337
+  Verifying  : nss-sysinit-3.19.1-5.el7_1.x86_64                        170/337
+  Verifying  : nettle-2.7.1-4.el7.x86_64                                171/337
+  Verifying  : python-urllib3-1.10.2-2.el7_1.noarch                     172/337
+  Verifying  : libblkid-2.23.2-22.el7_1.1.x86_64                        173/337
+  Verifying  : plymouth-core-libs-0.8.9-0.10.20140113.el7.centos.x86_   174/337
+  Verifying  : openssh-server-6.4p1-8.el7.x86_64                        175/337
+  Verifying  : yum-plugin-fastestmirror-1.1.31-25.el7_0.noarch          176/337
+  Verifying  : grubby-8.28-8.el7.x86_64                                 177/337
+  Verifying  : glibc-common-2.17-55.el7_0.5.x86_64                      178/337
+  Verifying  : rpm-libs-4.11.1-18.el7_0.x86_64                          179/337
+  Verifying  : xfsprogs-3.2.0-0.10.alpha2.el7.x86_64                    180/337
+  Verifying  : cronie-anacron-1.4.11-11.el7.x86_64                      181/337
+  Verifying  : kexec-tools-2.0.4-32.el7.centos.5.x86_64                 182/337
+  Verifying  : nspr-4.10.6-1.el7_0.x86_64                               183/337
+  Verifying  : avahi-autoipd-0.6.31-13.el7.x86_64                       184/337
+  Verifying  : 12:dhcp-common-4.2.5-27.el7.centos.2.x86_64              185/337
+  Verifying  : rpm-4.11.1-18.el7_0.x86_64                               186/337
+  Verifying  : systemd-libs-208-11.el7_0.6.x86_64                       187/337
+  Verifying  : tzdata-2014j-1.el7_0.noarch                              188/337
+  Verifying  : authconfig-6.2.8-8.el7.x86_64                            189/337
+  Verifying  : python-requests-1.1.0-8.el7.noarch                       190/337
+  Verifying  : dnsmasq-2.66-12.el7.x86_64                               191/337
+  Verifying  : 1:openssl-libs-1.0.1e-34.el7_0.7.x86_64                  192/337
+  Verifying  : numactl-libs-2.0.9-2.el7.x86_64                          193/337
+  Verifying  : nss-tools-3.16.2.3-2.el7_0.x86_64                        194/337
+  Verifying  : libgomp-4.8.2-16.2.el7_0.x86_64                          195/337
+  Verifying  : libdrm-2.4.50-1.1.el7.x86_64                             196/337
+  Verifying  : binutils-2.23.52.0.1-16.el7.x86_64                       197/337
+  Verifying  : grep-2.16-1.el7.x86_64                                   198/337
+  Verifying  : 1:mariadb-libs-5.5.40-2.el7_0.x86_64                     199/337
+  Verifying  : glibc-2.17-55.el7_0.5.x86_64                             200/337
+  Verifying  : 1:grub2-tools-2.02-0.2.10.el7.centos.1.x86_64            201/337
+  Verifying  : iwl3160-firmware-22.0.7.0-35.el7_0.noarch                202/337
+  Verifying  : libcom_err-1.42.9-4.el7.x86_64                           203/337
+  Verifying  : 1:dbus-1.6.12-8.el7.x86_64                               204/337
+  Verifying  : policycoreutils-2.2.5-11.el7_0.1.x86_64                  205/337
+  Verifying  : 1:gmp-5.1.1-5.el7.x86_64                                 206/337
+  Verifying  : libblkid-2.23.2-16.el7.x86_64                            207/337
+  Verifying  : 1:NetworkManager-glib-0.9.9.1-29.git20140326.4dba720.e   208/337
+  Verifying  : avahi-0.6.31-13.el7.x86_64                               209/337
+  Verifying  : elfutils-libs-0.158-3.el7.x86_64                         210/337
+  Verifying  : libnl3-cli-3.2.21-6.el7.x86_64                           211/337
+  Verifying  : systemd-208-11.el7_0.6.x86_64                            212/337
+  Verifying  : iwl6000-firmware-9.221.4.1-35.el7_0.noarch               213/337
+  Verifying  : util-linux-2.23.2-16.el7.x86_64                          214/337
+  Verifying  : kmod-14-9.el7.x86_64                                     215/337
+  Verifying  : iwl2000-firmware-18.168.6.1-35.el7_0.noarch              216/337
+  Verifying  : systemd-sysv-208-11.el7_0.6.x86_64                       217/337
+  Verifying  : rpm-build-libs-4.11.1-18.el7_0.x86_64                    218/337
+  Verifying  : centos-release-7-0.1406.el7.centos.2.5.x86_64            219/337
+  Verifying  : audit-2.3.3-4.el7.x86_64                                 220/337
+  Verifying  : selinux-policy-targeted-3.12.1-153.el7_0.13.noarch       221/337
+  Verifying  : pcre-8.32-12.el7.x86_64                                  222/337
+  Verifying  : alsa-firmware-1.0.27-2.el7.noarch                        223/337
+  Verifying  : 12:dhclient-4.2.5-27.el7.centos.2.x86_64                 224/337
+  Verifying  : 1:grub2-2.02-0.2.10.el7.centos.1.x86_64                  225/337
+  Verifying  : btrfs-progs-3.12-4.el7.x86_64                            226/337
+  Verifying  : plymouth-0.8.9-0.10.20140113.el7.centos.x86_64           227/337
+  Verifying  : policycoreutils-python-2.2.5-11.el7_0.1.x86_64           228/337
+  Verifying  : biosdevname-0.5.0-10.el7.x86_64                          229/337
+  Verifying  : dracut-config-rescue-033-161.el7_0.173.x86_64            230/337
+  Verifying  : iproute-3.10.0-13.el7.x86_64                             231/337
+  Verifying  : hwdata-0.252-7.3.el7.noarch                              232/337
+  Verifying  : libgcrypt-1.5.3-4.el7.x86_64                             233/337
+  Verifying  : 1:NetworkManager-0.9.9.1-29.git20140326.4dba720.el7_0.   234/337
+  Verifying  : procps-ng-3.3.9-6.el7.x86_64                             235/337
+  Verifying  : ca-certificates-2014.1.98-70.0.el7_0.noarch              236/337
+  Verifying  : iwl6000g2b-firmware-17.168.5.2-35.el7_0.noarch           237/337
+  Verifying  : iwl105-firmware-18.168.6.1-35.el7_0.noarch               238/337
+  Verifying  : 2:irqbalance-1.0.6-5.el7.x86_64                          239/337
+  Verifying  : libgcc-4.8.2-16.2.el7_0.x86_64                           240/337
+  Verifying  : iprutils-2.3.16-4.el7.x86_64                             241/337
+  Verifying  : glib2-2.36.3-5.el7.x86_64                                242/337
+  Verifying  : nettle-2.7.1-2.el7.x86_64                                243/337
+  Verifying  : libss-1.42.9-4.el7.x86_64                                244/337
+  Verifying  : 1:NetworkManager-tui-0.9.9.1-29.git20140326.4dba720.el   245/337
+  Verifying  : tuned-2.3.0-11.el7_0.3.noarch                            246/337
+  Verifying  : elfutils-libelf-0.158-3.el7.x86_64                       247/337
+  Verifying  : selinux-policy-3.12.1-153.el7_0.13.noarch                248/337
+  Verifying  : libgudev1-208-11.el7_0.6.x86_64                          249/337
+  Verifying  : 12:dhcp-libs-4.2.5-27.el7.centos.2.x86_64                250/337
+  Verifying  : glib-networking-2.36.2-3.el7.x86_64                      251/337
+  Verifying  : libsoup-2.42.2-3.el7.x86_64                              252/337
+  Verifying  : python-chardet-2.0.1-7.el7.noarch                        253/337
+  Verifying  : sudo-1.8.6p7-11.el7.x86_64                               254/337
+  Verifying  : audit-libs-python-2.3.3-4.el7.x86_64                     255/337
+  Verifying  : centos-logos-70.0.6-1.el7.centos.noarch                  256/337
+  Verifying  : openssh-6.4p1-8.el7.x86_64                               257/337
+  Verifying  : 7:device-mapper-1.02.84-14.el7.x86_64                    258/337
+  Verifying  : openldap-2.4.39-3.el7.x86_64                             259/337
+  Verifying  : pygobject3-base-3.8.2-4.el7.x86_64                       260/337
+  Verifying  : e2fsprogs-1.42.9-4.el7.x86_64                            261/337
+  Verifying  : audit-libs-2.3.3-4.el7.x86_64                            262/337
+  Verifying  : iwl6000g2a-firmware-17.168.5.3-35.el7_0.noarch           263/337
+  Verifying  : rpm-python-4.11.1-18.el7_0.x86_64                        264/337
+  Verifying  : xz-5.1.2-8alpha.el7.x86_64                               265/337
+  Verifying  : setup-2.8.71-4.el7.noarch                                266/337
+  Verifying  : libtasn1-3.3-5.el7_0.x86_64                              267/337
+  Verifying  : iwl5000-firmware-8.83.5.1_1-35.el7_0.noarch              268/337
+  Verifying  : plymouth-scripts-0.8.9-0.10.20140113.el7.centos.x86_64   269/337
+  Verifying  : iwl2030-firmware-18.168.6.1-35.el7_0.noarch              270/337
+  Verifying  : kernel-tools-libs-3.10.0-123.13.2.el7.x86_64             271/337
+  Verifying  : linux-firmware-20140804-0.1.git6bce2b0.el7_0.noarch      272/337
+  Verifying  : pam-1.1.8-9.el7.x86_64                                   273/337
+  Verifying  : 2:shadow-utils-4.1.5.1-13.el7.x86_64                     274/337
+  Verifying  : teamd-1.9-15.el7.x86_64                                  275/337
+  Verifying  : cronie-1.4.11-11.el7.x86_64                              276/337
+  Verifying  : nss-util-3.16.2.3-1.el7_0.x86_64                         277/337
+  Verifying  : libuser-0.60-5.el7.x86_64                                278/337
+  Verifying  : python-urlgrabber-3.10-4.el7.noarch                      279/337
+  Verifying  : libuuid-2.23.2-16.el7.x86_64                             280/337
+  Verifying  : 1:wpa_supplicant-2.0-13.el7_0.x86_64                     281/337
+  Verifying  : 1:dbus-libs-1.6.12-8.el7.x86_64                          282/337
+  Verifying  : iwl6050-firmware-41.28.5.1-35.el7_0.noarch               283/337
+  Verifying  : 32:bind-license-9.9.4-14.el7_0.1.noarch                  284/337
+  Verifying  : python-backports-1.0-6.el7.noarch                        285/337
+  Verifying  : libteam-1.9-15.el7.x86_64                                286/337
+  Verifying  : kpartx-0.4.9-66.el7.x86_64                               287/337
+  Verifying  : kernel-tools-3.10.0-123.13.2.el7.x86_64                  288/337
+  Verifying  : bash-4.2.45-5.el7_0.4.x86_64                             289/337
+  Verifying  : nss-softokn-3.16.2.3-1.el7_0.x86_64                      290/337
+  Verifying  : iwl7260-firmware-22.0.7.0-35.el7_0.noarch                291/337
+  Verifying  : 32:bind-libs-lite-9.9.4-14.el7_0.1.x86_64                292/337
+  Verifying  : iwl100-firmware-39.31.5.1-35.el7_0.noarch                293/337
+  Verifying  : nss-sysinit-3.16.2.3-2.el7_0.x86_64                      294/337
+  Verifying  : cryptsetup-libs-1.6.3-2.el7.x86_64                       295/337
+  Verifying  : iwl4965-firmware-228.61.2.24-35.el7_0.noarch             296/337
+  Verifying  : kmod-libs-14-9.el7.x86_64                                297/337
+  Verifying  : 2:microcode_ctl-2.1-7.1.el7_0.2.x86_64                   298/337
+  Verifying  : e2fsprogs-libs-1.42.9-4.el7.x86_64                       299/337
+  Verifying  : nss-3.16.2.3-2.el7_0.x86_64                              300/337
+  Verifying  : python-2.7.5-16.el7.x86_64                               301/337
+  Verifying  : kbd-1.15.5-10.el7.x86_64                                 302/337
+  Verifying  : p11-kit-0.18.7-4.el7.x86_64                              303/337
+  Verifying  : iwl135-firmware-18.168.6.1-35.el7_0.noarch               304/337
+  Verifying  : libxml2-2.9.1-5.el7_0.1.x86_64                           305/337
+  Verifying  : alsa-lib-1.0.27.2-3.el7.x86_64                           306/337
+  Verifying  : dracut-network-033-161.el7_0.173.x86_64                  307/337
+  Verifying  : iwl3945-firmware-15.32.2.9-35.el7_0.noarch               308/337
+  Verifying  : python-libs-2.7.5-16.el7.x86_64                          309/337
+  Verifying  : parted-3.1-17.el7.x86_64                                 310/337
+  Verifying  : python-urllib3-1.5-8.el7.noarch                          311/337
+  Verifying  : kbd-misc-1.15.5-10.el7.noarch                            312/337
+  Verifying  : avahi-libs-0.6.31-13.el7.x86_64                          313/337
+  Verifying  : 7:device-mapper-libs-1.02.84-14.el7.x86_64               314/337
+  Verifying  : nss-softokn-freebl-3.16.2.3-1.el7_0.x86_64               315/337
+  Verifying  : libmount-2.23.2-16.el7.x86_64                            316/337
+  Verifying  : sqlite-3.7.17-4.el7.x86_64                               317/337
+  Verifying  : libstdc++-4.8.2-16.2.el7_0.x86_64                        318/337
+  Verifying  : dracut-033-161.el7_0.173.x86_64                          319/337
+  Verifying  : freetype-2.4.11-9.el7.x86_64                             320/337
+  Verifying  : openssh-clients-6.4p1-8.el7.x86_64                       321/337
+  Verifying  : yum-3.4.3-118.el7.centos.noarch                          322/337
+  Verifying  : gnutls-3.1.18-10.el7_0.x86_64                            323/337
+  Verifying  : 14:libpcap-1.5.3-3.el7_0.1.x86_64                        324/337
+  Verifying  : initscripts-9.49.17-1.el7_0.1.x86_64                     325/337
+  Verifying  : krb5-libs-1.11.3-49.el7.x86_64                           326/337
+  Verifying  : iwl5150-firmware-8.24.2.2-35.el7_0.noarch                327/337
+  Verifying  : p11-kit-trust-0.18.7-4.el7.x86_64                        328/337
+  Verifying  : iputils-20121221-6.el7.x86_64                            329/337
+  Verifying  : libyaml-0.1.4-10.el7.x86_64                              330/337
+  Verifying  : libcgroup-0.41-6.el7.x86_64                              331/337
+  Verifying  : 1:iwl1000-firmware-39.31.5.1-35.el7_0.noarch             332/337
+  Verifying  : libnl3-3.2.21-6.el7.x86_64                               333/337
+  Verifying  : firewalld-0.3.9-7.el7.noarch                             334/337
+  Verifying  : 1:openssl-1.0.1e-34.el7_0.7.x86_64                       335/337
+  Verifying  : xz-libs-5.1.2-8alpha.el7.x86_64                          336/337
+  Verifying  : 2:ethtool-3.8-4.el7_0.x86_64                             337/337
+
+Installed:
+  NetworkManager.x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1
+  NetworkManager-adsl.x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1
+  NetworkManager-bluetooth.x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1
+  NetworkManager-team.x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1
+  NetworkManager-wifi.x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1
+  NetworkManager-wwan.x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1
+  kernel.x86_64 0:3.10.0-229.11.1.el7
+
+Dependency Installed:
+  NetworkManager-libnm.x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1
+  kbd-legacy.noarch 0:1.15.5-11.el7
+  trousers.x86_64 0:0.3.11.2-4.el7_1
+
+Updated:
+  NetworkManager-glib.x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1
+  NetworkManager-tui.x86_64 1:1.0.0-16.git20150121.b4ea599c.el7_1
+  alsa-firmware.noarch 0:1.0.28-2.el7
+  alsa-lib.x86_64 0:1.0.28-2.el7
+  audit.x86_64 0:2.4.1-5.el7
+  audit-libs.x86_64 0:2.4.1-5.el7
+  audit-libs-python.x86_64 0:2.4.1-5.el7
+  authconfig.x86_64 0:6.2.8-9.el7
+  avahi.x86_64 0:0.6.31-14.el7
+  avahi-autoipd.x86_64 0:0.6.31-14.el7
+  avahi-libs.x86_64 0:0.6.31-14.el7
+  bash.x86_64 0:4.2.46-12.el7
+  bind-libs-lite.x86_64 32:9.9.4-18.el7_1.5
+  bind-license.noarch 32:9.9.4-18.el7_1.5
+  binutils.x86_64 0:2.23.52.0.1-30.el7_1.2
+  biosdevname.x86_64 0:0.6.1-2.el7
+  btrfs-progs.x86_64 0:3.16.2-1.el7
+  ca-certificates.noarch 0:2015.2.4-70.0.el7_1
+  centos-logos.noarch 0:70.0.6-2.el7.centos
+  centos-release.x86_64 0:7-1.1503.el7.centos.2.8
+  cronie.x86_64 0:1.4.11-13.el7
+  cronie-anacron.x86_64 0:1.4.11-13.el7
+  cryptsetup-libs.x86_64 0:1.6.6-3.el7
+  dbus.x86_64 1:1.6.12-11.el7
+  dbus-libs.x86_64 1:1.6.12-11.el7
+  device-mapper.x86_64 7:1.02.93-3.el7_1.1
+  device-mapper-libs.x86_64 7:1.02.93-3.el7_1.1
+  dhclient.x86_64 12:4.2.5-36.el7.centos
+  dhcp-common.x86_64 12:4.2.5-36.el7.centos
+  dhcp-libs.x86_64 12:4.2.5-36.el7.centos
+  dnsmasq.x86_64 0:2.66-14.el7_1
+  dracut.x86_64 0:033-241.el7_1.5
+  dracut-config-rescue.x86_64 0:033-241.el7_1.5
+  dracut-network.x86_64 0:033-241.el7_1.5
+  e2fsprogs.x86_64 0:1.42.9-7.el7
+  e2fsprogs-libs.x86_64 0:1.42.9-7.el7
+  elfutils-libelf.x86_64 0:0.160-1.el7
+  elfutils-libs.x86_64 0:0.160-1.el7
+  ethtool.x86_64 2:3.15-2.el7
+  firewalld.noarch 0:0.3.9-11.el7
+  freetype.x86_64 0:2.4.11-10.el7_1.1
+  glib-networking.x86_64 0:2.40.0-1.el7
+  glib2.x86_64 0:2.40.0-4.el7
+  glibc.x86_64 0:2.17-78.el7
+  glibc-common.x86_64 0:2.17-78.el7
+  gmp.x86_64 1:6.0.0-11.el7
+  gnutls.x86_64 0:3.3.8-12.el7_1.1
+  grep.x86_64 0:2.20-1.el7
+  grub2.x86_64 1:2.02-0.16.el7.centos
+  grub2-tools.x86_64 1:2.02-0.16.el7.centos
+  grubby.x86_64 0:8.28-11.el7
+  hwdata.x86_64 0:0.252-7.8.el7_1
+  initscripts.x86_64 0:9.49.24-1.el7
+  iproute.x86_64 0:3.10.0-21.el7
+  iprutils.x86_64 0:2.4.3-3.el7
+  iputils.x86_64 0:20121221-6.el7_1.1
+  irqbalance.x86_64 2:1.0.7-2.el7_1
+  iwl100-firmware.noarch 0:39.31.5.1-36.el7
+  iwl1000-firmware.noarch 1:39.31.5.1-36.el7
+  iwl105-firmware.noarch 0:18.168.6.1-36.el7
+  iwl135-firmware.noarch 0:18.168.6.1-36.el7
+  iwl2000-firmware.noarch 0:18.168.6.1-36.el7
+  iwl2030-firmware.noarch 0:18.168.6.1-36.el7
+  iwl3160-firmware.noarch 0:22.0.7.0-36.el7
+  iwl3945-firmware.noarch 0:15.32.2.9-36.el7
+  iwl4965-firmware.noarch 0:228.61.2.24-36.el7
+  iwl5000-firmware.noarch 0:8.83.5.1_1-36.el7
+  iwl5150-firmware.noarch 0:8.24.2.2-36.el7
+  iwl6000-firmware.noarch 0:9.221.4.1-36.el7
+  iwl6000g2a-firmware.noarch 0:17.168.5.3-36.el7
+  iwl6000g2b-firmware.noarch 0:17.168.5.2-36.el7
+  iwl6050-firmware.noarch 0:41.28.5.1-36.el7
+  iwl7260-firmware.noarch 0:22.0.7.0-36.el7
+  kbd.x86_64 0:1.15.5-11.el7
+  kbd-misc.noarch 0:1.15.5-11.el7
+  kernel-tools.x86_64 0:3.10.0-229.11.1.el7
+  kernel-tools-libs.x86_64 0:3.10.0-229.11.1.el7
+  kexec-tools.x86_64 0:2.0.7-19.el7_1.2
+  kmod.x86_64 0:14-10.el7
+  kmod-libs.x86_64 0:14-10.el7
+  kpartx.x86_64 0:0.4.9-77.el7
+  krb5-libs.x86_64 0:1.12.2-14.el7
+  libblkid.x86_64 0:2.23.2-22.el7_1.1
+  libcgroup.x86_64 0:0.41-8.el7
+  libcom_err.x86_64 0:1.42.9-7.el7
+  libdrm.x86_64 0:2.4.56-2.el7
+  libgcc.x86_64 0:4.8.3-9.el7
+  libgcrypt.x86_64 0:1.5.3-12.el7_1.1
+  libgomp.x86_64 0:4.8.3-9.el7
+  libgudev1.x86_64 0:208-20.el7_1.5
+  libmount.x86_64 0:2.23.2-22.el7_1.1
+  libnl3.x86_64 0:3.2.21-8.el7
+  libnl3-cli.x86_64 0:3.2.21-8.el7
+  libpcap.x86_64 14:1.5.3-4.el7_1.2
+  libsoup.x86_64 0:2.46.0-3.el7
+  libss.x86_64 0:1.42.9-7.el7
+  libstdc++.x86_64 0:4.8.3-9.el7
+  libtasn1.x86_64 0:3.8-2.el7
+  libteam.x86_64 0:1.15-1.el7
+  libuser.x86_64 0:0.60-7.el7_1
+  libuuid.x86_64 0:2.23.2-22.el7_1.1
+  libxml2.x86_64 0:2.9.1-5.el7_1.2
+  libyaml.x86_64 0:0.1.4-11.el7_0
+  linux-firmware.noarch 0:20140911-0.1.git365e80c.el7
+  mariadb-libs.x86_64 1:5.5.44-1.el7_1
+  microcode_ctl.x86_64 2:2.1-10.el7
+  nettle.x86_64 0:2.7.1-4.el7
+  nspr.x86_64 0:4.10.8-1.el7_1
+  nss.x86_64 0:3.19.1-5.el7_1
+  nss-softokn.x86_64 0:3.16.2.3-13.el7_1
+  nss-softokn-freebl.x86_64 0:3.16.2.3-13.el7_1
+  nss-sysinit.x86_64 0:3.19.1-5.el7_1
+  nss-tools.x86_64 0:3.19.1-5.el7_1
+  nss-util.x86_64 0:3.19.1-3.el7_1
+  numactl-libs.x86_64 0:2.0.9-5.el7_1
+  openldap.x86_64 0:2.4.39-6.el7
+  openssh.x86_64 0:6.6.1p1-12.el7_1
+  openssh-clients.x86_64 0:6.6.1p1-12.el7_1
+  openssh-server.x86_64 0:6.6.1p1-12.el7_1
+  openssl.x86_64 1:1.0.1e-42.el7.9
+  openssl-libs.x86_64 1:1.0.1e-42.el7.9
+  p11-kit.x86_64 0:0.20.7-3.el7
+  p11-kit-trust.x86_64 0:0.20.7-3.el7
+  pam.x86_64 0:1.1.8-12.el7_1.1
+  parted.x86_64 0:3.1-20.el7
+  pcre.x86_64 0:8.32-14.el7
+  plymouth.x86_64 0:0.8.9-0.13.20140113.el7.centos
+  plymouth-core-libs.x86_64 0:0.8.9-0.13.20140113.el7.centos
+  plymouth-scripts.x86_64 0:0.8.9-0.13.20140113.el7.centos
+  policycoreutils.x86_64 0:2.2.5-15.el7
+  policycoreutils-python.x86_64 0:2.2.5-15.el7
+  procps-ng.x86_64 0:3.3.10-3.el7
+  pygobject3-base.x86_64 0:3.8.2-6.el7
+  python.x86_64 0:2.7.5-18.el7_1.1
+  python-backports.x86_64 0:1.0-8.el7
+  python-chardet.noarch 0:2.2.1-1.el7_1
+  python-libs.x86_64 0:2.7.5-18.el7_1.1
+  python-requests.noarch 0:2.6.0-1.el7_1
+  python-urlgrabber.noarch 0:3.10-6.el7
+  python-urllib3.noarch 0:1.10.2-2.el7_1
+  rpm.x86_64 0:4.11.1-25.el7
+  rpm-build-libs.x86_64 0:4.11.1-25.el7
+  rpm-libs.x86_64 0:4.11.1-25.el7
+  rpm-python.x86_64 0:4.11.1-25.el7
+  selinux-policy.noarch 0:3.13.1-23.el7_1.17
+  selinux-policy-targeted.noarch 0:3.13.1-23.el7_1.17
+  setup.noarch 0:2.8.71-5.el7
+  shadow-utils.x86_64 2:4.1.5.1-18.el7
+  sqlite.x86_64 0:3.7.17-6.el7_1.1
+  sudo.x86_64 0:1.8.6p7-13.el7
+  systemd.x86_64 0:208-20.el7_1.5
+  systemd-libs.x86_64 0:208-20.el7_1.5
+  systemd-sysv.x86_64 0:208-20.el7_1.5
+  teamd.x86_64 0:1.15-1.el7
+  tuned.noarch 0:2.4.1-1.el7
+  tzdata.noarch 0:2015f-1.el7
+  util-linux.x86_64 0:2.23.2-22.el7_1.1
+  wpa_supplicant.x86_64 1:2.0-17.el7_1
+  xfsprogs.x86_64 0:3.2.1-6.el7
+  xz.x86_64 0:5.1.2-9alpha.el7
+  xz-libs.x86_64 0:5.1.2-9alpha.el7
+  yum.noarch 0:3.4.3-125.el7.centos
+  yum-plugin-fastestmirror.noarch 0:1.1.31-29.el7
+
+Replaced:
+  NetworkManager.x86_64 1:0.9.9.1-29.git20140326.4dba720.el7_0
+
+Complete!
+[root@server1 ~]# sudo yum - y install mariadb-server mariadb
+Loaded plugins: fastestmirror
+No such command: -. Please use /bin/yum --help
+[root@server1 ~]# sudo yum -y install mariadb-server mariadb
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.metrocast.net
+ * extras: centos.mirror.constant.com
+ * updates: mirrors.lga7.us.voxel.net
+Resolving Dependencies
+--> Running transaction check
+---> Package mariadb.x86_64 1:5.5.44-1.el7_1 will be installed
+--> Processing Dependency: perl(Sys::Hostname) for package: 1:mariadb-5.5.44-1.el7_1.x86_64
+--> Processing Dependency: perl(IPC::Open3) for package: 1:mariadb-5.5.44-1.el7_1.x86_64
+--> Processing Dependency: perl(Getopt::Long) for package: 1:mariadb-5.5.44-1.el7_1.x86_64
+--> Processing Dependency: perl(File::Temp) for package: 1:mariadb-5.5.44-1.el7_1.x86_64
+--> Processing Dependency: perl(Fcntl) for package: 1:mariadb-5.5.44-1.el7_1.x86_64
+--> Processing Dependency: perl(Exporter) for package: 1:mariadb-5.5.44-1.el7_1.x86_64
+--> Processing Dependency: /usr/bin/perl for package: 1:mariadb-5.5.44-1.el7_1.x86_64
+---> Package mariadb-server.x86_64 1:5.5.44-1.el7_1 will be installed
+--> Processing Dependency: perl-DBI for package: 1:mariadb-server-5.5.44-1.el7_1.x86_64
+--> Processing Dependency: perl-DBD-MySQL for package: 1:mariadb-server-5.5.44-1.el7_1.x86_64
+--> Processing Dependency: perl(File::Path) for package: 1:mariadb-server-5.5.44-1.el7_1.x86_64
+--> Processing Dependency: perl(Data::Dumper) for package: 1:mariadb-server-5.5.44-1.el7_1.x86_64
+--> Processing Dependency: perl(DBI) for package: 1:mariadb-server-5.5.44-1.el7_1.x86_64
+--> Processing Dependency: libaio.so.1(LIBAIO_0.4)(64bit) for package: 1:mariadb-server-5.5.44-1.el7_1.x86_64
+--> Processing Dependency: libaio.so.1(LIBAIO_0.1)(64bit) for package: 1:mariadb-server-5.5.44-1.el7_1.x86_64
+--> Processing Dependency: libaio.so.1()(64bit) for package: 1:mariadb-server-5.5.44-1.el7_1.x86_64
+--> Running transaction check
+---> Package libaio.x86_64 0:0.3.109-12.el7 will be installed
+---> Package perl.x86_64 4:5.16.3-285.el7 will be installed
+--> Processing Dependency: perl-libs = 4:5.16.3-285.el7 for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl(Socket) >= 1.3 for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl(Scalar::Util) >= 1.10 for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl-macros for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl-libs for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl(threads::shared) for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl(threads) for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl(constant) for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl(Time::Local) for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl(Time::HiRes) for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl(Storable) for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl(Socket) for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl(Scalar::Util) for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl(Pod::Simple::XHTML) for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl(Pod::Simple::Search) for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl(Filter::Util::Call) for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl(File::Spec::Unix) for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl(File::Spec::Functions) for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl(File::Spec) for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl(Cwd) for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: perl(Carp) for package: 4:perl-5.16.3-285.el7.x86_64
+--> Processing Dependency: libperl.so()(64bit) for package: 4:perl-5.16.3-285.el7.x86_64
+---> Package perl-DBD-MySQL.x86_64 0:4.023-5.el7 will be installed
+---> Package perl-DBI.x86_64 0:1.627-4.el7 will be installed
+--> Processing Dependency: perl(RPC::PlServer) >= 0.2001 for package: perl-DBI-1.627-4.el7.x86_64
+--> Processing Dependency: perl(RPC::PlClient) >= 0.2000 for package: perl-DBI-1.627-4.el7.x86_64
+---> Package perl-Data-Dumper.x86_64 0:2.145-3.el7 will be installed
+---> Package perl-Exporter.noarch 0:5.68-3.el7 will be installed
+---> Package perl-File-Path.noarch 0:2.09-2.el7 will be installed
+---> Package perl-File-Temp.noarch 0:0.23.01-3.el7 will be installed
+---> Package perl-Getopt-Long.noarch 0:2.40-2.el7 will be installed
+--> Processing Dependency: perl(Pod::Usage) >= 1.14 for package: perl-Getopt-Long-2.40-2.el7.noarch
+--> Processing Dependency: perl(Text::ParseWords) for package: perl-Getopt-Long-2.40-2.el7.noarch
+--> Running transaction check
+---> Package perl-Carp.noarch 0:1.26-244.el7 will be installed
+---> Package perl-Filter.x86_64 0:1.49-3.el7 will be installed
+---> Package perl-PathTools.x86_64 0:3.40-5.el7 will be installed
+---> Package perl-PlRPC.noarch 0:0.2020-14.el7 will be installed
+--> Processing Dependency: perl(Net::Daemon) >= 0.13 for package: perl-PlRPC-0.2020-14.el7.noarch
+--> Processing Dependency: perl(Net::Daemon::Test) for package: perl-PlRPC-0.2020-14.el7.noarch
+--> Processing Dependency: perl(Net::Daemon::Log) for package: perl-PlRPC-0.2020-14.el7.noarch
+--> Processing Dependency: perl(Compress::Zlib) for package: perl-PlRPC-0.2020-14.el7.noarch
+---> Package perl-Pod-Simple.noarch 1:3.28-4.el7 will be installed
+--> Processing Dependency: perl(Pod::Escapes) >= 1.04 for package: 1:perl-Pod-Simple-3.28-4.el7.noarch
+--> Processing Dependency: perl(Encode) for package: 1:perl-Pod-Simple-3.28-4.el7.noarch
+---> Package perl-Pod-Usage.noarch 0:1.63-3.el7 will be installed
+--> Processing Dependency: perl(Pod::Text) >= 3.15 for package: perl-Pod-Usage-1.63-3.el7.noarch
+--> Processing Dependency: perl-Pod-Perldoc for package: perl-Pod-Usage-1.63-3.el7.noarch
+---> Package perl-Scalar-List-Utils.x86_64 0:1.27-248.el7 will be installed
+---> Package perl-Socket.x86_64 0:2.010-3.el7 will be installed
+---> Package perl-Storable.x86_64 0:2.45-3.el7 will be installed
+---> Package perl-Text-ParseWords.noarch 0:3.29-4.el7 will be installed
+---> Package perl-Time-HiRes.x86_64 4:1.9725-3.el7 will be installed
+---> Package perl-Time-Local.noarch 0:1.2300-2.el7 will be installed
+---> Package perl-constant.noarch 0:1.27-2.el7 will be installed
+---> Package perl-libs.x86_64 4:5.16.3-285.el7 will be installed
+---> Package perl-macros.x86_64 4:5.16.3-285.el7 will be installed
+---> Package perl-threads.x86_64 0:1.87-4.el7 will be installed
+---> Package perl-threads-shared.x86_64 0:1.43-6.el7 will be installed
+--> Running transaction check
+---> Package perl-Encode.x86_64 0:2.51-7.el7 will be installed
+---> Package perl-IO-Compress.noarch 0:2.061-2.el7 will be installed
+--> Processing Dependency: perl(Compress::Raw::Zlib) >= 2.061 for package: perl-IO-Compress-2.061-2.el7.noarch
+--> Processing Dependency: perl(Compress::Raw::Bzip2) >= 2.061 for package: perl-IO-Compress-2.061-2.el7.noarch
+---> Package perl-Net-Daemon.noarch 0:0.48-5.el7 will be installed
+---> Package perl-Pod-Escapes.noarch 1:1.04-285.el7 will be installed
+---> Package perl-Pod-Perldoc.noarch 0:3.20-4.el7 will be installed
+--> Processing Dependency: perl(parent) for package: perl-Pod-Perldoc-3.20-4.el7.noarch
+--> Processing Dependency: perl(HTTP::Tiny) for package: perl-Pod-Perldoc-3.20-4.el7.noarch
+---> Package perl-podlators.noarch 0:2.5.1-3.el7 will be installed
+--> Running transaction check
+---> Package perl-Compress-Raw-Bzip2.x86_64 0:2.061-3.el7 will be installed
+---> Package perl-Compress-Raw-Zlib.x86_64 1:2.061-4.el7 will be installed
+---> Package perl-HTTP-Tiny.noarch 0:0.033-3.el7 will be installed
+---> Package perl-parent.noarch 1:0.225-244.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                     Arch       Version               Repository   Size
+================================================================================
+Installing:
+ mariadb                     x86_64     1:5.5.44-1.el7_1      updates     8.9 M
+ mariadb-server              x86_64     1:5.5.44-1.el7_1      updates      11 M
+Installing for dependencies:
+ libaio                      x86_64     0.3.109-12.el7        base         24 k
+ perl                        x86_64     4:5.16.3-285.el7      base        8.0 M
+ perl-Carp                   noarch     1.26-244.el7          base         19 k
+ perl-Compress-Raw-Bzip2     x86_64     2.061-3.el7           base         32 k
+ perl-Compress-Raw-Zlib      x86_64     1:2.061-4.el7         base         57 k
+ perl-DBD-MySQL              x86_64     4.023-5.el7           base        140 k
+ perl-DBI                    x86_64     1.627-4.el7           base        802 k
+ perl-Data-Dumper            x86_64     2.145-3.el7           base         47 k
+ perl-Encode                 x86_64     2.51-7.el7            base        1.5 M
+ perl-Exporter               noarch     5.68-3.el7            base         28 k
+ perl-File-Path              noarch     2.09-2.el7            base         26 k
+ perl-File-Temp              noarch     0.23.01-3.el7         base         56 k
+ perl-Filter                 x86_64     1.49-3.el7            base         76 k
+ perl-Getopt-Long            noarch     2.40-2.el7            base         56 k
+ perl-HTTP-Tiny              noarch     0.033-3.el7           base         38 k
+ perl-IO-Compress            noarch     2.061-2.el7           base        260 k
+ perl-Net-Daemon             noarch     0.48-5.el7            base         51 k
+ perl-PathTools              x86_64     3.40-5.el7            base         82 k
+ perl-PlRPC                  noarch     0.2020-14.el7         base         36 k
+ perl-Pod-Escapes            noarch     1:1.04-285.el7        base         50 k
+ perl-Pod-Perldoc            noarch     3.20-4.el7            base         87 k
+ perl-Pod-Simple             noarch     1:3.28-4.el7          base        216 k
+ perl-Pod-Usage              noarch     1.63-3.el7            base         27 k
+ perl-Scalar-List-Utils      x86_64     1.27-248.el7          base         36 k
+ perl-Socket                 x86_64     2.010-3.el7           base         49 k
+ perl-Storable               x86_64     2.45-3.el7            base         77 k
+ perl-Text-ParseWords        noarch     3.29-4.el7            base         14 k
+ perl-Time-HiRes             x86_64     4:1.9725-3.el7        base         45 k
+ perl-Time-Local             noarch     1.2300-2.el7          base         24 k
+ perl-constant               noarch     1.27-2.el7            base         19 k
+ perl-libs                   x86_64     4:5.16.3-285.el7      base        687 k
+ perl-macros                 x86_64     4:5.16.3-285.el7      base         42 k
+ perl-parent                 noarch     1:0.225-244.el7       base         12 k
+ perl-podlators              noarch     2.5.1-3.el7           base        112 k
+ perl-threads                x86_64     1.87-4.el7            base         49 k
+ perl-threads-shared         x86_64     1.43-6.el7            base         39 k
+
+Transaction Summary
+================================================================================
+Install  2 Packages (+36 Dependent packages)
+
+Total download size: 32 M
+Installed size: 144 M
+Downloading packages:
+(1/38): libaio-0.3.109-12.el7.x86_64.rpm                   |  24 kB   00:00
+(2/38): perl-Carp-1.26-244.el7.noarch.rpm                  |  19 kB   00:00
+(3/38): perl-Compress-Raw-Bzip2-2.061-3.el7.x86_64.rpm     |  32 kB   00:00
+(4/38): perl-Compress-Raw-Zlib-2.061-4.el7.x86_64.rpm      |  57 kB   00:00
+(5/38): perl-DBD-MySQL-4.023-5.el7.x86_64.rpm              | 140 kB   00:00
+(6/38): perl-DBI-1.627-4.el7.x86_64.rpm                    | 802 kB   00:00
+(7/38): perl-Data-Dumper-2.145-3.el7.x86_64.rpm            |  47 kB   00:00
+(8/38): mariadb-5.5.44-1.el7_1.x86_64.rpm                  | 8.9 MB   00:00
+(9/38): mariadb-server-5.5.44-1.el7_1.x86_64.rpm           |  11 MB   00:00
+(10/38): perl-5.16.3-285.el7.x86_64.rpm                    | 8.0 MB   00:00
+(11/38): perl-Encode-2.51-7.el7.x86_64.rpm                 | 1.5 MB   00:00
+(12/38): perl-Exporter-5.68-3.el7.noarch.rpm               |  28 kB   00:00
+(13/38): perl-File-Temp-0.23.01-3.el7.noarch.rpm           |  56 kB   00:00
+(14/38): perl-Filter-1.49-3.el7.x86_64.rpm                 |  76 kB   00:00
+(15/38): perl-Getopt-Long-2.40-2.el7.noarch.rpm            |  56 kB   00:00
+(16/38): perl-HTTP-Tiny-0.033-3.el7.noarch.rpm             |  38 kB   00:00
+(17/38): perl-IO-Compress-2.061-2.el7.noarch.rpm           | 260 kB   00:00
+(18/38): perl-Net-Daemon-0.48-5.el7.noarch.rpm             |  51 kB   00:00
+(19/38): perl-PathTools-3.40-5.el7.x86_64.rpm              |  82 kB   00:00
+(20/38): perl-PlRPC-0.2020-14.el7.noarch.rpm               |  36 kB   00:00
+(21/38): perl-Pod-Escapes-1.04-285.el7.noarch.rpm          |  50 kB   00:00
+(22/38): perl-Pod-Perldoc-3.20-4.el7.noarch.rpm            |  87 kB   00:00
+(23/38): perl-Pod-Simple-3.28-4.el7.noarch.rpm             | 216 kB   00:00
+(24/38): perl-Pod-Usage-1.63-3.el7.noarch.rpm              |  27 kB   00:00
+(25/38): perl-Scalar-List-Utils-1.27-248.el7.x86_64.rpm    |  36 kB   00:00
+(26/38): perl-File-Path-2.09-2.el7.noarch.rpm              |  26 kB   00:00
+(27/38): perl-Socket-2.010-3.el7.x86_64.rpm                |  49 kB   00:00
+(28/38): perl-Text-ParseWords-3.29-4.el7.noarch.rpm        |  14 kB   00:00
+(29/38): perl-Time-HiRes-1.9725-3.el7.x86_64.rpm           |  45 kB   00:00
+(30/38): perl-Storable-2.45-3.el7.x86_64.rpm               |  77 kB   00:00
+(31/38): perl-Time-Local-1.2300-2.el7.noarch.rpm           |  24 kB   00:00
+(32/38): perl-constant-1.27-2.el7.noarch.rpm               |  19 kB   00:00
+(33/38): perl-libs-5.16.3-285.el7.x86_64.rpm               | 687 kB   00:00
+(34/38): perl-parent-0.225-244.el7.noarch.rpm              |  12 kB   00:00
+(35/38): perl-podlators-2.5.1-3.el7.noarch.rpm             | 112 kB   00:00
+(36/38): perl-threads-1.87-4.el7.x86_64.rpm                |  49 kB   00:00
+(37/38): perl-threads-shared-1.43-6.el7.x86_64.rpm         |  39 kB   00:00
+(38/38): perl-macros-5.16.3-285.el7.x86_64.rpm             |  42 kB   00:00
+--------------------------------------------------------------------------------
+Total                                               23 MB/s |  32 MB  00:01
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : 1:perl-parent-0.225-244.el7.noarch                          1/38
+  Installing : perl-HTTP-Tiny-0.033-3.el7.noarch                           2/38
+  Installing : perl-podlators-2.5.1-3.el7.noarch                           3/38
+  Installing : perl-Pod-Perldoc-3.20-4.el7.noarch                          4/38
+  Installing : 1:perl-Pod-Escapes-1.04-285.el7.noarch                      5/38
+  Installing : perl-Encode-2.51-7.el7.x86_64                               6/38
+  Installing : perl-Text-ParseWords-3.29-4.el7.noarch                      7/38
+  Installing : perl-Pod-Usage-1.63-3.el7.noarch                            8/38
+  Installing : perl-Storable-2.45-3.el7.x86_64                             9/38
+  Installing : perl-Exporter-5.68-3.el7.noarch                            10/38
+  Installing : perl-constant-1.27-2.el7.noarch                            11/38
+  Installing : perl-Time-Local-1.2300-2.el7.noarch                        12/38
+  Installing : perl-Socket-2.010-3.el7.x86_64                             13/38
+  Installing : perl-Carp-1.26-244.el7.noarch                              14/38
+  Installing : 4:perl-Time-HiRes-1.9725-3.el7.x86_64                      15/38
+  Installing : perl-PathTools-3.40-5.el7.x86_64                           16/38
+  Installing : perl-Scalar-List-Utils-1.27-248.el7.x86_64                 17/38
+  Installing : 4:perl-macros-5.16.3-285.el7.x86_64                        18/38
+  Installing : 1:perl-Pod-Simple-3.28-4.el7.noarch                        19/38
+  Installing : perl-File-Temp-0.23.01-3.el7.noarch                        20/38
+  Installing : perl-File-Path-2.09-2.el7.noarch                           21/38
+  Installing : perl-threads-shared-1.43-6.el7.x86_64                      22/38
+  Installing : perl-threads-1.87-4.el7.x86_64                             23/38
+  Installing : perl-Filter-1.49-3.el7.x86_64                              24/38
+  Installing : 4:perl-libs-5.16.3-285.el7.x86_64                          25/38
+  Installing : perl-Getopt-Long-2.40-2.el7.noarch                         26/38
+  Installing : 4:perl-5.16.3-285.el7.x86_64                               27/38
+  Installing : perl-Data-Dumper-2.145-3.el7.x86_64                        28/38
+  Installing : perl-Compress-Raw-Bzip2-2.061-3.el7.x86_64                 29/38
+  Installing : 1:mariadb-5.5.44-1.el7_1.x86_64                            30/38
+  Installing : perl-Net-Daemon-0.48-5.el7.noarch                          31/38
+  Installing : 1:perl-Compress-Raw-Zlib-2.061-4.el7.x86_64                32/38
+  Installing : perl-IO-Compress-2.061-2.el7.noarch                        33/38
+  Installing : perl-PlRPC-0.2020-14.el7.noarch                            34/38
+  Installing : perl-DBI-1.627-4.el7.x86_64                                35/38
+  Installing : perl-DBD-MySQL-4.023-5.el7.x86_64                          36/38
+  Installing : libaio-0.3.109-12.el7.x86_64                               37/38
+  Installing : 1:mariadb-server-5.5.44-1.el7_1.x86_64                     38/38
+  Verifying  : perl-HTTP-Tiny-0.033-3.el7.noarch                           1/38
+  Verifying  : perl-threads-shared-1.43-6.el7.x86_64                       2/38
+  Verifying  : perl-Storable-2.45-3.el7.x86_64                             3/38
+  Verifying  : perl-IO-Compress-2.061-2.el7.noarch                         4/38
+  Verifying  : perl-Exporter-5.68-3.el7.noarch                             5/38
+  Verifying  : perl-constant-1.27-2.el7.noarch                             6/38
+  Verifying  : perl-PathTools-3.40-5.el7.x86_64                            7/38
+  Verifying  : 1:perl-Pod-Escapes-1.04-285.el7.noarch                      8/38
+  Verifying  : libaio-0.3.109-12.el7.x86_64                                9/38
+  Verifying  : perl-Compress-Raw-Bzip2-2.061-3.el7.x86_64                 10/38
+  Verifying  : 1:perl-parent-0.225-244.el7.noarch                         11/38
+  Verifying  : 1:mariadb-5.5.44-1.el7_1.x86_64                            12/38
+  Verifying  : perl-Net-Daemon-0.48-5.el7.noarch                          13/38
+  Verifying  : perl-File-Temp-0.23.01-3.el7.noarch                        14/38
+  Verifying  : 1:perl-Pod-Simple-3.28-4.el7.noarch                        15/38
+  Verifying  : perl-Time-Local-1.2300-2.el7.noarch                        16/38
+  Verifying  : perl-Pod-Perldoc-3.20-4.el7.noarch                         17/38
+  Verifying  : perl-DBI-1.627-4.el7.x86_64                                18/38
+  Verifying  : perl-Socket-2.010-3.el7.x86_64                             19/38
+  Verifying  : perl-Carp-1.26-244.el7.noarch                              20/38
+  Verifying  : 1:mariadb-server-5.5.44-1.el7_1.x86_64                     21/38
+  Verifying  : perl-Data-Dumper-2.145-3.el7.x86_64                        22/38
+  Verifying  : perl-podlators-2.5.1-3.el7.noarch                          23/38
+  Verifying  : 4:perl-Time-HiRes-1.9725-3.el7.x86_64                      24/38
+  Verifying  : perl-Scalar-List-Utils-1.27-248.el7.x86_64                 25/38
+  Verifying  : 1:perl-Compress-Raw-Zlib-2.061-4.el7.x86_64                26/38
+  Verifying  : 4:perl-macros-5.16.3-285.el7.x86_64                        27/38
+  Verifying  : perl-Pod-Usage-1.63-3.el7.noarch                           28/38
+  Verifying  : perl-DBD-MySQL-4.023-5.el7.x86_64                          29/38
+  Verifying  : perl-Encode-2.51-7.el7.x86_64                              30/38
+  Verifying  : 4:perl-5.16.3-285.el7.x86_64                               31/38
+  Verifying  : perl-Getopt-Long-2.40-2.el7.noarch                         32/38
+  Verifying  : perl-File-Path-2.09-2.el7.noarch                           33/38
+  Verifying  : perl-PlRPC-0.2020-14.el7.noarch                            34/38
+  Verifying  : perl-threads-1.87-4.el7.x86_64                             35/38
+  Verifying  : perl-Filter-1.49-3.el7.x86_64                              36/38
+  Verifying  : perl-Text-ParseWords-3.29-4.el7.noarch                     37/38
+  Verifying  : 4:perl-libs-5.16.3-285.el7.x86_64                          38/38
+
+Installed:
+  mariadb.x86_64 1:5.5.44-1.el7_1     mariadb-server.x86_64 1:5.5.44-1.el7_1
+
+Dependency Installed:
+  libaio.x86_64 0:0.3.109-12.el7
+  perl.x86_64 4:5.16.3-285.el7
+  perl-Carp.noarch 0:1.26-244.el7
+  perl-Compress-Raw-Bzip2.x86_64 0:2.061-3.el7
+  perl-Compress-Raw-Zlib.x86_64 1:2.061-4.el7
+  perl-DBD-MySQL.x86_64 0:4.023-5.el7
+  perl-DBI.x86_64 0:1.627-4.el7
+  perl-Data-Dumper.x86_64 0:2.145-3.el7
+  perl-Encode.x86_64 0:2.51-7.el7
+  perl-Exporter.noarch 0:5.68-3.el7
+  perl-File-Path.noarch 0:2.09-2.el7
+  perl-File-Temp.noarch 0:0.23.01-3.el7
+  perl-Filter.x86_64 0:1.49-3.el7
+  perl-Getopt-Long.noarch 0:2.40-2.el7
+  perl-HTTP-Tiny.noarch 0:0.033-3.el7
+  perl-IO-Compress.noarch 0:2.061-2.el7
+  perl-Net-Daemon.noarch 0:0.48-5.el7
+  perl-PathTools.x86_64 0:3.40-5.el7
+  perl-PlRPC.noarch 0:0.2020-14.el7
+  perl-Pod-Escapes.noarch 1:1.04-285.el7
+  perl-Pod-Perldoc.noarch 0:3.20-4.el7
+  perl-Pod-Simple.noarch 1:3.28-4.el7
+  perl-Pod-Usage.noarch 0:1.63-3.el7
+  perl-Scalar-List-Utils.x86_64 0:1.27-248.el7
+  perl-Socket.x86_64 0:2.010-3.el7
+  perl-Storable.x86_64 0:2.45-3.el7
+  perl-Text-ParseWords.noarch 0:3.29-4.el7
+  perl-Time-HiRes.x86_64 4:1.9725-3.el7
+  perl-Time-Local.noarch 0:1.2300-2.el7
+  perl-constant.noarch 0:1.27-2.el7
+  perl-libs.x86_64 4:5.16.3-285.el7
+  perl-macros.x86_64 4:5.16.3-285.el7
+  perl-parent.noarch 1:0.225-244.el7
+  perl-podlators.noarch 0:2.5.1-3.el7
+  perl-threads.x86_64 0:1.87-4.el7
+  perl-threads-shared.x86_64 0:1.43-6.el7
+
+Complete!
+[root@server1 ~]# mysql_secure_installation
+/usr/bin/mysql_secure_installation: line 379: find_mysql_client: command not found
+
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user.  If you've just installed MariaDB, and
+you haven't set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none):
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+Enter current password for root (enter for none):
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+Enter current password for root (enter for none):
+Aborting!
+
+Cleaning up...
+[root@server1 ~]# sudo /usr/bin/mysql_secure_installation
+/usr/bin/mysql_secure_installation: line 379: find_mysql_client: command not found
+
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user.  If you've just installed MariaDB, and
+you haven't set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none):
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+Enter current password for root (enter for none):
+Aborting!
+
+Cleaning up...
+[root@server1 ~]# sudo systemctl start mariadb.service
+[root@server1 ~]# sudo systemctl start httpd.service
+[root@server1 ~]# sudo /usr/bin/mysql_secure_installation
+/usr/bin/mysql_secure_installation: line 379: find_mysql_client: command not found
+
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user.  If you've just installed MariaDB, and
+you haven't set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none):
+OK, successfully used password, moving on...
+
+Setting the root password ensures that nobody can log into the MariaDB
+root user without the proper authorisation.
+
+Set root password? [Y/n] Y
+New password:
+Re-enter new password:
+Sorry, passwords do not match.
+
+New password:
+Re-enter new password:
+Password updated successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+By default, a MariaDB installation has an anonymous user, allowing anyone
+to log into MariaDB without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n] y
+ ... Success!
+
+Normally, root should only be allowed to connect from 'localhost'.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n]
+ ... Success!
+
+By default, MariaDB comes with a database named 'test' that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n]
+ - Dropping test database...
+ ... Success!
+ - Removing privileges on test database...
+ ... Success!
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n]
+ ... Success!
+
+Cleaning up...
+
+All done!  If you've completed all of the above steps, your MariaDB
+installation should now be secure.
+
+Thanks for using MariaDB!
+[root@server1 ~]#
+[root@server1 ~]# yum install php
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.metrocast.net
+ * extras: centos.mirror.constant.com
+ * updates: mirrors.lga7.us.voxel.net
+Resolving Dependencies
+--> Running transaction check
+---> Package php.x86_64 0:5.4.16-36.el7_1 will be installed
+--> Processing Dependency: php-common(x86-64) = 5.4.16-36.el7_1 for package: php-5.4.16-36.el7_1.x86_64
+--> Processing Dependency: php-cli(x86-64) = 5.4.16-36.el7_1 for package: php-5.4.16-36.el7_1.x86_64
+--> Running transaction check
+---> Package php-cli.x86_64 0:5.4.16-36.el7_1 will be installed
+---> Package php-common.x86_64 0:5.4.16-36.el7_1 will be installed
+--> Processing Dependency: libzip.so.2()(64bit) for package: php-common-5.4.16-36.el7_1.x86_64
+--> Running transaction check
+---> Package libzip.x86_64 0:0.10.1-8.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package           Arch          Version                   Repository      Size
+================================================================================
+Installing:
+ php               x86_64        5.4.16-36.el7_1           updates        1.4 M
+Installing for dependencies:
+ libzip            x86_64        0.10.1-8.el7              base            48 k
+ php-cli           x86_64        5.4.16-36.el7_1           updates        2.7 M
+ php-common        x86_64        5.4.16-36.el7_1           updates        563 k
+
+Transaction Summary
+================================================================================
+Install  1 Package (+3 Dependent packages)
+
+Total download size: 4.7 M
+Installed size: 17 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/4): libzip-0.10.1-8.el7.x86_64.rpm                      |  48 kB   00:00
+(2/4): php-5.4.16-36.el7_1.x86_64.rpm                      | 1.4 MB   00:00
+(3/4): php-common-5.4.16-36.el7_1.x86_64.rpm               | 563 kB   00:00
+(4/4): php-cli-5.4.16-36.el7_1.x86_64.rpm                  | 2.7 MB   00:00
+--------------------------------------------------------------------------------
+Total                                              9.0 MB/s | 4.7 MB  00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : libzip-0.10.1-8.el7.x86_64                                   1/4
+  Installing : php-common-5.4.16-36.el7_1.x86_64                            2/4
+  Installing : php-cli-5.4.16-36.el7_1.x86_64                               3/4
+  Installing : php-5.4.16-36.el7_1.x86_64                                   4/4
+  Verifying  : php-5.4.16-36.el7_1.x86_64                                   1/4
+  Verifying  : php-cli-5.4.16-36.el7_1.x86_64                               2/4
+  Verifying  : libzip-0.10.1-8.el7.x86_64                                   3/4
+  Verifying  : php-common-5.4.16-36.el7_1.x86_64                            4/4
+
+Installed:
+  php.x86_64 0:5.4.16-36.el7_1
+
+Dependency Installed:
+  libzip.x86_64 0:0.10.1-8.el7             php-cli.x86_64 0:5.4.16-36.el7_1
+  php-common.x86_64 0:5.4.16-36.el7_1
+
+Complete!
+[root@server1 ~]# systemctl restart httpd.service
+[root@server1 ~]# yum -y install php-mysql
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.metrocast.net
+ * extras: centos.mirror.constant.com
+ * updates: mirrors.lga7.us.voxel.net
+Resolving Dependencies
+--> Running transaction check
+---> Package php-mysql.x86_64 0:5.4.16-36.el7_1 will be installed
+--> Processing Dependency: php-pdo(x86-64) = 5.4.16-36.el7_1 for package: php-mysql-5.4.16-36.el7_1.x86_64
+--> Running transaction check
+---> Package php-pdo.x86_64 0:5.4.16-36.el7_1 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package           Arch           Version                 Repository       Size
+================================================================================
+Installing:
+ php-mysql         x86_64         5.4.16-36.el7_1         updates          99 k
+Installing for dependencies:
+ php-pdo           x86_64         5.4.16-36.el7_1         updates          97 k
+
+Transaction Summary
+================================================================================
+Install  1 Package (+1 Dependent package)
+
+Total download size: 196 k
+Installed size: 424 k
+Downloading packages:
+(1/2): php-mysql-5.4.16-36.el7_1.x86_64.rpm                |  99 kB   00:00
+(2/2): php-pdo-5.4.16-36.el7_1.x86_64.rpm                  |  97 kB   00:00
+--------------------------------------------------------------------------------
+Total                                              804 kB/s | 196 kB  00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : php-pdo-5.4.16-36.el7_1.x86_64                               1/2
+  Installing : php-mysql-5.4.16-36.el7_1.x86_64                             2/2
+  Verifying  : php-pdo-5.4.16-36.el7_1.x86_64                               1/2
+  Verifying  : php-mysql-5.4.16-36.el7_1.x86_64                             2/2
+
+Installed:
+  php-mysql.x86_64 0:5.4.16-36.el7_1
+
+Dependency Installed:
+  php-pdo.x86_64 0:5.4.16-36.el7_1
+
+Complete!
+[root@server1 ~]# yum -y install php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-snmp php-soap curl curl-devel
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.metrocast.net
+ * extras: centos.mirror.constant.com
+ * updates: mirrors.lga7.us.voxel.net
+Package curl-7.29.0-19.el7.x86_64 already installed and latest version
+Resolving Dependencies
+--> Running transaction check
+---> Package libcurl-devel.x86_64 0:7.29.0-19.el7 will be installed
+base/7/x86_64/filelists_db                               | 6.0 MB     00:00
+extras/7/x86_64/filelists_db                             | 247 kB     00:00
+updates/7/x86_64/filelists_db                            | 2.3 MB     00:00
+---> Package php-gd.x86_64 0:5.4.16-36.el7_1 will be installed
+--> Processing Dependency: libpng15.so.15(PNG15_0)(64bit) for package: php-gd-5.4.16-36.el7_1.x86_64
+--> Processing Dependency: libt1.so.5()(64bit) for package: php-gd-5.4.16-36.el7_1.x86_64
+--> Processing Dependency: libpng15.so.15()(64bit) for package: php-gd-5.4.16-36.el7_1.x86_64
+--> Processing Dependency: libXpm.so.4()(64bit) for package: php-gd-5.4.16-36.el7_1.x86_64
+--> Processing Dependency: libX11.so.6()(64bit) for package: php-gd-5.4.16-36.el7_1.x86_64
+---> Package php-ldap.x86_64 0:5.4.16-36.el7_1 will be installed
+---> Package php-mbstring.x86_64 0:5.4.16-36.el7_1 will be installed
+---> Package php-odbc.x86_64 0:5.4.16-36.el7_1 will be installed
+--> Processing Dependency: libodbc.so.2()(64bit) for package: php-odbc-5.4.16-36.el7_1.x86_64
+---> Package php-pear.noarch 1:1.9.4-21.el7 will be installed
+--> Processing Dependency: php-posix for package: 1:php-pear-1.9.4-21.el7.noarch
+---> Package php-snmp.x86_64 0:5.4.16-36.el7_1 will be installed
+--> Processing Dependency: net-snmp for package: php-snmp-5.4.16-36.el7_1.x86_64
+--> Processing Dependency: libnetsnmp.so.31()(64bit) for package: php-snmp-5.4.16-36.el7_1.x86_64
+---> Package php-soap.x86_64 0:5.4.16-36.el7_1 will be installed
+---> Package php-xml.x86_64 0:5.4.16-36.el7_1 will be installed
+--> Processing Dependency: libxslt.so.1(LIBXML2_1.0.24)(64bit) for package: php-xml-5.4.16-36.el7_1.x86_64
+--> Processing Dependency: libxslt.so.1(LIBXML2_1.0.22)(64bit) for package: php-xml-5.4.16-36.el7_1.x86_64
+--> Processing Dependency: libxslt.so.1(LIBXML2_1.0.18)(64bit) for package: php-xml-5.4.16-36.el7_1.x86_64
+--> Processing Dependency: libxslt.so.1(LIBXML2_1.0.13)(64bit) for package: php-xml-5.4.16-36.el7_1.x86_64
+--> Processing Dependency: libxslt.so.1(LIBXML2_1.0.11)(64bit) for package: php-xml-5.4.16-36.el7_1.x86_64
+--> Processing Dependency: libxslt.so.1()(64bit) for package: php-xml-5.4.16-36.el7_1.x86_64
+--> Processing Dependency: libexslt.so.0()(64bit) for package: php-xml-5.4.16-36.el7_1.x86_64
+---> Package php-xmlrpc.x86_64 0:5.4.16-36.el7_1 will be installed
+--> Running transaction check
+---> Package libX11.x86_64 0:1.6.0-2.1.el7 will be installed
+--> Processing Dependency: libX11-common = 1.6.0-2.1.el7 for package: libX11-1.6.0-2.1.el7.x86_64
+--> Processing Dependency: libxcb.so.1()(64bit) for package: libX11-1.6.0-2.1.el7.x86_64
+---> Package libXpm.x86_64 0:3.5.10-5.1.el7 will be installed
+---> Package libpng.x86_64 2:1.5.13-5.el7 will be installed
+---> Package libxslt.x86_64 0:1.1.28-5.el7 will be installed
+---> Package net-snmp.x86_64 1:5.7.2-20.el7_1.1 will be installed
+--> Processing Dependency: net-snmp-agent-libs = 1:5.7.2-20.el7_1.1 for package: 1:net-snmp-5.7.2-20.el7_1.1.x86_64
+--> Processing Dependency: libsensors.so.4()(64bit) for package: 1:net-snmp-5.7.2-20.el7_1.1.x86_64
+--> Processing Dependency: libnetsnmptrapd.so.31()(64bit) for package: 1:net-snmp-5.7.2-20.el7_1.1.x86_64
+--> Processing Dependency: libnetsnmpmibs.so.31()(64bit) for package: 1:net-snmp-5.7.2-20.el7_1.1.x86_64
+--> Processing Dependency: libnetsnmpagent.so.31()(64bit) for package: 1:net-snmp-5.7.2-20.el7_1.1.x86_64
+---> Package net-snmp-libs.x86_64 1:5.7.2-20.el7_1.1 will be installed
+---> Package php-process.x86_64 0:5.4.16-36.el7_1 will be installed
+---> Package t1lib.x86_64 0:5.1.2-14.el7 will be installed
+---> Package unixODBC.x86_64 0:2.3.1-10.el7 will be installed
+--> Processing Dependency: libltdl.so.7()(64bit) for package: unixODBC-2.3.1-10.el7.x86_64
+--> Running transaction check
+---> Package libX11-common.noarch 0:1.6.0-2.1.el7 will be installed
+---> Package libtool-ltdl.x86_64 0:2.4.2-20.el7 will be installed
+---> Package libxcb.x86_64 0:1.9-5.el7 will be installed
+--> Processing Dependency: libXau.so.6()(64bit) for package: libxcb-1.9-5.el7.x86_64
+---> Package lm_sensors-libs.x86_64 0:3.3.4-11.el7 will be installed
+---> Package net-snmp-agent-libs.x86_64 1:5.7.2-20.el7_1.1 will be installed
+--> Running transaction check
+---> Package libXau.x86_64 0:1.0.8-2.1.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                 Arch       Version                   Repository   Size
+================================================================================
+Installing:
+ libcurl-devel           x86_64     7.29.0-19.el7             base        295 k
+ php-gd                  x86_64     5.4.16-36.el7_1           updates     126 k
+ php-ldap                x86_64     5.4.16-36.el7_1           updates      51 k
+ php-mbstring            x86_64     5.4.16-36.el7_1           updates     503 k
+ php-odbc                x86_64     5.4.16-36.el7_1           updates      64 k
+ php-pear                noarch     1:1.9.4-21.el7            base        357 k
+ php-snmp                x86_64     5.4.16-36.el7_1           updates      51 k
+ php-soap                x86_64     5.4.16-36.el7_1           updates     157 k
+ php-xml                 x86_64     5.4.16-36.el7_1           updates     124 k
+ php-xmlrpc              x86_64     5.4.16-36.el7_1           updates      66 k
+Installing for dependencies:
+ libX11                  x86_64     1.6.0-2.1.el7             base        605 k
+ libX11-common           noarch     1.6.0-2.1.el7             base        181 k
+ libXau                  x86_64     1.0.8-2.1.el7             base         29 k
+ libXpm                  x86_64     3.5.10-5.1.el7            base         52 k
+ libpng                  x86_64     2:1.5.13-5.el7            base        212 k
+ libtool-ltdl            x86_64     2.4.2-20.el7              base         49 k
+ libxcb                  x86_64     1.9-5.el7                 base        169 k
+ libxslt                 x86_64     1.1.28-5.el7              base        242 k
+ lm_sensors-libs         x86_64     3.3.4-11.el7              base         40 k
+ net-snmp                x86_64     1:5.7.2-20.el7_1.1        updates     319 k
+ net-snmp-agent-libs     x86_64     1:5.7.2-20.el7_1.1        updates     698 k
+ net-snmp-libs           x86_64     1:5.7.2-20.el7_1.1        updates     745 k
+ php-process             x86_64     5.4.16-36.el7_1           updates      54 k
+ t1lib                   x86_64     5.1.2-14.el7              base        166 k
+ unixODBC                x86_64     2.3.1-10.el7              base        413 k
+
+Transaction Summary
+================================================================================
+Install  10 Packages (+15 Dependent packages)
+
+Total download size: 5.6 M
+Installed size: 18 M
+Downloading packages:
+(1/25): libX11-common-1.6.0-2.1.el7.noarch.rpm             | 181 kB   00:00
+(2/25): libXau-1.0.8-2.1.el7.x86_64.rpm                    |  29 kB   00:00
+(3/25): libXpm-3.5.10-5.1.el7.x86_64.rpm                   |  52 kB   00:00
+(4/25): libX11-1.6.0-2.1.el7.x86_64.rpm                    | 605 kB   00:00
+(5/25): libcurl-devel-7.29.0-19.el7.x86_64.rpm             | 295 kB   00:00
+(6/25): libpng-1.5.13-5.el7.x86_64.rpm                     | 212 kB   00:00
+(7/25): libtool-ltdl-2.4.2-20.el7.x86_64.rpm               |  49 kB   00:00
+(8/25): libxcb-1.9-5.el7.x86_64.rpm                        | 169 kB   00:00
+(9/25): lm_sensors-libs-3.3.4-11.el7.x86_64.rpm            |  40 kB   00:00
+(10/25): libxslt-1.1.28-5.el7.x86_64.rpm                   | 242 kB   00:00
+(11/25): net-snmp-agent-libs-5.7.2-20.el7_1.1.x86_64.rpm   | 698 kB   00:00
+(12/25): net-snmp-5.7.2-20.el7_1.1.x86_64.rpm              | 319 kB   00:00
+(13/25): php-gd-5.4.16-36.el7_1.x86_64.rpm                 | 126 kB   00:00
+(14/25): net-snmp-libs-5.7.2-20.el7_1.1.x86_64.rpm         | 745 kB   00:00
+(15/25): php-ldap-5.4.16-36.el7_1.x86_64.rpm               |  51 kB   00:00
+(16/25): php-odbc-5.4.16-36.el7_1.x86_64.rpm               |  64 kB   00:00
+(17/25): php-mbstring-5.4.16-36.el7_1.x86_64.rpm           | 503 kB   00:00
+(18/25): php-process-5.4.16-36.el7_1.x86_64.rpm            |  54 kB   00:00
+(19/25): php-snmp-5.4.16-36.el7_1.x86_64.rpm               |  51 kB   00:00
+(20/25): php-xml-5.4.16-36.el7_1.x86_64.rpm                | 124 kB   00:00
+(21/25): php-pear-1.9.4-21.el7.noarch.rpm                  | 357 kB   00:00
+(22/25): php-soap-5.4.16-36.el7_1.x86_64.rpm               | 157 kB   00:00
+(23/25): php-xmlrpc-5.4.16-36.el7_1.x86_64.rpm             |  66 kB   00:00
+(24/25): unixODBC-2.3.1-10.el7.x86_64.rpm                  | 413 kB   00:00
+(25/25): t1lib-5.1.2-14.el7.x86_64.rpm                     | 166 kB   00:00
+--------------------------------------------------------------------------------
+Total                                              4.8 MB/s | 5.6 MB  00:01
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : 1:net-snmp-libs-5.7.2-20.el7_1.1.x86_64                     1/25
+  Installing : lm_sensors-libs-3.3.4-11.el7.x86_64                         2/25
+  Installing : 1:net-snmp-agent-libs-5.7.2-20.el7_1.1.x86_64               3/25
+  Installing : 1:net-snmp-5.7.2-20.el7_1.1.x86_64                          4/25
+  Installing : libXau-1.0.8-2.1.el7.x86_64                                 5/25
+  Installing : libxcb-1.9-5.el7.x86_64                                     6/25
+  Installing : libxslt-1.1.28-5.el7.x86_64                                 7/25
+  Installing : php-xml-5.4.16-36.el7_1.x86_64                              8/25
+  Installing : 2:libpng-1.5.13-5.el7.x86_64                                9/25
+  Installing : php-process-5.4.16-36.el7_1.x86_64                         10/25
+  Installing : libtool-ltdl-2.4.2-20.el7.x86_64                           11/25
+  Installing : unixODBC-2.3.1-10.el7.x86_64                               12/25
+  Installing : libX11-common-1.6.0-2.1.el7.noarch                         13/25
+  Installing : libX11-1.6.0-2.1.el7.x86_64                                14/25
+  Installing : libXpm-3.5.10-5.1.el7.x86_64                               15/25
+  Installing : t1lib-5.1.2-14.el7.x86_64                                  16/25
+  Installing : php-gd-5.4.16-36.el7_1.x86_64                              17/25
+  Installing : php-odbc-5.4.16-36.el7_1.x86_64                            18/25
+  Installing : 1:php-pear-1.9.4-21.el7.noarch                             19/25
+  Installing : php-snmp-5.4.16-36.el7_1.x86_64                            20/25
+  Installing : php-xmlrpc-5.4.16-36.el7_1.x86_64                          21/25
+  Installing : libcurl-devel-7.29.0-19.el7.x86_64                         22/25
+  Installing : php-mbstring-5.4.16-36.el7_1.x86_64                        23/25
+  Installing : php-soap-5.4.16-36.el7_1.x86_64                            24/25
+  Installing : php-ldap-5.4.16-36.el7_1.x86_64                            25/25
+  Verifying  : 1:net-snmp-5.7.2-20.el7_1.1.x86_64                          1/25
+  Verifying  : libX11-common-1.6.0-2.1.el7.noarch                          2/25
+  Verifying  : lm_sensors-libs-3.3.4-11.el7.x86_64                         3/25
+  Verifying  : libtool-ltdl-2.4.2-20.el7.x86_64                            4/25
+  Verifying  : libXpm-3.5.10-5.1.el7.x86_64                                5/25
+  Verifying  : 1:net-snmp-libs-5.7.2-20.el7_1.1.x86_64                     6/25
+  Verifying  : php-process-5.4.16-36.el7_1.x86_64                          7/25
+  Verifying  : php-ldap-5.4.16-36.el7_1.x86_64                             8/25
+  Verifying  : 1:net-snmp-agent-libs-5.7.2-20.el7_1.1.x86_64               9/25
+  Verifying  : 2:libpng-1.5.13-5.el7.x86_64                               10/25
+  Verifying  : php-soap-5.4.16-36.el7_1.x86_64                            11/25
+  Verifying  : php-xml-5.4.16-36.el7_1.x86_64                             12/25
+  Verifying  : php-snmp-5.4.16-36.el7_1.x86_64                            13/25
+  Verifying  : libxcb-1.9-5.el7.x86_64                                    14/25
+  Verifying  : t1lib-5.1.2-14.el7.x86_64                                  15/25
+  Verifying  : libxslt-1.1.28-5.el7.x86_64                                16/25
+  Verifying  : unixODBC-2.3.1-10.el7.x86_64                               17/25
+  Verifying  : php-gd-5.4.16-36.el7_1.x86_64                              18/25
+  Verifying  : libX11-1.6.0-2.1.el7.x86_64                                19/25
+  Verifying  : php-odbc-5.4.16-36.el7_1.x86_64                            20/25
+  Verifying  : libXau-1.0.8-2.1.el7.x86_64                                21/25
+  Verifying  : php-mbstring-5.4.16-36.el7_1.x86_64                        22/25
+  Verifying  : libcurl-devel-7.29.0-19.el7.x86_64                         23/25
+  Verifying  : php-xmlrpc-5.4.16-36.el7_1.x86_64                          24/25
+  Verifying  : 1:php-pear-1.9.4-21.el7.noarch                             25/25
+
+Installed:
+  libcurl-devel.x86_64 0:7.29.0-19.el7   php-gd.x86_64 0:5.4.16-36.el7_1
+  php-ldap.x86_64 0:5.4.16-36.el7_1      php-mbstring.x86_64 0:5.4.16-36.el7_1
+  php-odbc.x86_64 0:5.4.16-36.el7_1      php-pear.noarch 1:1.9.4-21.el7
+  php-snmp.x86_64 0:5.4.16-36.el7_1      php-soap.x86_64 0:5.4.16-36.el7_1
+  php-xml.x86_64 0:5.4.16-36.el7_1       php-xmlrpc.x86_64 0:5.4.16-36.el7_1
+
+Dependency Installed:
+  libX11.x86_64 0:1.6.0-2.1.el7
+  libX11-common.noarch 0:1.6.0-2.1.el7
+  libXau.x86_64 0:1.0.8-2.1.el7
+  libXpm.x86_64 0:3.5.10-5.1.el7
+  libpng.x86_64 2:1.5.13-5.el7
+  libtool-ltdl.x86_64 0:2.4.2-20.el7
+  libxcb.x86_64 0:1.9-5.el7
+  libxslt.x86_64 0:1.1.28-5.el7
+  lm_sensors-libs.x86_64 0:3.3.4-11.el7
+  net-snmp.x86_64 1:5.7.2-20.el7_1.1
+  net-snmp-agent-libs.x86_64 1:5.7.2-20.el7_1.1
+  net-snmp-libs.x86_64 1:5.7.2-20.el7_1.1
+  php-process.x86_64 0:5.4.16-36.el7_1
+  t1lib.x86_64 0:5.1.2-14.el7
+  unixODBC.x86_64 0:2.3.1-10.el7
+
+Complete!
+[root@server1 ~]# systemctl restart httpd.service
+[root@server1 ~]# cd /var/www
+[root@server1 www]# mkdir sidewalkhustle.com
+[root@server1 www]# cd sidewalkhustle.com/
+[root@server1 sidewalkhustle.com]# mkdir
+mkdir: missing operand
+Try 'mkdir --help' for more information.
+[root@server1 sidewalkhustle.com]# mkdir public_html
+[root@server1 sidewalkhustle.com]# sudo chown -R $USER:$USER /var/www/sidewalkhustle.com/public_html
+[root@server1 sidewalkhustle.com]# ls
+public_html
+[root@server1 sidewalkhustle.com]# cd public_html
+[root@server1 public_html]# nano index.html
+[root@server1 public_html]# sudo nano /etc/httpd/sites-available/sidewalkhustle.com.conf
+[root@server1 public_html]# sudo nano /etc/httpd/sites-available/sidewalkhustle.com.conf
+[root@server1 public_html]# sudo touch /etc/httpd/sites-available/sidewalkhustle.com.conf
+touch: cannot touch ‘/etc/httpd/sites-available/sidewalkhustle.com.conf’: No such file or directory
+[root@server1 public_html]# cd /etc/httpd
+[root@server1 httpd]# ls
+conf  conf.d  conf.modules.d  logs  modules  run
+[root@server1 httpd]# cd conf.d
+[root@server1 conf.d]# ls
+autoindex.conf  php.conf  README  userdir.conf  welcome.conf
+[root@server1 conf.d]# cd ..
+[root@server1 httpd]# ls
+conf  conf.d  conf.modules.d  logs  modules  run
+[root@server1 httpd]# cd conf
+[root@server1 conf]# ls
+httpd.conf  magic
+[root@server1 conf]# sudo mkdir /etc/httpd/sites-available
+[root@server1 conf]# sud mkdir /etc/httpd/sites-enabled
+-bash: sud: command not found
+[root@server1 conf]# sudo mkdir /etc/httpd/sites-enabled
+[root@server1 conf]# sudo nano /etc/httpd/conf/httpd.conf
+[root@server1 conf]# sudo nano /etc/httpd/sites-available/sidewalkhustle.com.conf
+[root@server1 conf]# sudo ln -s /etc/httpd/sites-available/sidewalkhustle.com.conf /etc/httpd/sites-enabled/sidewalkhustle.com.conf
+[root@server1 conf]# sudo apachectl restart
+[root@server1 conf]# sudo nano /etc/hosts
+[root@server1 conf]# sudo yum install phpmyadmin
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.metrocast.net
+ * extras: centos.mirror.constant.com
+ * updates: mirrors.lga7.us.voxel.net
+No package phpmyadmin available.
+Error: Nothing to do
+[root@server1 conf]# sudo yum install epel-release
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.metrocast.net
+ * extras: centos.mirror.constant.com
+ * updates: mirrors.lga7.us.voxel.net
+Resolving Dependencies
+--> Running transaction check
+---> Package epel-release.noarch 0:7-5 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                Arch             Version         Repository        Size
+================================================================================
+Installing:
+ epel-release           noarch           7-5             extras            14 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 14 k
+Installed size: 24 k
+Is this ok [y/d/N]: y
+Downloading packages:
+epel-release-7-5.noarch.rpm                                |  14 kB   00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : epel-release-7-5.noarch                                      1/1
+  Verifying  : epel-release-7-5.noarch                                      1/1
+
+Installed:
+  epel-release.noarch 0:7-5
+
+Complete!
+[root@server1 conf]# sudo yum install phpmyadmin
+Loaded plugins: fastestmirror
+epel/x86_64/metalink                                     |  12 kB     00:00
+epel                                                     | 4.3 kB     00:00
+(1/3): epel/x86_64/updateinfo                              | 349 kB   00:00
+(2/3): epel/x86_64/group_gz                                | 169 kB   00:00
+(3/3): epel/x86_64/primary_db                              | 3.5 MB   00:01
+Loading mirror speeds from cached hostfile
+ * base: mirror.metrocast.net
+ * epel: mirror.symnds.com
+ * extras: centos.mirror.constant.com
+ * updates: mirrors.lga7.us.voxel.net
+Resolving Dependencies
+--> Running transaction check
+---> Package phpMyAdmin.noarch 0:4.4.13.1-1.el7 will be installed
+--> Processing Dependency: php-tcpdf-dejavu-sans-fonts for package: phpMyAdmin-4.4.13.1-1.el7.noarch
+--> Processing Dependency: php-tcpdf for package: phpMyAdmin-4.4.13.1-1.el7.noarch
+--> Processing Dependency: php-php-gettext for package: phpMyAdmin-4.4.13.1-1.el7.noarch
+--> Running transaction check
+---> Package php-php-gettext.noarch 0:1.0.11-10.el7 will be installed
+---> Package php-tcpdf.noarch 0:6.2.10-1.el7 will be installed
+--> Processing Dependency: php-tidy for package: php-tcpdf-6.2.10-1.el7.noarch
+--> Processing Dependency: php-bcmath for package: php-tcpdf-6.2.10-1.el7.noarch
+---> Package php-tcpdf-dejavu-sans-fonts.noarch 0:6.2.10-1.el7 will be installed
+--> Processing Dependency: dejavu-sans-fonts for package: php-tcpdf-dejavu-sans-fonts-6.2.10-1.el7.noarch
+--> Running transaction check
+---> Package dejavu-sans-fonts.noarch 0:2.33-6.el7 will be installed
+--> Processing Dependency: dejavu-fonts-common = 2.33-6.el7 for package: dejavu-sans-fonts-2.33-6.el7.noarch
+---> Package php-bcmath.x86_64 0:5.4.16-36.el7_1 will be installed
+---> Package php-tidy.x86_64 0:5.4.16-3.el7 will be installed
+--> Processing Dependency: libtidy-0.99.so.0()(64bit) for package: php-tidy-5.4.16-3.el7.x86_64
+--> Running transaction check
+---> Package dejavu-fonts-common.noarch 0:2.33-6.el7 will be installed
+--> Processing Dependency: fontpackages-filesystem for package: dejavu-fonts-common-2.33-6.el7.noarch
+---> Package libtidy.x86_64 0:0.99.0-31.20091203.el7 will be installed
+--> Running transaction check
+---> Package fontpackages-filesystem.noarch 0:1.44-8.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                      Arch    Version                    Repository
+                                                                           Size
+================================================================================
+Installing:
+ phpMyAdmin                   noarch  4.4.13.1-1.el7             epel     4.4 M
+Installing for dependencies:
+ dejavu-fonts-common          noarch  2.33-6.el7                 base      64 k
+ dejavu-sans-fonts            noarch  2.33-6.el7                 base     1.4 M
+ fontpackages-filesystem      noarch  1.44-8.el7                 base     9.9 k
+ libtidy                      x86_64  0.99.0-31.20091203.el7     epel     132 k
+ php-bcmath                   x86_64  5.4.16-36.el7_1            updates   56 k
+ php-php-gettext              noarch  1.0.11-10.el7              epel      22 k
+ php-tcpdf                    noarch  6.2.10-1.el7               epel     2.1 M
+ php-tcpdf-dejavu-sans-fonts  noarch  6.2.10-1.el7               epel     257 k
+ php-tidy                     x86_64  5.4.16-3.el7               epel      22 k
+
+Transaction Summary
+================================================================================
+Install  1 Package (+9 Dependent packages)
+
+Total download size: 8.4 M
+Installed size: 40 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/10): dejavu-fonts-common-2.33-6.el7.noarch.rpm          |  64 kB   00:00
+(2/10): fontpackages-filesystem-1.44-8.el7.noarch.rpm      | 9.9 kB   00:00
+(3/10): dejavu-sans-fonts-2.33-6.el7.noarch.rpm            | 1.4 MB   00:00
+(4/10): php-bcmath-5.4.16-36.el7_1.x86_64.rpm              |  56 kB   00:00
+warning: /var/cache/yum/x86_64/7/epel/packages/php-php-gettext-1.0.11-10.el7.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY
+Public key for php-php-gettext-1.0.11-10.el7.noarch.rpm is not installed
+(5/10): php-php-gettext-1.0.11-10.el7.noarch.rpm           |  22 kB   00:00
+(6/10): libtidy-0.99.0-31.20091203.el7.x86_64.rpm          | 132 kB   00:00
+(7/10): php-tcpdf-dejavu-sans-fonts-6.2.10-1.el7.noarch.rp | 257 kB   00:00
+(8/10): php-tidy-5.4.16-3.el7.x86_64.rpm                   |  22 kB   00:00
+(9/10): phpMyAdmin-4.4.13.1-1.el7.noarch.rpm               | 4.4 MB   00:00
+(10/10): php-tcpdf-6.2.10-1.el7.noarch.rpm                 | 2.1 MB   00:00
+--------------------------------------------------------------------------------
+Total                                              5.1 MB/s | 8.4 MB  00:01
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Importing GPG key 0x352C64E5:
+ Userid     : "Fedora EPEL (7) <epel@fedoraproject.org>"
+ Fingerprint: 91e9 7d7c 4a5e 96f1 7f3e 888f 6a2f aea2 352c 64e5
+ Package    : epel-release-7-5.noarch (@extras)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Is this ok [y/N]: y
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : fontpackages-filesystem-1.44-8.el7.noarch                   1/10
+  Installing : dejavu-fonts-common-2.33-6.el7.noarch                       2/10
+  Installing : dejavu-sans-fonts-2.33-6.el7.noarch                         3/10
+  Installing : php-bcmath-5.4.16-36.el7_1.x86_64                           4/10
+  Installing : libtidy-0.99.0-31.20091203.el7.x86_64                       5/10
+  Installing : php-tidy-5.4.16-3.el7.x86_64                                6/10
+  Installing : php-tcpdf-6.2.10-1.el7.noarch                               7/10
+  Installing : php-tcpdf-dejavu-sans-fonts-6.2.10-1.el7.noarch             8/10
+  Installing : php-php-gettext-1.0.11-10.el7.noarch                        9/10
+  Installing : phpMyAdmin-4.4.13.1-1.el7.noarch                           10/10
+  Verifying  : php-tcpdf-dejavu-sans-fonts-6.2.10-1.el7.noarch             1/10
+  Verifying  : php-tidy-5.4.16-3.el7.x86_64                                2/10
+  Verifying  : php-tcpdf-6.2.10-1.el7.noarch                               3/10
+  Verifying  : php-php-gettext-1.0.11-10.el7.noarch                        4/10
+  Verifying  : dejavu-fonts-common-2.33-6.el7.noarch                       5/10
+  Verifying  : dejavu-sans-fonts-2.33-6.el7.noarch                         6/10
+  Verifying  : libtidy-0.99.0-31.20091203.el7.x86_64                       7/10
+  Verifying  : phpMyAdmin-4.4.13.1-1.el7.noarch                            8/10
+  Verifying  : php-bcmath-5.4.16-36.el7_1.x86_64                           9/10
+  Verifying  : fontpackages-filesystem-1.44-8.el7.noarch                  10/10
+
+Installed:
+  phpMyAdmin.noarch 0:4.4.13.1-1.el7
+
+Dependency Installed:
+  dejavu-fonts-common.noarch 0:2.33-6.el7
+  dejavu-sans-fonts.noarch 0:2.33-6.el7
+  fontpackages-filesystem.noarch 0:1.44-8.el7
+  libtidy.x86_64 0:0.99.0-31.20091203.el7
+  php-bcmath.x86_64 0:5.4.16-36.el7_1
+  php-php-gettext.noarch 0:1.0.11-10.el7
+  php-tcpdf.noarch 0:6.2.10-1.el7
+  php-tcpdf-dejavu-sans-fonts.noarch 0:6.2.10-1.el7
+  php-tidy.x86_64 0:5.4.16-3.el7
+
+Complete!
+[root@server1 conf]# sudo nano /etc/httpd/conf.d/phpMyAdmin.conf
+[root@server1 conf]# sudo nano /etc/httpd/conf.d/phpMyAdmin.conf
+[root@server1 conf]# sudo systemctl restart httpd.service
+[root@server1 conf]# mysql -u root
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+[root@server1 conf]# mysql -u root -p
+Enter password:
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+[root@server1 conf]# mysql -u root -p
+Enter password:
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+[root@server1 conf]#  F\sy{Se5VT,kpj7M
+-bash: Fsy{Se5VT,kpj7M: command not found
+[root@server1 conf]# mysql_secure
+-bash: mysql_secure: command not found
+[root@server1 conf]# mysql_secure_installation
+/usr/bin/mysql_secure_installation: line 379: find_mysql_client: command not found
+
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user.  If you've just installed MariaDB, and
+you haven't set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none):
+OK, successfully used password, moving on...
+
+Setting the root password ensures that nobody can log into the MariaDB
+root user without the proper authorisation.
+
+You already have a root password set, so you can safely answer 'n'.
+
+Change the root password? [Y/n] y
+New password:
+Re-enter new password:
+Password updated successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+By default, a MariaDB installation has an anonymous user, allowing anyone
+to log into MariaDB without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n]
+ ... Success!
+
+Normally, root should only be allowed to connect from 'localhost'.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n]
+ ... Success!
+
+By default, MariaDB comes with a database named 'test' that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n]
+ - Dropping test database...
+ERROR 1008 (HY000) at line 1: Can't drop database 'test'; database doesn't exist
+ ... Failed!  Not critical, keep moving...
+ - Removing privileges on test database...
+ ... Success!
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n]
+ ... Success!
+
+Cleaning up...
+
+All done!  If you've completed all of the above steps, your MariaDB
+installation should now be secure.
+
+Thanks for using MariaDB!
+[root@server1 conf]# mysql_secure_installation
+/usr/bin/mysql_secure_installation: line 379: find_mysql_client: command not found
+
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user.  If you've just installed MariaDB, and
+you haven't set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none):
+OK, successfully used password, moving on...
+
+Setting the root password ensures that nobody can log into the MariaDB
+root user without the proper authorisation.
+
+You already have a root password set, so you can safely answer 'n'.
+
+Change the root password? [Y/n] y
+New password:
+Re-enter new password:
+Sorry, passwords do not match.
+
+New password:
+Re-enter new password:
+Password updated successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+By default, a MariaDB installation has an anonymous user, allowing anyone
+to log into MariaDB without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n]
+ ... Success!
+
+Normally, root should only be allowed to connect from 'localhost'.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n]
+ ... Success!
+
+By default, MariaDB comes with a database named 'test' that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n]
+ - Dropping test database...
+ERROR 1008 (HY000) at line 1: Can't drop database 'test'; database doesn't exist
+ ... Failed!  Not critical, keep moving...
+ - Removing privileges on test database...
+ ... Success!
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n]
+ ... Success!
+
+Cleaning up...
+
+All done!  If you've completed all of the above steps, your MariaDB
+installation should now be secure.
+
+Thanks for using MariaDB!
+[root@server1 conf]# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 35
+Server version: 5.5.44-MariaDB MariaDB Server
+
+Copyright (c) 2000, 2015, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]>
