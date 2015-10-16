@@ -1,8 +1,7 @@
 iframe{
   width: 100% !important;
-  height: 396px !important;
-  max-height: 100% !important;
-    margin: 0px !important;
+  max-height: 100%;
+  margin: 0px !important;
 
 }
 #sidebar_iframe {
@@ -37,20 +36,22 @@ margin-bottom:25px;
     color:white;
 
 }
-#menu-item-182527 {
-    float: right;
-}
 .fb-like-box.clearfix.fb_iframe_widget{
     max-height:250px;
 }
-.cb-author-bio p{
+p{
 text-align:justify;
-}
-.cb-entry-content p{
-    text-align:justify;
 }
 .cb-entry-content blockquote{
     line-height:125%;
-    text-align: justify;
     font-size:130%;
+}
+div.cb-slider span.cb-author{
+    visibility:hidden;
+}
+div.cb-slider span.cb-separator{
+    visibility:hidden;
+}
+div.cb-slider span.cb-date{
+    visibility:hidden;
 }
